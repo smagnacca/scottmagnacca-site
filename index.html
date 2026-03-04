@@ -22,7 +22,7 @@
         <a href="#offers">Work With Me</a>
         <a href="#books">Books</a>
         <a href="https://salesforlife.ai" target="_blank" rel="noopener">SalesForLife.ai</a>
-        <a href="#cta" class="nav-cta">Book a Call →</a>
+        <a href="#" class="nav-cta open-contact-modal">Book a Call →</a>
       </div>
     </div>
   </nav>
@@ -54,7 +54,7 @@
           in client value. <strong class="hero-strong">Let me help you do the same.</strong>
         </p>
         <div class="hero-actions">
-          <a href="#cta" class="btn btn-primary">Book a Strategy Call →</a>
+          <a href="#" class="btn btn-primary open-contact-modal">Book a Strategy Call →</a>
           <a href="#offers" class="btn btn-ghost">See How SalesForLife.ai Works</a>
         </div>
       </div>
@@ -275,7 +275,7 @@
                 <span class="qs-legend-item"><span class="qs-legend-dot" style="background:#10B981"></span>0–35% Minimal</span>
               </div>
               <div class="qs-result-actions">
-                <a href="#cta" class="btn btn-primary">Get Your Free AI Survival Strategy →</a>
+                <a href="#" class="btn btn-primary open-contact-modal">Get Your Free AI Survival Strategy →</a>
                 <a href="#offers" class="btn btn-ghost" style="margin-top:12px;">Explore Training Programs →</a>
               </div>
             </div><!-- /result-block -->
@@ -487,7 +487,7 @@
         </p>
         <p><strong>Now I can help you learn in days what took me decades to master.
         Discover the shortcut I never had.</strong></p>
-        <a href="#cta" class="btn btn-primary" style="margin-top:2rem;">Work With Scott →</a>
+        <a href="#" class="btn btn-primary open-contact-modal" style="margin-top:2rem;">Work With Scott →</a>
       </div>
     </div>
     <div class="container story-summit">
@@ -531,7 +531,7 @@
             Work directly with Scott to rebuild your sales system from the
             pipeline up. For serious founders only.
           </p>
-          <a href="#cta" class="offer-link">Apply Now →</a>
+          <a href="#" class="offer-link open-contact-modal">Apply Now →</a>
         </div>
 
         <!-- Card 2 -->
@@ -564,7 +564,7 @@
             Bring Scott's AI sales frameworks to your event or leadership
             offsite. Audiences leave with systems, not just inspiration.
           </p>
-          <a href="#cta" class="offer-link">Check Availability →</a>
+          <a href="#" class="offer-link open-contact-modal">Check Availability →</a>
         </div>
 
         <!-- Card 4 -->
@@ -761,7 +761,7 @@
         Ready to Build a Sales Machine<br />That Runs on AI?
       </h2>
       <p class="footer-cta-sub">One conversation. Real strategy. No pitch.</p>
-      <a href="mailto:scott@salesforlife.ai" class="btn btn-white">
+      <a href="#" class="btn btn-white open-contact-modal">
         Book Your Free Strategy Call →
       </a>
       <p class="footer-cta-note">
@@ -769,6 +769,56 @@
       </p>
     </div>
   </section>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+
+      <div id="modal-form-view">
+        <p class="modal-eyebrow">Free Strategy Call</p>
+        <h2 class="modal-title" id="modal-title">Let's Talk About Your Sales Growth</h2>
+        <p class="modal-sub">Scott reviews every request personally. No pitch — just strategy.</p>
+
+        <!-- Netlify Forms: the hidden form-name input is required for AJAX submission -->
+        <form name="contact" id="contact-form" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="modal-row">
+            <div class="modal-field">
+              <label for="cf-first">First Name</label>
+              <input type="text" id="cf-first" name="first_name" placeholder="Jane" required />
+            </div>
+            <div class="modal-field">
+              <label for="cf-last">Last Name</label>
+              <input type="text" id="cf-last" name="last_name" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="modal-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="modal-field">
+            <label for="cf-cell">Cell Phone</label>
+            <input type="tel" id="cf-cell" name="cell" placeholder="(555) 000-0000" />
+          </div>
+          <div class="modal-field">
+            <label for="cf-company">Company</label>
+            <input type="text" id="cf-company" name="company" placeholder="Acme Financial" />
+          </div>
+          <p id="cf-error" class="cf-error" style="display:none">Please fill in your name and a valid email.</p>
+          <button type="submit" class="btn btn-primary cf-submit">Request My Free Strategy Call →</button>
+        </form>
+      </div>
+
+      <div id="modal-success-view" style="display:none">
+        <div class="modal-success-icon">✓</div>
+        <h2 class="modal-title">You're In!</h2>
+        <p class="modal-sub">Scott will reach out within 1 business day to confirm your call. Check your inbox — and spam just in case.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER BAR -->
   <footer class="footer-bar">
@@ -1015,6 +1065,75 @@
       }, { threshold: 0.15 });
       lsCards.forEach(function(card) { cardIO.observe(card); });
     }
+
+    // ── Contact Modal ──────────────────────────────────────────────
+    (function() {
+      var modal    = document.getElementById('contact-modal');
+      var closeBtn = document.getElementById('modal-close-btn');
+      var form     = document.getElementById('contact-form');
+      var errorMsg = document.getElementById('cf-error');
+      var formView = document.getElementById('modal-form-view');
+      var successView = document.getElementById('modal-success-view');
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      // Open on all trigger buttons
+      document.querySelectorAll('.open-contact-modal').forEach(function(btn) {
+        btn.addEventListener('click', openModal);
+      });
+
+      // Close on X button or backdrop click
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Submit to Netlify via fetch
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var firstName = form.first_name.value.trim();
+        var lastName  = form.last_name.value.trim();
+        var email     = form.email.value.trim();
+
+        if (!firstName || !lastName || !email || !/\S+@\S+\.\S+/.test(email)) {
+          errorMsg.style.display = 'block';
+          return;
+        }
+        errorMsg.style.display = 'none';
+
+        var data = new URLSearchParams();
+        data.append('form-name', 'contact');
+        data.append('first_name', firstName);
+        data.append('last_name', lastName);
+        data.append('email', email);
+        data.append('cell', form.cell.value.trim());
+        data.append('company', form.company.value.trim());
+
+        fetch('/', { method: 'POST', body: data })
+          .then(function() {
+            formView.style.display = 'none';
+            successView.style.display = 'block';
+          })
+          .catch(function() {
+            errorMsg.textContent = 'Something went wrong — please email scott@salesforlife.ai directly.';
+            errorMsg.style.display = 'block';
+          });
+      });
+    })();
   </script>
 
 </body>
