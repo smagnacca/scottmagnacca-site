@@ -1,1150 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scott Magnacca — AI Sales Systems for Founders</title>
-  <meta name="description" content="Harvard-trained. Battle-tested. I help founders build AI-powered sales systems that close deals while you sleep." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I Help Salespeople Rapidly Boost Income &amp; Effectiveness Up to 56% — In Days, Not Decades</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --accent: #3b6ef6;
+    --accent2: #60a5fa;
+    --text: #e8e8f0;
+    --muted: #8888a8;
+    --gold: #f5c842;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 64px;
+    background: rgba(10,10,15,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; text-decoration: none; }
+  .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: var(--accent); color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #2d5ce0 !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 6rem 2rem 4rem;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,110,246,0.12) 0%, transparent 70%);
+    max-width: 1200px; margin: 0 auto; gap: 4rem;
+  }
+  .hero-text { flex: 1; }
+  .hero-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 0.3rem; }
+  .hero h1 span { color: var(--accent2); }
+  .hero-sub2 { font-size: 1.3rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .hero-body { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 540px; }
+  .hero-body strong { color: var(--text); }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+  .btn-primary:hover { background: #2d5ce0; }
+  .btn-secondary { background: transparent; color: var(--text); padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid var(--border); transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: var(--accent2); }
+  .hero-img { flex: 0 0 380px; }
+  .hero-img img { width: 100%; border-radius: 16px; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+  .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 3rem; }
+
+  /* QUIZ */
+  .quiz-section { background: var(--surface); }
+  .quiz-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; }
+  .quiz-counter { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
+  .quiz-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .quiz-q { font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .quiz-hint { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; font-style: italic; }
+  .quiz-options { display: grid; gap: 0.75rem; }
+  .quiz-option { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s; text-align: left; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.selected { border-color: var(--accent); background: rgba(59,110,246,0.12); }
+  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1.2rem; }
+  .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; }
+  .quiz-option.selected .opt-check { display: block; }
+  .quiz-progress { display: flex; gap: 0.4rem; justify-content: center; margin-bottom: 2.5rem; }
+  .quiz-dot { width: 32px; height: 4px; border-radius: 2px; background: var(--border); }
+  .quiz-dot.done { background: var(--accent); }
+  .quiz-dot.active { background: var(--accent2); }
+  .quiz-error { color: #f87171; font-size: 0.9rem; margin-top: 1rem; display: none; }
+  .quiz-email-wrap { display: none; }
+  .quiz-result-wrap { display: none; }
+  .quiz-input { width: 100%; padding: 0.85rem 1.2rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; margin-bottom: 1rem; font-family: 'DM Sans', sans-serif; }
+  .quiz-input:focus { outline: none; border-color: var(--accent); }
+  .score-circle { width: 160px; height: 160px; border-radius: 50%; border: 6px solid var(--accent); margin: 0 auto 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; }
+  .score-pct { font-size: 1rem; color: var(--muted); }
+  .score-label { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .score-desc { color: var(--muted); margin-bottom: 2rem; }
+  .score-legend { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; flex-wrap: wrap; }
+  .score-legend span { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .legend-high { background: #f87171; }
+  .legend-mod { background: var(--gold); }
+  .legend-low { background: #34d399; }
+  .privacy-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.75rem; }
+
+  /* LOGOS */
+  .logos-section { padding: 2.5rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .logos-label { text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+  .logos-row { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .logos-row img { height: 36px; filter: grayscale(1) brightness(0.7); transition: filter 0.2s; }
+  .logos-row img:hover { filter: grayscale(0) brightness(1); }
+  .logo-text { font-size: 1.1rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; transition: color 0.2s; }
+  .logo-text:hover { color: var(--text); }
+  .logo-text span { font-size: 0.7rem; display: block; font-weight: 400; letter-spacing: 0.05em; }
+
+  /* QUOTE */
+  .quote-section { background: var(--surface); text-align: center; }
+  .quote-section blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; font-style: italic; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .quote-body { color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+  .quote-body strong { color: var(--text); }
+  .quote-body em { color: var(--accent2); font-style: normal; }
+
+  /* PILLARS */
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .pillar-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+  .pillar-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .pillar-title { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+  .pillar-body { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+  .pillar-stat { font-size: 0.82rem; font-weight: 600; color: var(--accent2); }
+
+  /* STATS */
+  .stats-section { background: var(--surface); }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--accent2); line-height: 1; }
+  .stat-label { color: var(--muted); font-size: 0.95rem; margin-top: 0.4rem; }
+
+  /* STORY */
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .story-img img { width: 100%; border-radius: 16px; }
+  .story-body { color: var(--muted); font-size: 1.05rem; }
+  .story-body p { margin-bottom: 1.2rem; }
+  .story-body strong { color: var(--text); }
+
+  /* PHOTOS */
+  .photos-section { background: var(--surface); }
+  .photos-label { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+  .photos-row { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
+  .photo-frame {
+    width: 180px; height: 180px; overflow: hidden; border-radius: 12px;
+    border: 1px solid var(--border); display: flex; align-items: center;
+    justify-content: center; background: var(--surface2); flex-shrink: 0;
+  }
+  .photo-frame img { width: 240px; height: 240px; object-fit: cover; transform: rotate(-90deg); flex-shrink: 0; }
+
+  /* OFFERS */
+  .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .offer-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; display: flex; flex-direction: column; }
+  .offer-card.featured { border-color: var(--accent); }
+  .offer-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.8rem; border-radius: 20px; white-space: nowrap; }
+  .offer-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .offer-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+  .offer-body { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; flex: 1; }
+  .offer-link { color: var(--accent2); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .offer-link:hover { text-decoration: underline; }
+
+  /* BOOKS */
+  .books-section { background: var(--surface); }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  .book-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .book-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--surface2); }
+  .book-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .book-cover-fallback {
+    width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; background: linear-gradient(160deg, #1a1a3a 0%, #0d0d1f 100%);
+    padding: 1.5rem; text-align: center; border-top: 8px solid #c0392b;
+  }
+  .book-cover-fallback .bnum { font-size: 5rem; font-weight: 900; color: #c0392b; line-height: 1; font-family: 'Playfair Display', serif; }
+  .book-cover-fallback .btitle { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 0.5rem; }
+  .book-cover-fallback .bsub { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+  .book-cover-fallback .bauthor { font-size: 0.82rem; color: #aaa; margin-top: 1rem; font-weight: 600; }
+  .book-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; }
+  .book-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .book-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .book-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; line-height: 1.3; }
+  .book-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.6; flex: 1; margin-bottom: 1.2rem; }
+  .book-link { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.88rem; text-align: center; }
+  .book-link:hover { background: #2d5ce0; }
+
+  /* PLATFORMS */
+  .platforms-section { background: var(--bg); }
+  .platforms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .platform-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+  .platform-card.featured-plat { border-color: var(--accent); }
+  .platform-label { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .platform-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+  .platform-title { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 1.2rem; line-height: 1.1; }
+  .platform-body { color: var(--muted); font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.6; }
+  .platform-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .platform-features li { color: var(--muted); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; }
+  .platform-features li::before { content: "→"; color: var(--accent2); font-weight: 700; }
+  .platform-link { display: inline-block; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.15rem; transition: all 0.2s; }
+  .platform-link.primary { background: var(--accent); color: #fff; }
+  .platform-link.primary:hover { background: #2d5ce0; }
+  .platform-link.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .platform-link.secondary:hover { border-color: var(--accent2); }
+
+  /* CTA */
+  .cta-section { background: var(--surface); text-align: center; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+  .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+  .cta-note { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+  .modal p { color: var(--muted); margin-bottom: 1.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group input { width: 100%; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+  .form-group input:focus { outline: none; border-color: var(--accent); }
+  .honeypot { display: none !important; }
+  .form-error { color: #f87171; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
+  .form-success { display: none; text-align: center; padding: 2rem; }
+  .form-success .check { font-size: 2.5rem; margin-bottom: 1rem; }
+  .form-success h3 { font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; }
+  .form-success p { color: var(--muted); }
+
+  /* FOOTER */
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-img { display: none; }
+    .story-grid, .platforms-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* BACKGROUND VISUAL EFFECTS */
+  section, .logos-section { position: relative; overflow: hidden; }
+
+  #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.5; }
+  .hero, .hero-text, .hero-img { position: relative; z-index: 1; }
+
+  .quiz-section::before { content: ''; position: absolute; top: 50%; left: 50%; width: 900px; height: 900px; margin: -450px 0 0 -450px; border-radius: 50%; background: radial-gradient(circle, rgba(59,110,246,0.06) 0%, transparent 70%); animation: radarPulse 4s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  .quiz-section::after { content: ''; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; margin: -300px 0 0 -300px; border-radius: 50%; border: 1px solid rgba(59,110,246,0.08); animation: radarRing 4s ease-out infinite 1s; pointer-events: none; z-index: 0; }
+  @keyframes radarPulse { 0%, 100% { transform: scale(0.85); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 1; } }
+  @keyframes radarRing { 0% { transform: scale(0.5); opacity: 0.5; } 100% { transform: scale(1.8); opacity: 0; } }
+  .quiz-section .container { position: relative; z-index: 1; }
+
+  .logos-section::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.06) 50%, transparent 100%); animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes shimmerSweep { 0% { left: -60%; } 100% { left: 160%; } }
+  .logos-label, .logos-row { position: relative; z-index: 1; }
+
+  .quote-section::before { content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 120px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(59,110,246,0.04)' d='M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E") no-repeat bottom center / cover; animation: waveFloat 6s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  .quote-section::after { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 100px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='rgba(96,165,250,0.03)' d='M0,50 C480,0 960,100 1440,50 L1440,0 L0,0 Z'/%3E%3C/svg%3E") no-repeat top center / cover; animation: waveFloat 8s ease-in-out infinite alternate-reverse; pointer-events: none; z-index: 0; }
+  @keyframes waveFloat { 0% { transform: translateX(-20px) scaleY(1); } 100% { transform: translateX(20px) scaleY(1.15); } }
+  .quote-section .container { position: relative; z-index: 1; }
+
+  #pillars-section-fx { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  #pillars-section-fx::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(59,110,246,0.15) 1px, transparent 1px); background-size: 40px 40px; animation: gridDrift 20s linear infinite; opacity: 0.4; }
+  @keyframes gridDrift { 0% { transform: translate(0,0); } 100% { transform: translate(40px, 40px); } }
+
+  .stats-section::before { content: ''; position: absolute; top: 50%; left: 50%; width: 120%; height: 300%; transform: translate(-50%,-50%); background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(59,110,246,0.07) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 70% 50%, rgba(96,165,250,0.05) 0%, transparent 60%); animation: auroraShift 8s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes auroraShift { 0% { transform: translate(-50%,-50%) rotate(0deg) scale(1); } 100% { transform: translate(-50%,-50%) rotate(4deg) scale(1.1); } }
+  .stats-section .container { position: relative; z-index: 1; }
+
+  #story::before { content: ''; position: absolute; top: -100%; left: -30%; width: 40%; height: 300%; background: linear-gradient(105deg, transparent 30%, rgba(96,165,250,0.03) 50%, transparent 70%); animation: beamSweep 12s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes beamSweep { 0% { left: -40%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { left: 130%; opacity: 0; } }
+  #story .container { position: relative; z-index: 1; }
+
+  .photos-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at center, transparent 50%, rgba(10,10,15,0.6) 100%); animation: vignettePulse 5s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes vignettePulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+  .photos-section .container { position: relative; z-index: 1; }
+
+  #offers::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 10% 20%, rgba(59,110,246,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 90% 80%, rgba(96,165,250,0.05) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 50% 50%, rgba(59,110,246,0.03) 0%, transparent 60%); animation: meshMorph 10s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes meshMorph { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+  #offers .container { position: relative; z-index: 1; }
+
+  #books::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 300px; background: linear-gradient(90deg, transparent, rgba(96,165,250,0.04), transparent); animation: spotlightSweep 8s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes spotlightSweep { 0% { left: -300px; } 100% { left: calc(100% + 300px); } }
+  #books .container { position: relative; z-index: 1; }
+
+  .platforms-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 18px, rgba(59,110,246,0.03) 18px, rgba(59,110,246,0.03) 19px); animation: dataRain 3s linear infinite; pointer-events: none; z-index: 0; }
+  @keyframes dataRain { 0% { background-position: 0 0; } 100% { background-position: 0 38px; } }
+  .platforms-section .container { position: relative; z-index: 1; }
+
+  .cta-section::before { content: ''; position: absolute; top: 0; left: -100%; width: 80%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(245,200,66,0.04) 40%, rgba(245,200,66,0.07) 50%, rgba(245,200,66,0.04) 60%, transparent 100%); animation: goldShimmer 5s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  .cta-section::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 100%, rgba(59,110,246,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; animation: ctaGlow 6s ease-in-out infinite alternate; }
+  @keyframes goldShimmer { 0% { left: -80%; } 100% { left: 180%; } }
+  @keyframes ctaGlow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+  .cta-section .container { position: relative; z-index: 1; }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">Scott Magnacca</a>
-      <div class="nav-links">
-        <a href="#why">Why AI</a>
-        <a href="#story">Story</a>
-        <a href="#offers">Work With Me</a>
-        <a href="#books">Books</a>
-        <a href="https://salesforlife.ai" target="_blank" rel="noopener">SalesForLife.ai</a>
-        <a href="#" class="nav-cta open-contact-modal">Book a Call →</a>
-      </div>
-    </div>
-  </nav>
+<canvas id="hero-canvas"></canvas>
 
-  <!-- ============================================================
-       SECTION 1: HERO
-  ============================================================ -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <p class="hero-eyebrow" id="hero-eyebrow-text">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp;<br>Babson College. Trained in the Real World of High-Stakes Sales.</p>
-        <h1 class="hero-headline">
-          I Help Salespeople Rapidly<br />
-          Boost Income &amp; Effectiveness<br />
-          Up to 56% — <span class="days-highlight">In Days,</span><br />
-          <span class="not-weeks">Not Decades</span>
-        </h1>
-        <p class="hero-sub">
-          Without Adding Headcount.
-        </p>
-        <p class="hero-sub hero-sub--body">
-          Knowledge without a proven framework doesn't move the needle. I've spent
-          years at Fidelity Investments, TIAA &amp; Edelman Financial Engines
-          building teams, programs, and people dedicated to one thing — deepening
-          client relationships and sales effectiveness.
-        </p>
-        <p class="hero-sub hero-sub--body">
-          The results: I've helped generate over <strong class="hero-strong">$1 Billion+</strong>
-          in client value. <strong class="hero-strong">Let me help you do the same.</strong>
-        </p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary open-contact-modal">Book a Strategy Call →</a>
-          <a href="#offers" class="btn btn-ghost">See How SalesForLife.ai Works</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <!-- Replace src with your actual photo path -->
-        <img src="/Headshot%201.png" alt="Scott Magnacca" />
-      </div>
-    </div>
-    <div class="hero-gradient"></div>
-  </section>
+<nav>
+  <a href="/" class="nav-logo">Scott Magnacca</a>
+  <div class="nav-links">
+    <a href="#why">Why AI</a>
+    <a href="#story">Story</a>
+    <a href="#offers">Work With Me</a>
+    <a href="#books">Books</a>
+    <a href="https://salesforlife.ai" target="_blank">SalesForLife.ai</a>
+    <a href="#" class="nav-cta" onclick="openModal(event)">Book a Call →</a>
+  </div>
+</nav>
 
-  <!-- ============================================================
-       QUIZ: 12-Month AI Disruption Risk Assessment
-  ============================================================ -->
-  <section class="quiz-section" id="assessment">
-    <div class="container">
-      <div class="quiz-section-header">
-        <span class="quiz-section-tag">FREE · 60-SECOND ASSESSMENT</span>
-        <h2 class="quiz-section-title">12-Month AI Disruption Risk Assessment:<br/><span class="quiz-title-accent">Will Your Job Be Next?</span></h2>
-        <p class="quiz-section-sub">Answer 3 research-backed questions. Get your personalized AI vulnerability score instantly.</p>
-      </div>
-
-      <div class="quiz-outer" id="quiz-outer">
-
-        <!-- ── STATE 1: QUIZ FORM ── -->
-        <div id="qs1" class="qs-card">
-          <form id="qs-form" novalidate>
-
-            <!-- Progress steps -->
-            <div class="qs-steps" id="qs-steps">
-              <div class="qs-step qs-step--active" id="qs-dot1"><span>1</span></div>
-              <div class="qs-step-line"></div>
-              <div class="qs-step" id="qs-dot2"><span>2</span></div>
-              <div class="qs-step-line"></div>
-              <div class="qs-step" id="qs-dot3"><span>3</span></div>
-            </div>
-
-            <!-- Q1 -->
-            <div class="qs-q" id="qs-q1">
-              <div class="qs-q-top">
-                <div class="qs-q-num-badge">01 <span class="qs-q-of">/ 03</span></div>
-                <div class="qs-q-meta">
-                  <span class="qs-q-category">Automatable Tasks</span>
-                  <h3 class="qs-q-text">How repetitive or rule-following is your daily work?</h3>
-                  <p class="qs-q-hint">e.g., data entry, standard reports, basic processing</p>
-                </div>
-              </div>
-              <div class="qs-opts">
-                <label class="qs-opt"><input type="radio" name="q1" value="33.3"/><span class="qs-opt-inner"><span class="qs-opt-ltr">A</span><span class="qs-opt-txt">Very Repetitive / Solely Data</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q1" value="25"/><span class="qs-opt-inner"><span class="qs-opt-ltr">B</span><span class="qs-opt-txt">Predominantly Routine</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q1" value="15"/><span class="qs-opt-inner"><span class="qs-opt-ltr">C</span><span class="qs-opt-txt">Varies / Moderate</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q1" value="5"/><span class="qs-opt-inner"><span class="qs-opt-ltr">D</span><span class="qs-opt-txt">Minimal Routine / Solely Unique</span><span class="qs-opt-check">✓</span></span></label>
-              </div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="qs-q" id="qs-q2">
-              <div class="qs-q-top">
-                <div class="qs-q-num-badge">02 <span class="qs-q-of">/ 03</span></div>
-                <div class="qs-q-meta">
-                  <span class="qs-q-category">Industry Adoption Rate</span>
-                  <h3 class="qs-q-text">To what extent are competitors in your industry already deploying AI tools for efficiency or cost-cutting?</h3>
-                </div>
-              </div>
-              <div class="qs-opts">
-                <label class="qs-opt"><input type="radio" name="q2" value="33.3"/><span class="qs-opt-inner"><span class="qs-opt-ltr">A</span><span class="qs-opt-txt">Widespread &amp; Disruptive</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q2" value="25"/><span class="qs-opt-inner"><span class="qs-opt-ltr">B</span><span class="qs-opt-txt">Significant Implementation</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q2" value="15"/><span class="qs-opt-inner"><span class="qs-opt-ltr">C</span><span class="qs-opt-txt">Just Started / Small Projects</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q2" value="5"/><span class="qs-opt-inner"><span class="qs-opt-ltr">D</span><span class="qs-opt-txt">No Adoption or Planning</span><span class="qs-opt-check">✓</span></span></label>
-              </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="qs-q" id="qs-q3">
-              <div class="qs-q-top">
-                <div class="qs-q-num-badge">03 <span class="qs-q-of">/ 03</span></div>
-                <div class="qs-q-meta">
-                  <span class="qs-q-category">Human Skill Resiliency</span>
-                  <h3 class="qs-q-text">How critical are empathy, complex social navigation, or high-level strategic reasoning to your core duties?</h3>
-                  <p class="qs-q-hint">Higher human need = lower risk</p>
-                </div>
-              </div>
-              <div class="qs-opts">
-                <label class="qs-opt"><input type="radio" name="q3" value="0"/><span class="qs-opt-inner"><span class="qs-opt-ltr">A</span><span class="qs-opt-txt">Highly Empathetic / Creative</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q3" value="10"/><span class="qs-opt-inner"><span class="qs-opt-ltr">B</span><span class="qs-opt-txt">Moderate Human Connection</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q3" value="20"/><span class="qs-opt-inner"><span class="qs-opt-ltr">C</span><span class="qs-opt-txt">Minimal, Mostly Analytical</span><span class="qs-opt-check">✓</span></span></label>
-                <label class="qs-opt"><input type="radio" name="q3" value="30"/><span class="qs-opt-inner"><span class="qs-opt-ltr">D</span><span class="qs-opt-txt">Never Required</span><span class="qs-opt-check">✓</span></span></label>
-              </div>
-            </div>
-
-            <p id="qs-form-err" class="qs-form-err" style="display:none">⚠ Please answer all 3 questions before continuing.</p>
-            <div class="qs-submit-row" id="qs-submit-row" style="display:none">
-              <button type="submit" class="qs-submit-btn">
-                Calculate My Risk Score
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-              <p class="qs-privacy-note">🔒 Private &amp; confidential — no spam, ever.</p>
-            </div>
-          </form>
-        </div><!-- /qs1 -->
-
-        <!-- ── STATE 2: EMAIL GATE OVERLAY ── -->
-        <div id="qs2" class="qs-gate-overlay" style="display:none">
-          <div class="qs-gate-card">
-            <div class="qs-closed-lock-wrap">
-              <!-- Closed padlock SVG -->
-              <svg class="qs-closed-lock-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="lockBodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4B5563"/><stop offset="100%" stop-color="#1F2937"/></linearGradient>
-                  <linearGradient id="lockSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.15)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
-                  <filter id="lockShadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.5)"/></filter>
-                </defs>
-                <ellipse cx="50" cy="124" rx="32" ry="5" fill="rgba(0,0,0,0.25)"/>
-                <!-- Shackle -->
-                <path d="M24 60 L24 36 Q24 8 50 8 Q76 8 76 36 L76 60" stroke="#374151" stroke-width="13" stroke-linecap="round" fill="none"/>
-                <path d="M24 60 L24 36 Q24 12 50 12 Q76 12 76 36 L76 60" stroke="#6B7280" stroke-width="7" stroke-linecap="round" fill="none"/>
-                <path d="M24 60 L24 36 Q24 14 50 14 Q76 14 76 36 L76 60" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-linecap="round" fill="none"/>
-                <!-- Body -->
-                <rect x="8" y="56" width="84" height="64" rx="12" fill="url(#lockBodyGrad)" filter="url(#lockShadow)"/>
-                <rect x="8" y="56" width="84" height="26" rx="12" fill="url(#lockSheen)"/>
-                <rect x="8" y="74" width="84" height="8" fill="rgba(0,0,0,0.12)"/>
-                <!-- Keyhole circle -->
-                <circle cx="50" cy="88" r="12" fill="#111827"/>
-                <circle cx="50" cy="88" r="10" fill="#0D1117"/>
-                <!-- Keyhole slot -->
-                <path d="M46 88 L46 104 Q46 108 50 108 Q54 108 54 104 L54 88" fill="#0D1117"/>
-                <!-- Lock body highlight -->
-                <ellipse cx="30" cy="64" rx="10" ry="3.5" fill="rgba(255,255,255,0.06)" transform="rotate(-15 30 64)"/>
-              </svg>
-            </div>
-            <h3 class="qs-gate-title">Your Assessment is Ready!</h3>
-            <p class="qs-gate-sub">Enter your email address to unlock your<br/>personalized score (0–100%)</p>
-            <form id="qs-email-form" novalidate class="qs-email-form-wrap">
-              <input type="email" id="qs-email-input" class="qs-email-input" placeholder="your@email.com" autocomplete="email"/>
-              <p id="qs-email-err" class="qs-form-err" style="display:none">⚠ Please enter a valid email address.</p>
-              <button type="submit" class="qs-unlock-btn">🔓 &nbsp;Unlock My Score</button>
-            </form>
-            <p class="qs-privacy-note">No spam. Unsubscribe anytime.</p>
-          </div>
-        </div><!-- /qs2 -->
-
-        <!-- ── STATES 3 + 4: REVEAL ── -->
-        <div id="qs34" class="qs-card qs-card--dark-reveal" style="display:none">
-
-          <!-- Stage 3: Count-up gauge -->
-          <div id="qs-stage3" class="qs-stage">
-            <h3 class="qs-reveal-heading">12-Month AI Disruption Risk Assessment</h3>
-            <div class="qs-gauge-wrap">
-              <svg class="qs-gauge-svg" viewBox="0 0 240 240">
-                <!-- Glow rings -->
-                <circle cx="120" cy="120" r="110" fill="none" stroke="rgba(37,99,235,0.06)" stroke-width="1"/>
-                <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(37,99,235,0.04)" stroke-width="1"/>
-                <!-- Track -->
-                <circle cx="120" cy="120" r="96" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="18"/>
-                <!-- Progress arc -->
-                <circle id="qs-arc" cx="120" cy="120" r="96" fill="none"
-                        stroke="#2563EB" stroke-width="18" stroke-linecap="round"
-                        stroke-dasharray="603.19" stroke-dashoffset="603.19"
-                        transform="rotate(-90 120 120)"/>
-                <!-- Inner circle -->
-                <circle cx="120" cy="120" r="78" fill="rgba(255,255,255,0.02)"/>
-              </svg>
-              <div class="qs-gauge-center">
-                <span id="qs-count-num" class="qs-count-num">0</span>
-                <span class="qs-count-pct">%</span>
-              </div>
-            </div>
-            <div class="qs-analysing-row">
-              <div class="qs-dots"><span></span><span></span><span></span></div>
-              <span class="qs-analysing-txt">Analyzing...</span>
-            </div>
-          </div><!-- /stage3 -->
-
-          <!-- Stage 4: Open lock + burst + result -->
-          <div id="qs-stage4" class="qs-stage" style="display:none">
-            <div class="qs-burst-arena" id="qs-burst-arena">
-              <!-- Burst particles injected by JS -->
-              <!-- Open padlock -->
-              <div class="qs-open-lock-wrap" id="qs-open-lock-wrap">
-                <svg class="qs-open-lock-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="goldBodyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#B45309"/></linearGradient>
-                    <linearGradient id="goldSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.35)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
-                    <filter id="goldGlow"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#FFD700" flood-opacity="0.5"/></filter>
-                    <filter id="goldShadow"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="rgba(0,0,0,0.4)"/></filter>
-                  </defs>
-                  <ellipse cx="50" cy="124" rx="32" ry="5" fill="rgba(0,0,0,0.2)"/>
-                  <!-- Shackle OPEN (right arm lifted above body) -->
-                  <path d="M24 60 L24 32 Q24 8 50 8 Q76 8 76 32 L76 4" stroke="#92400E" stroke-width="13" stroke-linecap="round" fill="none"/>
-                  <path d="M24 60 L24 32 Q24 11 50 11 Q76 11 76 32 L76 4" stroke="#FCD34D" stroke-width="7" stroke-linecap="round" fill="none" filter="url(#goldGlow)"/>
-                  <path d="M24 60 L24 32 Q24 13 50 13 Q76 13 76 32 L76 4" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round" fill="none"/>
-                  <!-- Body -->
-                  <rect x="8" y="56" width="84" height="64" rx="12" fill="url(#goldBodyGrad)" filter="url(#goldShadow)"/>
-                  <rect x="8" y="56" width="84" height="26" rx="12" fill="url(#goldSheen)"/>
-                  <rect x="8" y="73" width="84" height="7" fill="rgba(0,0,0,0.08)"/>
-                  <!-- Side depth shading -->
-                  <rect x="8" y="56" width="14" height="64" rx="8" fill="rgba(0,0,0,0.12)"/>
-                  <rect x="78" y="56" width="14" height="64" rx="8" fill="rgba(0,0,0,0.18)"/>
-                  <!-- Keyhole -->
-                  <circle cx="50" cy="88" r="12" fill="#92400E"/>
-                  <circle cx="50" cy="85" r="7" fill="#78350F"/>
-                  <path d="M46 88 L46 103 Q46 107 50 107 Q54 107 54 103 L54 88" fill="#78350F"/>
-                  <!-- Shine spots -->
-                  <circle cx="24" cy="68" r="4" fill="rgba(255,255,255,0.25)"/>
-                  <ellipse cx="36" cy="62" rx="9" ry="3" fill="rgba(255,255,255,0.18)" transform="rotate(-12 36 62)"/>
-                </svg>
-              </div>
-            </div><!-- /burst-arena -->
-
-            <!-- Score result (shown after burst) -->
-            <div id="qs-result-block" class="qs-result-block" style="display:none">
-              <div id="qs-final-score" class="qs-final-score">0%</div>
-              <div id="qs-risk-pill" class="qs-risk-pill">—</div>
-              <p id="qs-risk-msg" class="qs-risk-msg"></p>
-              <div class="qs-risk-legend">
-                <span class="qs-legend-item"><span class="qs-legend-dot" style="background:#EF4444"></span>71–100% High</span>
-                <span class="qs-legend-item"><span class="qs-legend-dot" style="background:#F59E0B"></span>36–70% Moderate</span>
-                <span class="qs-legend-item"><span class="qs-legend-dot" style="background:#10B981"></span>0–35% Minimal</span>
-              </div>
-              <div class="qs-result-actions">
-                <a href="#" class="btn btn-primary open-contact-modal">Get Your Free AI Survival Strategy →</a>
-                <a href="#offers" class="btn btn-ghost" style="margin-top:12px;">Explore Training Programs →</a>
-              </div>
-            </div><!-- /result-block -->
-
-          </div><!-- /stage4 -->
-        </div><!-- /qs34 -->
-
-      </div><!-- /quiz-outer -->
-    </div><!-- /container -->
-  </section>
-
-  <!-- ============================================================
-       SECTION 2: TRUST BAR
-  ============================================================ -->
-  <section class="trust-bar">
-    <div class="container">
-      <p class="trust-label">EDUCATED AT · CLIENT EXPERIENCE WITH</p>
-      <div class="trust-logos">
-        <div class="trust-logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/320px-Harvard_University_logo.svg.png"
-               alt="Harvard University" class="trust-img-grey" />
-        </div>
-        <div class="trust-logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Babson_College_seal.svg/200px-Babson_College_seal.svg.png"
-               alt="Babson College" class="trust-img-grey" />
-        </div>
-        <div class="trust-logo-divider"></div>
-        <div class="trust-logo-item trust-wordmark trust-wordmark--fidelity">
-          <span class="wm-icon">F</span>IDELITY
-        </div>
-        <div class="trust-logo-item trust-wordmark trust-wordmark--tiaa">
-          TIAA
-        </div>
-        <div class="trust-logo-item trust-wordmark trust-wordmark--edelman">
-          EDELMAN<span class="wm-sub">Financial</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION 3: THE 'WHY'
-  ============================================================ -->
-  <section class="why" id="why">
-    <div class="container why-inner">
-      <blockquote class="why-quote">
-        "Most sales teams are running<br />a 2015 playbook in a 2026 world."
-      </blockquote>
-      <div class="why-body">
-        <p>
-          AI hasn't made selling easier. It's made the gap between elite sales teams and
-          average ones <strong>wider than ever.</strong>
-        </p>
-        <p>
-          My Narrative Intelligence framework was built at Harvard during my master's
-          capstone project. It has been battle-tested in the field with over 30,000
-          people, and now it's been encoded into my book <em>Storyselling in The Age of
-          AI</em>, and deployed in AI systems that work 24/7. This is the edge your
-          competitors don't have yet.
-        </p>
-      </div>
-
-      <!-- ===== LIFE SKILLS ANIMATED GRAPHIC ===== -->
-      <div class="life-skills-section">
-        <p class="ls-eyebrow">THE THREE PILLARS OF SALES MASTERY</p>
-        <h3 class="ls-headline">The Life Skills That Separate Good From Great</h3>
-        <p class="ls-intro">This training is built on three foundational skills that compound over time — the difference between a salesperson who plateaus and one who continually rises.</p>
-
-        <div class="life-skills-grid">
-
-          <!-- Card 1: Curiosity -->
-          <div class="ls-card ls-card--blue">
-            <div class="ls-icon-wrap">
-              <div class="ls-orb-ring ls-orb-ring--blue">
-                <svg class="ls-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="28" fill="rgba(37,99,235,0.15)"/>
-                  <text x="40" y="52" text-anchor="middle" font-size="34" font-weight="900" fill="#60A5FA" font-family="Inter,sans-serif" class="ls-pulse-text">?</text>
-                  <circle class="ls-orbit-dot" cx="40" cy="12" r="4" fill="#2563EB"/>
-                  <circle cx="40" cy="40" r="36" stroke="rgba(37,99,235,0.25)" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
-                </svg>
-              </div>
-            </div>
-            <div class="ls-card-body">
-              <h3 class="ls-title">Curiosity</h3>
-              <p class="ls-desc">The questions you ask reveal opportunities others miss. Elite salespeople never stop asking <em>why</em> — they discover what clients truly need before competitors even know to ask.</p>
-              <div class="ls-progress">
-                <div class="ls-progress-fill ls-progress-fill--blue"></div>
-              </div>
-              <span class="ls-stat">92% of top performers cite curiosity as their #1 trait</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Lifelong Learning -->
-          <div class="ls-card ls-card--green">
-            <div class="ls-icon-wrap">
-              <div class="ls-orb-ring ls-orb-ring--green">
-                <svg class="ls-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="28" fill="rgba(16,185,129,0.12)"/>
-                  <!-- Graduation cap -->
-                  <polygon points="40,20 60,32 40,44 20,32" fill="rgba(16,185,129,0.4)" stroke="#10B981" stroke-width="1.5" stroke-linejoin="round"/>
-                  <path d="M52 37 L52 50 Q52 56 40 56 Q28 56 28 50 L28 37" stroke="#10B981" stroke-width="2" fill="rgba(16,185,129,0.2)" stroke-linecap="round"/>
-                  <!-- Tassel -->
-                  <line x1="60" y1="32" x2="60" y2="46" stroke="#10B981" stroke-width="2" stroke-linecap="round" class="ls-tassel"/>
-                  <circle cx="60" cy="48" r="3" fill="#10B981" class="ls-tassel"/>
-                  <!-- Rising stars -->
-                  <circle class="ls-star ls-star-1" cx="18" cy="22" r="2" fill="#34D399"/>
-                  <circle class="ls-star ls-star-2" cx="65" cy="18" r="1.5" fill="#34D399"/>
-                  <circle class="ls-star ls-star-3" cx="70" cy="55" r="2" fill="#34D399"/>
-                </svg>
-              </div>
-            </div>
-            <div class="ls-card-body">
-              <h3 class="ls-title">Lifelong Learning</h3>
-              <p class="ls-desc">The market rewards those who never stop growing. What you master today becomes tomorrow's competitive advantage. Compound your knowledge like compound interest.</p>
-              <div class="ls-progress">
-                <div class="ls-progress-fill ls-progress-fill--green"></div>
-              </div>
-              <span class="ls-stat">Skills learned in days compound into decades of results</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Adapting to Change -->
-          <div class="ls-card ls-card--gold">
-            <div class="ls-icon-wrap">
-              <div class="ls-orb-ring ls-orb-ring--gold">
-                <svg class="ls-svg ls-svg--spin" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="28" fill="rgba(245,158,11,0.12)"/>
-                  <!-- Sync arrows -->
-                  <path d="M22 32 A20 20 0 0 1 58 32" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                  <polygon points="58,32 66,25 65,37" fill="#F59E0B"/>
-                  <path d="M58 48 A20 20 0 0 1 22 48" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                  <polygon points="22,48 14,55 15,43" fill="#F59E0B"/>
-                  <!-- Center spark -->
-                  <circle cx="40" cy="40" r="5" fill="#F59E0B" class="ls-center-pulse"/>
-                </svg>
-              </div>
-            </div>
-            <div class="ls-card-body">
-              <h3 class="ls-title">Adapting to Change</h3>
-              <p class="ls-desc">Personal and professional change is constant. Those who adapt fastest don't just survive — they pull ahead permanently while others are still figuring out what happened.</p>
-              <div class="ls-progress">
-                <div class="ls-progress-fill ls-progress-fill--gold"></div>
-              </div>
-              <span class="ls-stat">Adaptability = the ultimate long-term sales advantage</span>
-            </div>
-          </div>
-
-        </div><!-- /life-skills-grid -->
-      </div><!-- /life-skills-section -->
-
-      <div class="stats-bar">
-        <div class="stat">
-          <span class="stat-number" data-prefix="$" data-target="100" data-suffix="M+">$0M+</span>
-          <span class="stat-label">Over $100M Pipeline Generated</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-number" data-target="1000" data-suffix="+">0+</span>
-          <span class="stat-label">Salespeople Coached</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-number" data-target="25" data-suffix="+">0+</span>
-          <span class="stat-label">Years of Financial Sales Experience</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION 4: THE BRIDGE STORY
-  ============================================================ -->
-  <section class="story" id="story">
-    <div class="container story-inner">
-      <div class="story-image">
-        <!-- Replace with a candid/speaking photo -->
-        <img src="/headshot%203.png" alt="Scott Magnacca" />
-        <div class="story-image-glow"></div>
-      </div>
-      <div class="story-text">
-        <p class="section-eyebrow">THE ORIGIN STORY</p>
-        <h2 class="section-headline">
-          I Studied the Science of<br />
-          Influence at Harvard.<br />
-          Then I Had to Actually Sell.
-        </h2>
-        <p>
-          At Babson, I learned how businesses are built. At Harvard, I learned
-          why people say yes.
-        </p>
-        <p>
-          But my real MBA came from cold calls, lost deals, and the grind of quota.
-          I wasn't just studying sales — I was living it.
-        </p>
-        <p>
-          When AI emerged, I didn't see a threat to sellers. I saw an opportunity —
-          an unfair advantage. Something that everyone had access to but few would
-          learn to apply and use.
-        </p>
-        <p>
-          SalesForLife.ai is that unfair advantage — it helps you become a
-          <strong>"Hybrid Advisor"</strong> combining the power of AI with your soft
-          sales skills of relationship building, connection, and storyselling.
-        </p>
-        <p>
-          I've shared these principles with executives, companies, and individual
-          salespeople to boost productivity, drive profitability, and create lifetime
-          client value. I can do the same for you.
-        </p>
-        <p><strong>Now I can help you learn in days what took me decades to master.
-        Discover the shortcut I never had.</strong></p>
-        <a href="#" class="btn btn-primary open-contact-modal" style="margin-top:2rem;">Work With Scott →</a>
-      </div>
-    </div>
-    <div class="container story-summit">
-      <p class="story-summit-label">Pittsburgh AI Summit · Capital Grille</p>
-      <div class="story-summit-photos">
-        <div class="story-summit-wrap">
-          <img src="/Capitalgrill1.png" alt="Pittsburgh AI Summit" class="summit-photo" />
-        </div>
-        <div class="story-summit-wrap">
-          <img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation" class="summit-photo" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION 5: GRID OF OFFERS
-  ============================================================ -->
-  <section class="offers" id="offers">
-    <div class="container">
-      <p class="section-eyebrow centered">CHOOSE YOUR PATH</p>
-      <h2 class="section-headline centered">
-        Build Your AI-Powered<br />Sales Empire
-      </h2>
-      <p class="section-sub centered">
-        Every path leads to the same outcome: a pipeline that never sleeps.
+<div style="max-width:1200px;margin:0 auto;">
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp; Babson College. Trained in the Real World of High-Stakes Sales.</div>
+      <h1>I Help Salespeople Rapidly <span>Boost Income &amp; Effectiveness</span></h1>
+      <p class="hero-sub2">Without Adding Headcount.</p>
+      <p class="hero-body">
+        Knowledge without a proven framework doesn't move the needle. I've spent years at Fidelity Investments, TIAA &amp; Edelman Financial Engines
+        building teams, programs, and people dedicated to one thing — deepening client relationships and sales effectiveness.<br><br>
+        The results: I've helped generate over <strong>$1 Billion+</strong> in client value. <strong>Let me help you do the same.</strong>
       </p>
-
-      <div class="offers-grid">
-
-        <!-- Card 1 -->
-        <div class="offer-card">
-          <div class="offer-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-            </svg>
-          </div>
-          <p class="offer-eyebrow">PRIVATE ADVISORY</p>
-          <h3 class="offer-title">90-Day AI Sales<br />Transformation</h3>
-          <p class="offer-desc">
-            Work directly with Scott to rebuild your sales system from the
-            pipeline up. For serious founders only.
-          </p>
-          <a href="#" class="offer-link open-contact-modal">Apply Now →</a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="offer-card offer-card--featured">
-          <div class="offer-badge">MOST POPULAR</div>
-          <div class="offer-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <p class="offer-eyebrow">THE PLATFORM</p>
-          <h3 class="offer-title">SalesForLife.ai<br />— Your AI Sales Team</h3>
-          <p class="offer-desc">
-            Automated outreach, follow-up, and pipeline management.
-            Deployed in 30 days. Runs 24/7.
-          </p>
-          <a href="https://salesforlife.ai" class="offer-link" target="_blank">See the Demo →</a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="offer-card">
-          <div class="offer-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <p class="offer-eyebrow">KEYNOTES &amp; WORKSHOPS</p>
-          <h3 class="offer-title">Harvard-Trained.<br />Battle-Tested.</h3>
-          <p class="offer-desc">
-            Bring Scott's AI sales frameworks to your event or leadership
-            offsite. Audiences leave with systems, not just inspiration.
-          </p>
-          <a href="#" class="offer-link open-contact-modal">Check Availability →</a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="offer-card offer-card--free">
-          <div class="offer-badge offer-badge--green">FREE — START HERE</div>
-          <div class="offer-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <p class="offer-eyebrow">FREE TRAINING</p>
-          <h3 class="offer-title">The AI Sales Playbook:<br />5 Systems Closing Now</h3>
-          <p class="offer-desc">
-            Start here. No cost. No fluff. The exact frameworks driving
-            pipeline right now.
-          </p>
-          <a href="#cta" class="offer-link">Download Free →</a>
-        </div>
-
+      <div class="hero-btns">
+        <a href="#" class="btn-primary" onclick="openModal(event)">Book a Strategy Call →</a>
+        <a href="#offers" class="btn-secondary">See How SalesForLife.ai Works</a>
       </div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION 6: BOOKS
-  ============================================================ -->
-  <section class="books" id="books">
-    <div class="container">
-      <p class="section-eyebrow centered">BESTSELLING AUTHOR</p>
-      <h2 class="section-headline centered books-headline">
-        The Playbooks That<br />Built the System
-      </h2>
-      <p class="section-sub centered">
-        Four books. Decades of research. One mission: give you the unfair advantage.
-      </p>
-
-      <div class="books-grid">
-
-        <!-- BOOK 1 — Why Professional Help Matters -->
-        <div class="book-card">
-          <div class="book-cover-wrap">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w"
-              alt="Why Professional Help Matters: The Human Premium in the Age of AI by Scott Magnacca"
-              class="book-cover"
-            />
-          </div>
-          <div class="book-info">
-            <p class="book-label">BOOK 1</p>
-            <h3 class="book-title">Why Professional Help Matters: The Human Premium in the Age of AI</h3>
-            <p class="book-desc">The most successful people in history have never worked alone—and now, for the first time, a 24/7 panel of world-class experts is available to anyone willing to learn how to use it. This book hands you the exact framework top performers are quietly using to compress decades of expertise into weeks. Most people will keep struggling alone while this window of advantage is still open. The few who read this won't just keep up—they'll pull ahead permanently.</p>
-            <a href="https://a.co/d/iUi7Y0A" class="btn btn-primary book-btn" target="_blank" rel="noopener">
-              Buy on Amazon →
-            </a>
-          </div>
-        </div>
-
-        <!-- BOOK 2 — The 7 Strategies for a Successful Retirement -->
-        <div class="book-card">
-          <div class="book-cover-wrap">
-            <img
-              src="/7-strategies.jpg"
-              alt="The 7 Strategies for a Successful Retirement by Scott Magnacca CFP"
-              class="book-cover"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            />
-            <!-- Fallback if image URL not found — replace src above with correct Squarespace CDN URL -->
-            <div class="book-cover-fallback" style="display:none;">
-              <span>7 Strategies<br/>for a Successful<br/>Retirement</span>
-            </div>
-          </div>
-          <div class="book-info">
-            <p class="book-label">BOOK 2</p>
-            <h3 class="book-title">The 7 Strategies for a Successful Retirement</h3>
-            <p class="book-desc">Every self-made millionaire agrees: the rules of building wealth have fundamentally changed—and most people haven't gotten the memo. This book gives you what a brilliant, tireless financial co-pilot would tell their own family: how to spot opportunities faster, eliminate costly complexity, and make your money work as relentlessly as you do. The old rules kept you dependent. These seven strategies set you free.</p>
-            <a href="https://a.co/d/gVCC3yS" class="btn btn-primary book-btn" target="_blank" rel="noopener">
-              Buy on Amazon →
-            </a>
-          </div>
-        </div>
-
-        <!-- BOOK 3 — TOP GUN -->
-        <div class="book-card">
-          <div class="book-cover-wrap">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w"
-              alt="TOP GUN: The Secrets of Relationship Based Selling by Scott Magnacca CFP"
-              class="book-cover"
-            />
-          </div>
-          <div class="book-info">
-            <p class="book-label">BOOK 3</p>
-            <h3 class="book-title">Top Gun: The Secrets of Relationship-Based Selling — Financial Services Edition</h3>
-            <p class="book-desc">While 82% of employers desperately seek people who can communicate and persuade, only 4% of college graduates have ever taken a sales course. That gap is your unfair advantage—if you claim it. This book is the elite training program you never had: a proven system to sharpen your influence, master high-stakes conversations, and walk into every client meeting with the quiet confidence of a Top Gun pilot who has already run the mission a hundred times. People who master this skill don't just get the deal—they become irreplaceable.</p>
-            <a href="https://a.co/d/6ZCSyTm" class="btn btn-primary book-btn" target="_blank" rel="noopener">
-              Buy on Amazon →
-            </a>
-          </div>
-        </div>
-
-        <!-- BOOK 4 — Storyselling in The Age of AI -->
-        <div class="book-card book-card--featured">
-          <div class="book-badge">NEWEST RELEASE</div>
-          <div class="book-cover-wrap">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w"
-              alt="Storyselling in The Age of AI by Scott Magnacca"
-              class="book-cover"
-            />
-          </div>
-          <div class="book-info">
-            <p class="book-label">BOOK 4 · NEWEST RELEASE</p>
-            <h3 class="book-title">Storyselling in the Age of AI</h3>
-            <p class="book-desc">AI can out-calculate any human expert—which means data alone no longer wins. What it cannot replicate is the invisible bridge between a cold spreadsheet and a client's heart. This book reveals the one skill separating advisors who are merely tolerated from those who are trusted: Storyselling. You'll learn to guide clients from the anxiety of financial winter to the confidence of lasting spring—not through better facts, but through the human empathy algorithms will never touch. In a world racing toward automation, the most powerful thing you can offer is still the most ancient: a story that makes someone feel seen.</p>
-            <a href="https://a.co/d/50enZFL" class="btn btn-primary book-btn" target="_blank" rel="noopener">
-              Buy on Amazon →
-            </a>
-          </div>
-        </div>
-
-      </div>
+    <div class="hero-img">
+      <img src="/Headshot 1.png" alt="Scott Magnacca" onerror="this.style.display='none'"/>
     </div>
   </section>
+</div>
 
-  <!-- ============================================================
-       SECTION 7: EXPLORE THE ECOSYSTEM
-  ============================================================ -->
-  <section class="ecosystem" id="ecosystem">
-    <div class="container">
-      <p class="section-eyebrow centered">EXPLORE THE ECOSYSTEM</p>
-      <h2 class="section-headline centered">
-        Two Platforms. One Mission.<br />Close More Deals.
-      </h2>
-      <div class="ecosystem-grid">
-
-        <!-- Card A — SalesForLife.ai -->
-        <div class="eco-card eco-card--primary">
-          <div class="eco-card-tag">AI SALES PLATFORM</div>
-          <div class="eco-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3 class="eco-title">SalesForLife.ai</h3>
-          <p class="eco-desc">
-            Your competitors are still doing this manually. SalesForLife.ai deploys
-            AI-powered outreach, follow-up, and pipeline automation — live in 30 days,
-            running 24/7. Stop leaving deals on the table.
-          </p>
-          <ul class="eco-bullets">
-            <li>Automated prospecting &amp; outreach</li>
-            <li>AI follow-up that never misses a lead</li>
-            <li>Pipeline dashboards built for founders</li>
-          </ul>
-          <a href="https://salesforlife.ai" class="btn btn-primary eco-btn" target="_blank" rel="noopener">
-            Launch Your AI Sales Team →
-          </a>
-        </div>
-
-        <!-- Card B — Netlify site (update description when ready) -->
-        <div class="eco-card eco-card--secondary">
-          <div class="eco-card-tag">STORYSELLING FRAMEWORK</div>
-          <div class="eco-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-            </svg>
-          </div>
-          <h3 class="eco-title">Storyselling in<br />the Age of AI</h3>
-          <p class="eco-desc">
-            The Narrative Intelligence framework that's been battle-tested with
-            30,000+ people is now a living program. Learn to sell with story,
-            powered by AI — and close deals your competitors can't touch.
-          </p>
-          <ul class="eco-bullets">
-            <li>Harvard-developed Narrative Intelligence</li>
-            <li>Frameworks for high-stakes conversations</li>
-            <li>AI tools that amplify your voice</li>
-          </ul>
-          <a href="https://soft-marzipan-9cf81c.netlify.app/" class="btn btn-ghost eco-btn" target="_blank" rel="noopener">
-            Explore the Framework →
-          </a>
-        </div>
-
+<section class="quiz-section" id="why">
+  <div class="container">
+    <div class="quiz-wrap">
+      <div class="section-label">FREE · 60-SECOND ASSESSMENT</div>
+      <h2 class="section-title">12-Month AI Disruption Risk Assessment: Will Your Job Be Next?</h2>
+      <p class="section-sub" style="margin:0 auto 2rem;">Answer 3 research-backed questions. Get your personalized AI vulnerability score instantly.</p>
+      <div class="quiz-progress" id="quizProgress">
+        <div class="quiz-dot active" id="dot0"></div>
+        <div class="quiz-dot" id="dot1"></div>
+        <div class="quiz-dot" id="dot2"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION 8: FOOTER CTA
-  ============================================================ -->
-  <section class="footer-cta" id="cta">
-    <div class="container footer-cta-inner">
-      <h2 class="footer-cta-headline">
-        Ready to Build a Sales Machine<br />That Runs on AI?
-      </h2>
-      <p class="footer-cta-sub">One conversation. Real strategy. No pitch.</p>
-      <a href="#" class="btn btn-white open-contact-modal">
-        Book Your Free Strategy Call →
-      </a>
-      <p class="footer-cta-note">
-        Limited spots available. Scott reviews every application personally.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT MODAL -->
-  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-box">
-      <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
-
-      <div id="modal-form-view">
-        <p class="modal-eyebrow">Free Strategy Call</p>
-        <h2 class="modal-title" id="modal-title">Let's Talk About Your Sales Growth</h2>
-        <p class="modal-sub">Scott reviews every request personally. No pitch — just strategy.</p>
-
-        <!-- Netlify Forms: the hidden form-name input is required for AJAX submission -->
-        <form name="contact" id="contact-form" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-          <div class="modal-row">
-            <div class="modal-field">
-              <label for="cf-first">First Name</label>
-              <input type="text" id="cf-first" name="first_name" placeholder="Jane" required />
-            </div>
-            <div class="modal-field">
-              <label for="cf-last">Last Name</label>
-              <input type="text" id="cf-last" name="last_name" placeholder="Smith" required />
-            </div>
-          </div>
-          <div class="modal-field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required />
-          </div>
-          <div class="modal-field">
-            <label for="cf-cell">Cell Phone</label>
-            <input type="tel" id="cf-cell" name="cell" placeholder="(555) 000-0000" />
-          </div>
-          <div class="modal-field">
-            <label for="cf-company">Company</label>
-            <input type="text" id="cf-company" name="company" placeholder="Acme Financial" />
-          </div>
-          <p id="cf-error" class="cf-error" style="display:none">Please fill in your name and a valid email.</p>
-          <button type="submit" class="btn btn-primary cf-submit">Request My Free Strategy Call →</button>
-        </form>
+      <div class="quiz-step active" id="step0">
+        <div class="quiz-counter">01 / 03</div>
+        <div class="quiz-category">Automatable Tasks</div>
+        <h3 class="quiz-q">How repetitive or rule-following is your daily work?</h3>
+        <p class="quiz-hint">e.g., data entry, standard reports, basic processing</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(0,0,4)"><span class="opt-letter">A</span> Very Repetitive / Solely Data <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(0,1,3)"><span class="opt-letter">B</span> Predominantly Routine <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(0,2,2)"><span class="opt-letter">C</span> Varies / Moderate <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(0,3,1)"><span class="opt-letter">D</span> Minimal Routine / Solely Unique <span class="opt-check">✓</span></div>
+        </div>
+        <p class="quiz-error" id="err0">⚠ Please answer all 3 questions before continuing.</p>
+        <button class="btn-primary" style="margin-top:1.5rem;" onclick="nextStep(0)">Next →</button>
       </div>
-
-      <div id="modal-success-view" style="display:none">
-        <div class="modal-success-icon">✓</div>
-        <h2 class="modal-title">You're In!</h2>
-        <p class="modal-sub">Scott will reach out within 1 business day to confirm your call. Check your inbox — and spam just in case.</p>
+      <div class="quiz-step" id="step1">
+        <div class="quiz-counter">02 / 03</div>
+        <div class="quiz-category">Industry Adoption Rate</div>
+        <h3 class="quiz-q">To what extent are competitors in your industry already deploying AI tools for efficiency or cost-cutting?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(1,0,4)"><span class="opt-letter">A</span> Widespread &amp; Disruptive <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(1,1,3)"><span class="opt-letter">B</span> Significant Implementation <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(1,2,2)"><span class="opt-letter">C</span> Just Started / Small Projects <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(1,3,1)"><span class="opt-letter">D</span> No Adoption or Planning <span class="opt-check">✓</span></div>
+        </div>
+        <p class="quiz-error" id="err1">⚠ Please select an option.</p>
+        <button class="btn-primary" style="margin-top:1.5rem;" onclick="nextStep(1)">Next →</button>
+      </div>
+      <div class="quiz-step" id="step2">
+        <div class="quiz-counter">03 / 03</div>
+        <div class="quiz-category">Human Skill Resiliency</div>
+        <h3 class="quiz-q">How critical are empathy, complex social navigation, or high-level strategic reasoning to your core duties?</h3>
+        <p class="quiz-hint">Higher human need = lower risk</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(2,0,1)"><span class="opt-letter">A</span> Highly Empathetic / Creative <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(2,1,2)"><span class="opt-letter">B</span> Moderate Human Connection <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(2,2,3)"><span class="opt-letter">C</span> Minimal, Mostly Analytical <span class="opt-check">✓</span></div>
+          <div class="quiz-option" onclick="selectOption(2,3,4)"><span class="opt-letter">D</span> Never Required <span class="opt-check">✓</span></div>
+        </div>
+        <p class="quiz-error" id="err2">⚠ Please select an option.</p>
+        <button class="btn-primary" style="margin-top:1.5rem;" onclick="submitQuiz()">Calculate My Risk Score</button>
+        <p class="privacy-note">🔒 Private &amp; confidential — no spam, ever.</p>
+      </div>
+      <div class="quiz-email-wrap" id="quizEmail">
+        <h3 class="section-title" style="font-size:1.6rem;">Your Assessment is Ready!</h3>
+        <p style="color:var(--muted);margin-bottom:1.5rem;">Enter your email address to unlock your personalized score (0–100%)</p>
+        <input type="email" class="quiz-input" id="emailInput" placeholder="your@email.com"/>
+        <p class="quiz-error" id="emailErr">⚠ Please enter a valid email address.</p>
+        <button class="btn-primary" style="width:100%;" onclick="unlockScore()">🔓 Unlock My Score</button>
+        <p class="privacy-note">No spam. Unsubscribe anytime.</p>
+      </div>
+      <div class="quiz-result-wrap" id="quizResult">
+        <div class="section-label">12-Month AI Disruption Risk Assessment</div>
+        <div class="score-circle" id="scoreCircle">
+          <div class="score-num" id="scoreNum">0</div>
+          <div class="score-pct">%</div>
+        </div>
+        <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem;" id="scoreAnalyzing">Analyzing...</p>
+        <div class="score-label" id="scoreLabel"></div>
+        <p class="score-desc" id="scoreDesc"></p>
+        <div class="score-legend">
+          <span><span class="legend-dot legend-high"></span> 71–100% High</span>
+          <span><span class="legend-dot legend-mod"></span> 36–70% Moderate</span>
+          <span><span class="legend-dot legend-low"></span> 0–35% Minimal</span>
+        </div>
+        <div class="hero-btns" style="justify-content:center;">
+          <a href="#" class="btn-primary" onclick="openModal(event)">Get Your Free AI Survival Strategy →</a>
+          <a href="#offers" class="btn-secondary">Explore Training Programs →</a>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- FOOTER BAR -->
-  <footer class="footer-bar">
-    <div class="container footer-bar-inner">
-      <span>© 2026 Scott Magnacca · SalesForLife.ai</span>
-      <div class="footer-links">
-        <a href="https://salesforlife.ai" target="_blank" rel="noopener">SalesForLife.ai</a>
-        <a href="https://soft-marzipan-9cf81c.netlify.app/" target="_blank" rel="noopener">Storyselling</a>
-        <a href="https://linkedin.com/in/scottmagnacca" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" class="footer-link-muted">Privacy Policy</a>
+<section class="logos-section">
+  <div class="logos-label">EDUCATED AT · CLIENT EXPERIENCE WITH</div>
+  <div class="logos-row">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/320px-Harvard_University_logo.svg.png" alt="Harvard University"/>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Babson_College_seal.svg/200px-Babson_College_seal.svg.png" alt="Babson College"/>
+    <span class="logo-text">FIDELITY</span>
+    <span class="logo-text">TIAA</span>
+    <span class="logo-text">EDELMAN<span>Financial</span></span>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="container" style="text-align:center;">
+    <blockquote>"Most sales teams are running<br/>a 2015 playbook in a 2026 world."</blockquote>
+    <p class="quote-body">
+      AI hasn't made selling easier. It's made the gap between elite sales teams and average ones <strong>wider than ever.</strong><br><br>
+      My Narrative Intelligence framework was built at Harvard during my master's capstone project. It has been battle-tested in the field with over 30,000 people, and now it's been encoded into my book <em>Storyselling in The Age of AI</em>, and deployed in AI systems that work 24/7. This is the edge your competitors don't have yet.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">THE THREE PILLARS OF SALES MASTERY</div>
+    <h2 class="section-title">The Life Skills That Separate Good From Great</h2>
+    <p class="section-sub">This training is built on three foundational skills that compound over time — the difference between a salesperson who plateaus and one who continually rises.</p>
+    <div id="pillars-section-fx"></div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🔍</div>
+        <div class="pillar-title">Curiosity</div>
+        <p class="pillar-body">The questions you ask reveal opportunities others miss. Elite salespeople never stop asking <em>why</em> — they discover what clients truly need before competitors even know to ask.</p>
+        <div class="pillar-stat">92% of top performers cite curiosity as their #1 trait</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📚</div>
+        <div class="pillar-title">Lifelong Learning</div>
+        <p class="pillar-body">The market rewards those who never stop growing. What you master today becomes tomorrow's competitive advantage. Compound your knowledge like compound interest.</p>
+        <div class="pillar-stat">Skills learned in days compound into decades of results</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-title">Adapting to Change</div>
+        <p class="pillar-body">Personal and professional change is constant. Those who adapt fastest don't just survive — they pull ahead permanently while others are still figuring out what happened.</p>
+        <div class="pillar-stat">Adaptability = the ultimate long-term sales advantage</div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // ── Hero eyebrow wave animation ────────────────────────────────
-    (function() {
-      var eyebrow = document.getElementById('hero-eyebrow-text');
-      if (!eyebrow) return;
-      var totalChars = eyebrow.textContent.length;
-      var charDelay = 3000 / totalChars;
-      var charIndex = 0;
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-target="100">$0</div>
+        <div class="stat-label">Over $100M Pipeline Generated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="30000" data-suffix="+">0</div>
+        <div class="stat-label">Salespeople Coached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="25" data-suffix="+">0</div>
+        <div class="stat-label">Years of Financial Sales Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      function wrapPart(htmlPart) {
-        // Decode HTML entities via a temp element so & renders correctly
-        var tmp = document.createElement('span');
-        tmp.innerHTML = htmlPart;
-        return tmp.textContent.split('').map(function(char) {
-          var delay = Math.round(charIndex++ * charDelay);
-          var safe = char === ' ' ? '&nbsp;' : char.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-          return '<span class="eyebrow-char" style="animation-delay:' + delay + 'ms">' + safe + '</span>';
-        }).join('');
-      }
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img">
+        <img src="/headshot 3.png" alt="Scott Magnacca" onerror="this.style.display='none'"/>
+      </div>
+      <div>
+        <div class="section-label">THE ORIGIN STORY</div>
+        <h2 class="section-title">I Studied the Science of Influence at Harvard. Then I Had to Actually Sell.</h2>
+        <div class="story-body">
+          <p>At Babson, I learned how businesses are built. At Harvard, I learned why people say yes.</p>
+          <p>But my real MBA came from cold calls, lost deals, and the grind of quota. I wasn't just studying sales — I was living it.</p>
+          <p>When AI emerged, I didn't see a threat to sellers. I saw an opportunity — an unfair advantage. Something that everyone had access to but few would learn to apply and use.</p>
+          <p>SalesForLife.ai is that unfair advantage — it helps you become a <strong>"Hybrid Advisor"</strong> combining the power of AI with your soft sales skills of relationship building, connection, and storyselling.</p>
+          <p>I've shared these principles with executives, companies, and individual salespeople to boost productivity, drive profitability, and create lifetime client value. I can do the same for you.</p>
+          <p><strong>Now I can help you learn in days what took me decades to master. Discover the shortcut I never had.</strong></p>
+          <a href="#" class="btn-primary" style="margin-top:1rem;display:inline-block;" onclick="openModal(event)">Work With Scott →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Split on <br> to preserve line breaks, wrap each part separately
-      var parts = eyebrow.innerHTML.split(/<br\s*\/?>/i);
-      eyebrow.innerHTML = parts.map(wrapPart).join('<br>');
-    })();
+<section class="photos-section">
+  <div class="container">
+    <p class="photos-label">Pittsburgh AI Summit · Capital Grille</p>
+    <div class="photos-row">
+      <div class="photo-frame">
+        <img src="/Capitalgrill1.png" alt="Pittsburgh AI Summit"/>
+      </div>
+      <div class="photo-frame">
+        <img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation"/>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // ── Count-up animation for stats ──────────────────────────────
-    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+<section id="offers">
+  <div class="container">
+    <div class="section-label">CHOOSE YOUR PATH</div>
+    <h2 class="section-title">Build Your AI-Powered Sales Empire</h2>
+    <p class="section-sub">Every path leads to the same outcome: a pipeline that never sleeps.</p>
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="offer-label">PRIVATE ADVISORY</div>
+        <div class="offer-title">90-Day AI Sales Transformation</div>
+        <p class="offer-body">Work directly with Scott to rebuild your sales system from the pipeline up. For serious founders only.</p>
+        <a href="#" class="offer-link" onclick="openModal(event)">Apply Now →</a>
+      </div>
+      <div class="offer-card featured">
+        <div class="offer-badge">MOST POPULAR</div>
+        <div class="offer-label">THE PLATFORM</div>
+        <div class="offer-title">SalesForLife.ai — Your AI Sales Team</div>
+        <p class="offer-body">Automated outreach, follow-up, and pipeline management. Deployed in 30 days. Runs 24/7.</p>
+        <a href="https://salesforlife.ai" class="offer-link" target="_blank">See the Demo →</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-label">KEYNOTES &amp; WORKSHOPS</div>
+        <div class="offer-title">Harvard-Trained. Battle-Tested.</div>
+        <p class="offer-body">Bring Scott's AI sales frameworks to your event or leadership offsite. Audiences leave with systems, not just inspiration.</p>
+        <a href="#" class="offer-link" onclick="openModal(event)">Check Availability →</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-badge" style="background:var(--surface2);color:var(--accent);border:1px solid var(--accent);">FREE — START HERE</div>
+        <div class="offer-label">FREE TRAINING</div>
+        <div class="offer-title">The AI Sales Playbook: 5 Systems Closing Now</div>
+        <p class="offer-body">Start here. No cost. No fluff. The exact frameworks driving pipeline right now.</p>
+        <a href="#cta" class="offer-link">Download Free →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function animateStat(el) {
-      const target = parseInt(el.dataset.target, 10);
-      const prefix = el.dataset.prefix || '';
-      const suffix = el.dataset.suffix || '';
-      const duration = 2400;
-      const startTime = performance.now();
+<section id="books" class="books-section">
+  <div class="container">
+    <div class="section-label">BESTSELLING AUTHOR</div>
+    <h2 class="section-title">The Playbooks That Built the System</h2>
+    <p class="section-sub">Four books. Decades of research. One mission: give you the unfair advantage.</p>
+    <div class="books-grid">
+      <div class="book-card">
+        <div class="book-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w" alt="Why Professional Help Matters by Scott Magnacca"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 1</div>
+          <div class="book-title">Why Professional Help Matters: The Human Premium in the Age of AI</div>
+          <p class="book-desc">The most successful people in history have never worked alone—and now, for the first time, a 24/7 panel of world-class experts is available to anyone willing to learn how to use it. This book hands you the exact framework top performers are quietly using to compress decades of expertise into weeks. Most people will keep struggling alone while this window of advantage is still open. The few who read this won't just keep up—they'll pull ahead permanently.</p>
+          <a href="https://a.co/d/iUi7Y0A" class="book-link" target="_blank">Buy on Amazon →</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-img">
+          <div class="book-cover-fallback">
+            <div class="bnum">7</div>
+            <div class="btitle">STRATEGIES FOR A SUCCESSFUL RETIREMENT</div>
+            <div class="bsub">The New Rules of Building Wealth in the AI Age</div>
+            <div class="bauthor">SCOTT MAGNACCA, CFP</div>
+          </div>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 2</div>
+          <div class="book-title">The 7 Strategies for a Successful Retirement</div>
+          <p class="book-desc">Every self-made millionaire agrees: the rules of building wealth have fundamentally changed—and most people haven't gotten the memo. This book gives you what a brilliant, tireless financial co-pilot would tell their own family: how to spot opportunities faster, eliminate costly complexity, and make your money work as relentlessly as you do. The old rules kept you dependent. These seven strategies set you free.</p>
+          <a href="https://a.co/d/gVCC3yS" class="book-link" target="_blank">Buy on Amazon →</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w" alt="TOP GUN: The Secrets of Relationship Based Selling by Scott Magnacca"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 3</div>
+          <div class="book-title">Top Gun: The Secrets of Relationship-Based Selling — Financial Services Edition</div>
+          <p class="book-desc">While 82% of employers desperately seek people who can communicate and persuade, only 4% of college graduates have ever taken a sales course. That gap is your unfair advantage—if you claim it. This book is the elite training program you never had: a proven system to sharpen your influence, master high-stakes conversations, and walk into every client meeting with the quiet confidence of a Top Gun pilot who has already run the mission a hundred times. People who master this skill don't just get the deal—they become irreplaceable.</p>
+          <a href="https://a.co/d/6ZCSyTm" class="book-link" target="_blank">Buy on Amazon →</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-img">
+          <div class="book-badge">NEWEST RELEASE</div>
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w" alt="Storyselling in The Age of AI by Scott Magnacca"/>
+        </div>
+        <div class="book-content">
+          <div class="book-num">BOOK 4 · NEWEST RELEASE</div>
+          <div class="book-title">Storyselling in the Age of AI</div>
+          <p class="book-desc">AI can out-calculate any human expert—which means data alone no longer wins. What it cannot replicate is the invisible bridge between a cold spreadsheet and a client's heart. This book reveals the one skill separating advisors who are merely tolerated from those who are trusted: Storyselling. You'll learn to guide clients from the anxiety of financial winter to the confidence of lasting spring—not through better facts, but through the human empathy algorithms will never touch. In a world racing toward automation, the most powerful thing you can offer is still the most ancient: a story that makes someone feel seen.</p>
+          <a href="https://a.co/d/50enZFL" class="book-link" target="_blank">Buy on Amazon →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      function step(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const value = Math.round(easeOutCubic(progress) * target);
-        el.textContent = prefix + value.toLocaleString() + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+<section class="platforms-section">
+  <div class="container">
+    <div class="section-label">EXPLORE THE ECOSYSTEM</div>
+    <h2 class="section-title">Two Platforms. One Mission. Close More Deals.</h2>
+    <div class="platforms-grid">
+      <div class="platform-card featured-plat">
+        <div class="platform-label">AI SALES PLATFORM</div>
+        <div class="platform-icon">🗂️</div>
+        <div class="platform-title">SalesForLife.ai</div>
+        <p class="platform-body">Your competitors are still doing this manually. SalesForLife.ai deploys AI-powered outreach, follow-up, and pipeline automation — live in 30 days, running 24/7. Stop leaving deals on the table.</p>
+        <ul class="platform-features">
+          <li>Automated prospecting &amp; outreach</li>
+          <li>AI follow-up that never misses a lead</li>
+          <li>Pipeline dashboards built for founders</li>
+        </ul>
+        <a href="https://salesforlife.ai" class="platform-link primary" target="_blank">Launch Your AI Sales Team →</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-label">STORYSELLING FRAMEWORK</div>
+        <div class="platform-icon">✏️</div>
+        <div class="platform-title">Storyselling in the Age of AI</div>
+        <p class="platform-body">The Narrative Intelligence framework that's been battle-tested with 30,000+ people is now a living program. Learn to sell with story, powered by AI — and close deals your competitors can't touch.</p>
+        <ul class="platform-features">
+          <li>Harvard-developed Narrative Intelligence</li>
+          <li>Frameworks for high-stakes conversations</li>
+          <li>AI tools that amplify your voice</li>
+        </ul>
+        <a href="https://soft-marzipan-9cf81c.netlify.app/" class="platform-link secondary" target="_blank">Explore the Framework →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Ready to Build a Sales Machine That Runs on AI &amp; Is Fueled By Human Connection &amp; Deep Relationships?</h2>
+    <p>One conversation. Real strategy. No pitch.</p>
+    <a href="#" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.2rem;" onclick="openModal(event)">Book Your Free Strategy Call →</a>
+    <p class="cta-note">Limited spots available. Scott reviews every application personally.</p>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="formContent">
+      <h2>Free Strategy Call</h2>
+      <h3 style="font-size:1.4rem;color:#fff;margin-bottom:0.25rem;">Let's Talk About Your Sales Growth</h3>
+      <p>Scott reviews every request personally. No pitch — just strategy.</p>
+      <div class="form-row">
+        <div class="form-group"><input type="text" id="firstName" placeholder="First Name"/></div>
+        <div class="form-group"><input type="text" id="lastName" placeholder="Last Name"/></div>
+      </div>
+      <div class="form-group"><input type="email" id="formEmail" placeholder="Email"/></div>
+      <div class="form-group"><input type="tel" id="formPhone" placeholder="Cell Phone"/></div>
+      <div class="form-group"><input type="text" id="formCompany" placeholder="Company"/></div>
+      <div class="form-group honeypot"><input type="text" id="honeypotField" placeholder="Don't fill this out"/></div>
+      <p class="form-error" id="formError">Please fill in your name and a valid email.</p>
+      <button class="btn-primary" style="width:100%;margin-top:0.5rem;" onclick="submitForm()">Request My Free Strategy Call →</button>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="check">✓</div>
+      <h3>You're In!</h3>
+      <p>Scott will reach out within 1 business day to confirm your call. Check your inbox — and spam just in case.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://salesforlife.ai" target="_blank">SalesForLife.ai</a>
+    <a href="https://soft-marzipan-9cf81c.netlify.app/" target="_blank">Storyselling</a>
+    <a href="https://linkedin.com/in/scottmagnacca" target="_blank">LinkedIn</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+  <p>© 2026 Scott Magnacca · SalesForLife.ai</p>
+</footer>
+
+<script>
+  const answers = [null, null, null];
+  const scores = [null, null, null];
+
+  function selectOption(step, idx, score) {
+    const opts = document.querySelectorAll(`#step${step} .quiz-option`);
+    opts.forEach((o,i) => o.classList.toggle('selected', i === idx));
+    answers[step] = idx;
+    scores[step] = score;
+  }
+
+  function nextStep(current) {
+    if (answers[current] === null) { document.getElementById(`err${current}`).style.display = 'block'; return; }
+    document.getElementById(`err${current}`).style.display = 'none';
+    document.getElementById(`step${current}`).classList.remove('active');
+    document.getElementById(`step${current+1}`).classList.add('active');
+    document.getElementById(`dot${current}`).classList.remove('active');
+    document.getElementById(`dot${current}`).classList.add('done');
+    document.getElementById(`dot${current+1}`).classList.add('active');
+  }
+
+  function submitQuiz() {
+    if (answers[2] === null) { document.getElementById('err2').style.display = 'block'; return; }
+    document.getElementById('err2').style.display = 'none';
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('dot2').classList.remove('active');
+    document.getElementById('dot2').classList.add('done');
+    document.getElementById('quizEmail').style.display = 'block';
+  }
+
+  function unlockScore() {
+    const email = document.getElementById('emailInput').value;
+    if (!email || !email.includes('@')) { document.getElementById('emailErr').style.display = 'block'; return; }
+    document.getElementById('emailErr').style.display = 'none';
+    document.getElementById('quizEmail').style.display = 'none';
+    showResult();
+  }
+
+  function showResult() {
+    const total = scores.reduce((a,b) => a + (b||0), 0);
+    const pct = Math.round((total / 12) * 100);
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('scoreAnalyzing').style.display = 'none';
+    let num = 0;
+    const el = document.getElementById('scoreNum');
+    const timer = setInterval(() => { num = Math.min(num + 2, pct); el.textContent = num; if (num >= pct) clearInterval(timer); }, 30);
+    const circle = document.getElementById('scoreCircle');
+    const label = document.getElementById('scoreLabel');
+    const desc = document.getElementById('scoreDesc');
+    if (pct >= 71) { circle.style.borderColor = '#f87171'; label.textContent = 'High Risk'; label.style.color = '#f87171'; desc.textContent = 'Your role has significant exposure to AI disruption in the next 12 months. Now is the time to build your human edge.'; }
+    else if (pct >= 36) { circle.style.borderColor = '#f5c842'; label.textContent = 'Moderate Risk'; label.style.color = '#f5c842'; desc.textContent = 'You have some insulation, but AI is closing the gap. Upgrading your relational skills now keeps you ahead.'; }
+    else { circle.style.borderColor = '#34d399'; label.textContent = 'Minimal Risk'; label.style.color = '#34d399'; desc.textContent = 'Your work is highly resilient to AI disruption. Lean into your human skills to extend this advantage permanently.'; }
+  }
+
+  function openModal(e) { e.preventDefault(); document.getElementById('modalOverlay').classList.add('open'); }
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+  document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+  function submitForm() {
+    const fn = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('formEmail').value.trim();
+    const honeypot = document.getElementById('honeypotField').value;
+    if (honeypot || !fn || !email || !email.includes('@')) { document.getElementById('formError').style.display = 'block'; return; }
+    document.getElementById('formError').style.display = 'none';
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  (function() {
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, stars = [];
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < 120; i++) {
+      stars.push({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, r: Math.random() * 1.2 + 0.2, dx: (Math.random() - 0.5) * 0.18, dy: (Math.random() - 0.5) * 0.12, o: Math.random() * 0.5 + 0.1 });
     }
-
-    const statsBar = document.querySelector('.stats-bar');
-    if (statsBar) {
-      const io = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting) {
-          document.querySelectorAll('.stat-number[data-target]').forEach(animateStat);
-          io.disconnect();
-        }
-      }, { threshold: 0.4 });
-      io.observe(statsBar);
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(96,165,250,${s.o})`; ctx.fill(); s.x += s.dx; s.y += s.dy; if (s.x < 0) s.x = W; if (s.x > W) s.x = 0; if (s.y < 0) s.y = H; if (s.y > H) s.y = 0; });
+      requestAnimationFrame(draw);
     }
+    draw();
+  })();
 
-    // ── Quiz: AI Disruption Risk Assessment ──────────────────────
-    (function() {
-      var quizScore = 0;
-      var circumference = 603.19; // 2π × 96
-
-      // ── One-question-at-a-time logic ──
-      function showQuizStep(n) {
-        for (var i = 1; i <= 3; i++) {
-          var q = document.getElementById('qs-q' + i);
-          var dot = document.getElementById('qs-dot' + i);
-          if (q) {
-            if (i === n) {
-              q.style.display = 'block';
-              q.classList.add('qs-q--active');
-            } else {
-              q.style.display = 'none';
-              q.classList.remove('qs-q--active');
-            }
-          }
-          if (dot) {
-            dot.classList.toggle('qs-step--done', i < n);
-            dot.classList.toggle('qs-step--active', i === n);
-          }
-        }
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        let current = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          if (target >= 1000) { el.textContent = (current >= 1000 ? (current/1000).toFixed(0)+'K' : current) + suffix; }
+          else { el.textContent = (el.parentElement.querySelector('.stat-label').textContent.includes('Pipeline') ? '$' : '') + current + (suffix || (el.parentElement.querySelector('.stat-label').textContent.includes('Pipeline') ? 'M+' : '')); }
+          if (current >= target) clearInterval(timer);
+        }, 25);
+        observer.unobserve(el);
       }
-      showQuizStep(1);
-
-      // Highlight selected option + auto-advance
-      document.querySelectorAll('.qs-opt input').forEach(function(radio) {
-        radio.addEventListener('change', function() {
-          var grp = this.name;
-          document.querySelectorAll('[name="' + grp + '"]').forEach(function(r) {
-            r.closest('.qs-opt').classList.remove('qs-opt--sel');
-          });
-          this.closest('.qs-opt').classList.add('qs-opt--sel');
-          document.getElementById('qs-form-err').style.display = 'none';
-          var qNum = parseInt(grp.replace('q', ''));
-          if (qNum < 3) {
-            setTimeout(function() { showQuizStep(qNum + 1); }, 420);
-          } else {
-            setTimeout(function() {
-              var row = document.getElementById('qs-submit-row');
-              if (row) { row.style.display = 'flex'; row.classList.add('qs-submit-row--in'); }
-            }, 420);
-          }
-        });
-      });
-
-      // State 1 → State 2
-      var qForm = document.getElementById('qs-form');
-      if (qForm) qForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var q1 = document.querySelector('[name="q1"]:checked');
-        var q2 = document.querySelector('[name="q2"]:checked');
-        var q3 = document.querySelector('[name="q3"]:checked');
-        var err = document.getElementById('qs-form-err');
-        if (!q1 || !q2 || !q3) { err.style.display = 'block'; err.scrollIntoView({behavior:'smooth',block:'center'}); return; }
-        err.style.display = 'none';
-        quizScore = Math.round(parseFloat(q1.value) + parseFloat(q2.value) + parseFloat(q3.value));
-        var s1 = document.getElementById('qs1');
-        s1.classList.add('qs-card--blurred');
-        var s2 = document.getElementById('qs2');
-        s2.style.display = 'flex';
-        setTimeout(function() { var i = document.getElementById('qs-email-input'); if(i) i.focus(); }, 350);
-      });
-
-      // State 2 → State 3
-      var eForm = document.getElementById('qs-email-form');
-      if (eForm) eForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var email = document.getElementById('qs-email-input').value.trim();
-        var eErr = document.getElementById('qs-email-err');
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { eErr.style.display = 'block'; return; }
-        eErr.style.display = 'none';
-        document.getElementById('qs1').style.display = 'none';
-        document.getElementById('qs2').style.display = 'none';
-        var s34 = document.getElementById('qs34');
-        s34.style.display = 'block';
-        s34.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function() { startCountUp(quizScore); }, 400);
-      });
-
-      function getRiskColor(pct) {
-        return pct >= 71 ? '#EF4444' : pct >= 36 ? '#F59E0B' : '#10B981';
-      }
-      function easeInOutCubic(t) {
-        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-      }
-
-      function startCountUp(finalScore) {
-        var arc = document.getElementById('qs-arc');
-        var numEl = document.getElementById('qs-count-num');
-        var duration = 3000, startTime = null;
-        function step(ts) {
-          if (!startTime) startTime = ts;
-          var progress = Math.min((ts - startTime) / duration, 1);
-          var eased = easeInOutCubic(progress);
-          var current = Math.round(eased * finalScore);
-          var color = getRiskColor(current);
-          numEl.textContent = current;
-          arc.style.strokeDashoffset = circumference * (1 - current / 100);
-          arc.style.stroke = color;
-          if (progress < 1) { requestAnimationFrame(step); }
-          else { setTimeout(function() { triggerReveal(finalScore); }, 350); }
-        }
-        requestAnimationFrame(step);
-      }
-
-      function triggerReveal(finalScore) {
-        var s3 = document.getElementById('qs-stage3');
-        s3.style.transition = 'opacity 0.4s';
-        s3.style.opacity = '0';
-        setTimeout(function() {
-          s3.style.display = 'none';
-          var s4 = document.getElementById('qs-stage4');
-          s4.style.display = 'flex';
-          s4.style.flexDirection = 'column';
-          s4.style.alignItems = 'center';
-          setTimeout(function() { createBurst(); }, 80);
-          setTimeout(function() { showResult(finalScore); }, 1100);
-        }, 400);
-      }
-
-      function createBurst() {
-        var arena = document.getElementById('qs-burst-arena');
-        var lockWrap = document.getElementById('qs-open-lock-wrap');
-        var colors = ['#FFD700','#FFF176','#FFFFFF','#FFEC8B','#FFA500','#FFE082','#FFFDE7','#FFF9C4'];
-        for (var i = 0; i < 36; i++) {
-          var angle = (i / 36) * Math.PI * 2 + (Math.random() * 0.3 - 0.15);
-          var dist = 110 + Math.random() * 160;
-          var tx = Math.cos(angle) * dist;
-          var ty = Math.sin(angle) * dist;
-          var size = 8 + Math.random() * 18;
-          var delay = Math.random() * 0.18;
-          var dur = 0.55 + Math.random() * 0.45;
-          var isStar = Math.random() > 0.38;
-          var color = colors[Math.floor(Math.random() * colors.length)];
-          var p = document.createElement('div');
-          p.className = 'qs-particle' + (isStar ? ' qs-p-star' : ' qs-p-dot');
-          p.style.cssText = 'width:'+size+'px;height:'+size+'px;background:'+color+';--tx:'+tx+'px;--ty:'+ty+'px;animation-delay:'+delay+'s;animation-duration:'+dur+'s';
-          arena.insertBefore(p, lockWrap);
-        }
-        var flash = document.createElement('div');
-        flash.className = 'qs-burst-flash';
-        arena.appendChild(flash);
-        lockWrap.classList.add('qs-lock-pop');
-      }
-
-      function showResult(finalScore) {
-        var block = document.getElementById('qs-result-block');
-        var scoreEl = document.getElementById('qs-final-score');
-        var pillEl = document.getElementById('qs-risk-pill');
-        var msgEl = document.getElementById('qs-risk-msg');
-        var color = getRiskColor(finalScore);
-        var label = finalScore >= 71 ? 'Significant Risk' : finalScore >= 36 ? 'Moderate Risk' : 'Minimal Risk';
-        var msg = finalScore >= 71
-          ? 'Your role shows high vulnerability to AI disruption. Act now — the skills that future-proof your career are learnable, and the window to get ahead is still open.'
-          : finalScore >= 36
-          ? 'You have some protection, but AI is closing the gap fast. Building your Hybrid Advisor skills now puts you permanently ahead of the curve.'
-          : "Your role relies heavily on uniquely human skills. Keep compounding these — they're your most durable competitive advantage in the AI era.";
-        scoreEl.textContent = finalScore + '%';
-        scoreEl.style.color = color;
-        pillEl.textContent = label;
-        pillEl.style.background = color + '22';
-        pillEl.style.color = color;
-        pillEl.style.borderColor = color + '55';
-        msgEl.textContent = msg;
-        block.style.display = 'flex';
-        block.style.flexDirection = 'column';
-        block.style.alignItems = 'center';
-        requestAnimationFrame(function() { requestAnimationFrame(function() { block.classList.add('qs-result--in'); }); });
-      }
-    })();
-
-    // ── Life skills cards: stagger fade-in on scroll ──────────────
-    const lsCards = document.querySelectorAll('.ls-card');
-    if (lsCards.length && 'IntersectionObserver' in window) {
-      const cardIO = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('ls-card--visible');
-            cardIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      lsCards.forEach(function(card) { cardIO.observe(card); });
-    }
-
-    // ── Contact Modal ──────────────────────────────────────────────
-    (function() {
-      var modal    = document.getElementById('contact-modal');
-      var closeBtn = document.getElementById('modal-close-btn');
-      var form     = document.getElementById('contact-form');
-      var errorMsg = document.getElementById('cf-error');
-      var formView = document.getElementById('modal-form-view');
-      var successView = document.getElementById('modal-success-view');
-
-      function openModal(e) {
-        if (e) e.preventDefault();
-        modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-
-      // Open on all trigger buttons
-      document.querySelectorAll('.open-contact-modal').forEach(function(btn) {
-        btn.addEventListener('click', openModal);
-      });
-
-      // Close on X button or backdrop click
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
-      });
-
-      // Close on Escape
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeModal();
-      });
-
-      // Submit to Netlify via fetch
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var firstName = form.first_name.value.trim();
-        var lastName  = form.last_name.value.trim();
-        var email     = form.email.value.trim();
-
-        if (!firstName || !lastName || !email || !/\S+@\S+\.\S+/.test(email)) {
-          errorMsg.style.display = 'block';
-          return;
-        }
-        errorMsg.style.display = 'none';
-
-        var data = new URLSearchParams();
-        data.append('form-name', 'contact');
-        data.append('first_name', firstName);
-        data.append('last_name', lastName);
-        data.append('email', email);
-        data.append('cell', form.cell.value.trim());
-        data.append('company', form.company.value.trim());
-
-        fetch('/', { method: 'POST', body: data })
-          .then(function() {
-            formView.style.display = 'none';
-            successView.style.display = 'block';
-          })
-          .catch(function() {
-            errorMsg.textContent = 'Something went wrong — please email scott@salesforlife.ai directly.';
-            errorMsg.style.display = 'block';
-          });
-      });
-    })();
-  </script>
-
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+</script>
 </body>
 </html>
