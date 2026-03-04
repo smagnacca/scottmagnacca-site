@@ -219,11 +219,11 @@ a  { text-decoration: none; }
 }
 
 .days-highlight {
-  color: #2dd4bf;
+  color: #4A90E2;
 }
 
 .not-weeks {
-  color: #2dd4bf;
+  color: #4A90E2;
   position: relative;
   display: inline-block;
 }
@@ -235,9 +235,9 @@ a  { text-decoration: none; }
   left: 0;
   width: 0;
   height: 3px;
-  background: #2dd4bf;
+  background: #4A90E2;
   border-radius: 2px;
-  box-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
   animation: underline-grow 1.4s ease-out forwards;
   animation-delay: 2.5s;
 }
@@ -1072,14 +1072,14 @@ a  { text-decoration: none; }
 .modal-success-icon {
   width: 64px;
   height: 64px;
-  background: rgba(45, 212, 191, 0.15);
-  border: 2px solid #2dd4bf;
+  background: rgba(74, 144, 226, 0.15);
+  border: 2px solid #4A90E2;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
-  color: #2dd4bf;
+  color: #4A90E2;
   margin: 0 auto 1.5rem;
 }
 
