@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scott Magnacca — AI Sales Systems for Founders</title>
+  <meta name="description" content="Harvard-trained. Battle-tested. I help founders build AI-powered sales systems that close deals while you sleep." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+/* ============================================================
+   GLOBAL RESET & VARIABLES
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark:      #0A0A0A;
+  --bg-dark2:     #111111;
+  --bg-dark3:     #1A1A1A;
+  --bg-light:     #F9F9F9;
+  --accent:       #2563EB;
+  --accent-hover: #1D4ED8;
+  --text-white:   #F5F5F5;
+  --text-muted:   #A3A3A3;
+  --text-dark:    #0A0A0A;
+  --text-body:    #3D3D3D;
+  --border:       rgba(255,255,255,0.08);
+  --max-w:        1100px;
+  --radius:       8px;
+  --font:         'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a  { text-decoration: none; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: var(--text-white);
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--accent);
+  font-size: 1.1rem;
+  padding: 16px 36px;
+}
+.btn-white:hover {
+  background: #F0F4FF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-white);
+  letter-spacing: -0.03em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text-white); }
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  font-weight: 700 !important;
+}
+.nav-cta:hover {
+  background: var(--accent-hover) !important;
+}
+
+/* ============================================================
+   SECTION 1: HERO
+============================================================ */
+.hero {
+  position: relative;
+  background: var(--bg-dark);
+  padding: 140px 0 80px;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Subtle grid texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--bg-dark), transparent);
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero-headline {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Hero Photo */
+.hero-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--bg-dark3);
+  border-radius: 12px;
+  border: 1px dashed rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-photo-inner {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.placeholder-note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  margin-top: 8px;
+}
+
+/* If you add a real <img> inside .hero-image, use this: */
+.hero-image img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: drop-shadow(0 32px 64px rgba(0,0,0,0.6));
+}
+
+/* ============================================================
+   SECTION 2: TRUST BAR
+============================================================ */
+.trust-bar {
+  background: var(--bg-dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 0;
+}
+
+.trust-label {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 28px;
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.trust-logo-item img {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  object-fit: contain;
+}
+.trust-logo-item img:hover { opacity: 0.8; }
+
+/* Greyscale treatment — education logos */
+.trust-img-grey {
+  filter: grayscale(1) brightness(0) invert(1) !important;
+  opacity: 0.42 !important;
+}
+.trust-img-grey:hover { opacity: 0.62 !important; }
+
+/* Divider between education and client-experience marks */
+.trust-logo-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+/* Text-only wordmarks — styled references, not logo reproductions */
+.trust-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.32);
+  line-height: 1;
+  transition: color 0.2s;
+  user-select: none;
+}
+.trust-wordmark:hover { color: rgba(255,255,255,0.5); }
+
+.trust-wordmark--fidelity { letter-spacing: 0.08em; }
+.trust-wordmark--tiaa     { letter-spacing: 0.18em; font-size: 0.8rem; }
+.trust-wordmark--edelman  { flex-direction: column; align-items: flex-start; gap: 1px; }
+
+.wm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  margin-right: 2px;
+}
+
+.wm-sub {
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.22);
+  text-transform: uppercase;
+}
+
+.trust-logo-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: -0.02em;
+}
+.trust-logo-text span { color: var(--accent); opacity: 0.7; }
+
+.trust-logo-placeholder {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  border: 1px dashed rgba(255,255,255,0.15);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   SECTION 3: THE 'WHY'
+============================================================ */
+.why {
+  background: var(--bg-light);
+  padding: 100px 0;
+}
+
+.why-inner {
+  max-width: 720px;
+  text-align: center;
+}
+
+.why-quote {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-dark);
+  border-left: 4px solid var(--accent);
+  padding-left: 28px;
+  text-align: left;
+  margin-bottom: 48px;
+  font-style: normal;
+}
+
+.why-body {
+  text-align: left;
+}
+
+.why-body p {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.why-body strong {
+  color: var(--text-dark);
+}
+
+/* Stats */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 64px;
+  padding: 40px 48px;
+  background: var(--bg-dark);
+  border-radius: 16px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 60px;
+  background: var(--border);
+}
+
+/* ============================================================
+   SECTION 4: BRIDGE STORY
+============================================================ */
+.story {
+  background: var(--bg-dark);
+  padding: 100px 0;
+}
+
+.story-inner {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-image {
+  position: relative;
+}
+
+.story-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--bg-dark3);
+  border-radius: 12px;
+  border: 1px dashed rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.story-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.story-image-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at center, rgba(37,99,235,0.2), transparent 70%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section-headline {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  margin-bottom: 28px;
+}
+
+.story-text p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.story-text strong { color: var(--text-white); }
+
+/* ============================================================
+   SECTION 5: GRID OF OFFERS
+============================================================ */
+.offers {
+  background: var(--bg-light);
+  padding: 100px 0;
+}
+
+.centered { text-align: center; }
+.section-headline.centered { color: var(--text-dark); }
+.section-eyebrow.centered { color: var(--accent); }
+
+.section-sub {
+  font-size: 1.05rem;
+  color: #666;
+  margin-top: 12px;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.offer-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+}
+
+.offer-card--featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.offer-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.offer-badge--green { background: #16A34A; }
+
+.offer-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.offer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.offer-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.offer-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.offer-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.offer-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: gap 0.15s;
+  margin-top: auto;
+}
+.offer-link:hover { color: #60A5FA; }
+
+/* ============================================================
+   SECTION 6: BOOKS
+============================================================ */
+.books {
+  background: var(--bg-dark);
+  padding: 100px 0;
+}
+
+.books-headline { color: var(--text-white); }
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.book-card {
+  background: var(--bg-dark2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.5);
+}
+
+.book-card--featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.book-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.book-cover-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--bg-dark3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.3s ease;
+}
+.book-card:hover .book-cover {
+  transform: scale(1.03);
+}
+
+.book-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.book-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.book-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  min-height: 2.6em;
+}
+
+.book-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.book-btn {
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* ============================================================
+   SECTION 7: EXPLORE THE ECOSYSTEM
+============================================================ */
+.ecosystem {
+  background: var(--bg-dark2);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.eco-card {
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-card--primary {
+  background: linear-gradient(145deg, #0f1f3d 0%, #0a0a0a 100%);
+  border: 1px solid rgba(37,99,235,0.35);
+  box-shadow: 0 0 60px rgba(37,99,235,0.08);
+}
+
+.eco-card--secondary {
+  background: var(--bg-dark3);
+  border: 1px solid var(--border);
+}
+
+.eco-card-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+.eco-card--primary .eco-card-tag { color: rgba(96,165,250,0.8); }
+
+.eco-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+}
+.eco-card--secondary .eco-icon { color: var(--text-muted); }
+.eco-icon svg { width: 100%; height: 100%; }
+
+.eco-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+}
+
+.eco-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.eco-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.eco-bullets li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  padding-left: 18px;
+  position: relative;
+}
+.eco-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+.eco-card--secondary .eco-bullets li::before { color: var(--text-muted); }
+
+.eco-btn { align-self: flex-start; margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .ecosystem-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SECTION 8: FOOTER CTA
+============================================================ */
+.footer-cta {
+  background: var(--accent);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal texture */
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  pointer-events: none;
+}
+
+.footer-cta-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-cta-headline {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-cta-sub {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 40px;
+}
+
+.footer-cta-note {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+}
+
+/* ============================================================
+   FOOTER BAR
+============================================================ */
+.footer-bar {
+  background: #050505;
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+}
+
+.footer-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.4);
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--text-white); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+
+  .hero {
+    padding: 100px 0 60px;
+    min-height: auto;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-image { order: -1; max-width: 280px; margin: 0 auto; }
+
+  .story-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .story-image { max-width: 320px; }
+
+  .offers-grid { grid-template-columns: 1fr; }
+  .books-grid  { grid-template-columns: repeat(2, 1fr); }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 32px;
+    padding: 36px 24px;
+  }
+  .stat-divider { width: 60px; height: 1px; }
+
+  .trust-logos { gap: 32px; }
+
+  .footer-bar-inner {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .why-quote  { font-size: 1.5rem; }
+  .books-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-headline { font-size: 2.2rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .btn { width: 100%; justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Scott Magnacca</a>
+      <div class="nav-links">
+        <a href="#why">Why AI</a>
+        <a href="#story">Story</a>
+        <a href="#offers">Work With Me</a>
+        <a href="#books">Books</a>
+        <a href="https://salesforlife.ai" target="_blank" rel="noopener">SalesForLife.ai</a>
+        <a href="#cta" class="nav-cta">Book a Call →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       SECTION 1: HERO
+  ============================================================ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp; Babson College. Trained in the Real World of High Stakes Sales.</p>
+        <h1 class="hero-headline">
+          I Help Founders Scale Sales<br />
+          With AI — Without<br />
+          Hiring an Army
+        </h1>
+        <p class="hero-sub">
+          Harvard &amp; Babson College Gave Me An Excellent Academic Foundation.
+          Client experience and creating marketing programs that generate interest,
+          impact and results at Fidelity Investments, TIAA &amp; Edelman Financial
+          Engines has helped me generate over $1 Billion in client value.
+          Let me help you do the same.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-primary">Book a Strategy Call →</a>
+          <a href="#offers" class="btn btn-ghost">See How SalesForLife.ai Works</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Replace src with your actual photo path -->
+        <div class="hero-photo-placeholder">
+          <div class="hero-photo-inner">
+            <span>Your Portrait<br/>Goes Here</span>
+            <p class="placeholder-note">(background removed)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-gradient"></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: TRUST BAR
+  ============================================================ -->
+  <section class="trust-bar">
+    <div class="container">
+      <p class="trust-label">EDUCATED AT · CLIENT EXPERIENCE WITH</p>
+      <div class="trust-logos">
+        <div class="trust-logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/320px-Harvard_University_logo.svg.png"
+               alt="Harvard University" class="trust-img-grey" />
+        </div>
+        <div class="trust-logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Babson_College_seal.svg/200px-Babson_College_seal.svg.png"
+               alt="Babson College" class="trust-img-grey" />
+        </div>
+        <div class="trust-logo-divider"></div>
+        <div class="trust-logo-item trust-wordmark trust-wordmark--fidelity">
+          <span class="wm-icon">F</span>IDELITY
+        </div>
+        <div class="trust-logo-item trust-wordmark trust-wordmark--tiaa">
+          TIAA
+        </div>
+        <div class="trust-logo-item trust-wordmark trust-wordmark--edelman">
+          EDELMAN<span class="wm-sub">Financial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: THE 'WHY'
+  ============================================================ -->
+  <section class="why" id="why">
+    <div class="container why-inner">
+      <blockquote class="why-quote">
+        "Most sales teams are running<br />a 2015 playbook in a 2026 world."
+      </blockquote>
+      <div class="why-body">
+        <p>
+          AI hasn't made selling easier. It's made the gap between elite sales teams and
+          average ones <strong>wider than ever.</strong>
+        </p>
+        <p>
+          I built SalesForLife.ai because I watched too many founders, salespeople and
+          entrepreneurs lose deals they should have won — not because their product was
+          weak, but because their pipeline and communication skills were.
+        </p>
+        <p>
+          My Narrative Intelligence framework was built at Harvard during my masters
+          capstone project. It has been battle-tested in the field with over 30,000
+          people, and now it's been encoded into my book <em>Storyselling in The Age of
+          AI</em>, and deployed in AI systems that work 24/7. This is the edge your
+          competitors don't have yet.
+        </p>
+      </div>
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-number">$100M+</span>
+          <span class="stat-label">Pipeline Generated</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Founders Coached</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Years in Enterprise Sales</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4: THE BRIDGE STORY
+  ============================================================ -->
+  <section class="story" id="story">
+    <div class="container story-inner">
+      <div class="story-image">
+        <!-- Replace with a candid/speaking photo -->
+        <div class="story-photo-placeholder">
+          <span>Speaking or<br/>Candid Photo<br/>Here</span>
+        </div>
+        <div class="story-image-glow"></div>
+      </div>
+      <div class="story-text">
+        <p class="section-eyebrow">THE ORIGIN STORY</p>
+        <h2 class="section-headline">
+          I Studied the Science of<br />
+          Influence at Harvard.<br />
+          Then I Had to Actually Sell.
+        </h2>
+        <p>
+          At Babson, I learned how businesses are built. At Harvard, I learned
+          why people say yes.
+        </p>
+        <p>
+          But my real MBA came from cold calls, lost deals, and the grind of quota.
+          I wasn't just studying sales — I was living it.
+        </p>
+        <p>
+          When AI emerged, I didn't see a threat to sellers. I saw a weapon.
+          SalesForLife.ai is that weapon — built on the same principles that took me
+          from the field to the boardroom.
+        </p>
+        <p><strong>Now I give founders the shortcut I never had.</strong></p>
+        <a href="#cta" class="btn btn-primary" style="margin-top:2rem;">Work With Scott →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5: GRID OF OFFERS
+  ============================================================ -->
+  <section class="offers" id="offers">
+    <div class="container">
+      <p class="section-eyebrow centered">CHOOSE YOUR PATH</p>
+      <h2 class="section-headline centered">
+        Build Your AI-Powered<br />Sales Empire
+      </h2>
+      <p class="section-sub centered">
+        Every path leads to the same outcome: a pipeline that never sleeps.
+      </p>
+
+      <div class="offers-grid">
+
+        <!-- Card 1 -->
+        <div class="offer-card">
+          <div class="offer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <p class="offer-eyebrow">PRIVATE ADVISORY</p>
+          <h3 class="offer-title">90-Day AI Sales<br />Transformation</h3>
+          <p class="offer-desc">
+            Work directly with Scott to rebuild your sales system from the
+            pipeline up. For serious founders only.
+          </p>
+          <a href="#cta" class="offer-link">Apply Now →</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="offer-card offer-card--featured">
+          <div class="offer-badge">MOST POPULAR</div>
+          <div class="offer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <p class="offer-eyebrow">THE PLATFORM</p>
+          <h3 class="offer-title">SalesForLife.ai<br />— Your AI Sales Team</h3>
+          <p class="offer-desc">
+            Automated outreach, follow-up, and pipeline management.
+            Deployed in 30 days. Runs 24/7.
+          </p>
+          <a href="https://salesforlife.ai" class="offer-link" target="_blank">See the Demo →</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="offer-card">
+          <div class="offer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <p class="offer-eyebrow">KEYNOTES &amp; WORKSHOPS</p>
+          <h3 class="offer-title">Harvard-Trained.<br />Battle-Tested.</h3>
+          <p class="offer-desc">
+            Bring Scott's AI sales frameworks to your event or leadership
+            offsite. Audiences leave with systems, not just inspiration.
+          </p>
+          <a href="#cta" class="offer-link">Check Availability →</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="offer-card offer-card--free">
+          <div class="offer-badge offer-badge--green">FREE — START HERE</div>
+          <div class="offer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <p class="offer-eyebrow">FREE TRAINING</p>
+          <h3 class="offer-title">The AI Sales Playbook:<br />5 Systems Closing Now</h3>
+          <p class="offer-desc">
+            Start here. No cost. No fluff. The exact frameworks driving
+            pipeline right now.
+          </p>
+          <a href="#cta" class="offer-link">Download Free →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6: BOOKS
+  ============================================================ -->
+  <section class="books" id="books">
+    <div class="container">
+      <p class="section-eyebrow centered">BESTSELLING AUTHOR</p>
+      <h2 class="section-headline centered books-headline">
+        The Playbooks That<br />Built the System
+      </h2>
+      <p class="section-sub centered">
+        Four books. Decades of research. One mission: give you the unfair advantage.
+      </p>
+
+      <div class="books-grid">
+
+        <!-- BOOK 1 — Why Professional Help Matters -->
+        <div class="book-card">
+          <div class="book-cover-wrap">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w"
+              alt="Why Professional Help Matters: The Human Premium in the Age of AI by Scott Magnacca"
+              class="book-cover"
+            />
+          </div>
+          <div class="book-info">
+            <p class="book-label">BOOK 1</p>
+            <h3 class="book-title">Why Professional Help Matters: The Human Premium in the Age of AI</h3>
+            <p class="book-desc">The most successful people in history have never worked alone—and now, for the first time, a 24/7 panel of world-class experts is available to anyone willing to learn how to use it. This book hands you the exact framework top performers are quietly using to compress decades of expertise into weeks. Most people will keep struggling alone while this window of advantage is still open. The few who read this won't just keep up—they'll pull ahead permanently.</p>
+            <a href="https://a.co/d/iUi7Y0A" class="btn btn-primary book-btn" target="_blank" rel="noopener">
+              Buy on Amazon →
+            </a>
+          </div>
+        </div>
+
+        <!-- BOOK 2 — The 7 Strategies for a Successful Retirement -->
+        <div class="book-card">
+          <div class="book-cover-wrap">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w"
+              alt="The 7 Strategies for a Successful Retirement by Scott Magnacca CFP"
+              class="book-cover"
+            />
+          </div>
+          <div class="book-info">
+            <p class="book-label">BOOK 2</p>
+            <h3 class="book-title">The 7 Strategies for a Successful Retirement</h3>
+            <p class="book-desc">Every self-made millionaire agrees: the rules of building wealth have fundamentally changed—and most people haven't gotten the memo. This book gives you what a brilliant, tireless financial co-pilot would tell their own family: how to spot opportunities faster, eliminate costly complexity, and make your money work as relentlessly as you do. The old rules kept you dependent. These seven strategies set you free.</p>
+            <a href="https://a.co/d/gVCC3yS" class="btn btn-primary book-btn" target="_blank" rel="noopener">
+              Buy on Amazon →
+            </a>
+          </div>
+        </div>
+
+        <!-- BOOK 3 — TOP GUN -->
+        <div class="book-card">
+          <div class="book-cover-wrap">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w"
+              alt="TOP GUN: The Secrets of Relationship Based Selling by Scott Magnacca CFP"
+              class="book-cover"
+            />
+          </div>
+          <div class="book-info">
+            <p class="book-label">BOOK 3</p>
+            <h3 class="book-title">Top Gun: The Secrets of Relationship Based Selling — Financial Services Edition</h3>
+            <p class="book-desc">While 82% of employers desperately seek people who can communicate and persuade, only 4% of college graduates have ever taken a sales course. That gap is your unfair advantage—if you claim it. This book is the elite training program you never had: a proven system to sharpen your influence, master high-stakes conversations, and walk into every client meeting with the quiet confidence of a Top Gun pilot who has already run the mission a hundred times. People who master this skill don't just get the deal—they become irreplaceable.</p>
+            <a href="https://a.co/d/6ZCSyTm" class="btn btn-primary book-btn" target="_blank" rel="noopener">
+              Buy on Amazon →
+            </a>
+          </div>
+        </div>
+
+        <!-- BOOK 4 — Storyselling in The Age of AI -->
+        <div class="book-card book-card--featured">
+          <div class="book-badge">NEWEST RELEASE</div>
+          <div class="book-cover-wrap">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w"
+              alt="Storyselling in The Age of AI by Scott Magnacca"
+              class="book-cover"
+            />
+          </div>
+          <div class="book-info">
+            <p class="book-label">BOOK 4 · NEWEST RELEASE</p>
+            <h3 class="book-title">Storyselling in the Age of AI</h3>
+            <p class="book-desc">AI can out-calculate any human expert—which means data alone no longer wins. What it cannot replicate is the invisible bridge between a cold spreadsheet and a client's heart. This book reveals the one skill separating advisors who are merely tolerated from those who are trusted: Storyselling. You'll learn to guide clients from the anxiety of financial winter to the confidence of lasting spring—not through better facts, but through the human empathy algorithms will never touch. In a world racing toward automation, the most powerful thing you can offer is still the most ancient: a story that makes someone feel seen.</p>
+            <a href="https://a.co/d/50enZFL" class="btn btn-primary book-btn" target="_blank" rel="noopener">
+              Buy on Amazon →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: EXPLORE THE ECOSYSTEM
+  ============================================================ -->
+  <section class="ecosystem" id="ecosystem">
+    <div class="container">
+      <p class="section-eyebrow centered">EXPLORE THE ECOSYSTEM</p>
+      <h2 class="section-headline centered">
+        Two Platforms. One Mission.<br />Close More Deals.
+      </h2>
+      <div class="ecosystem-grid">
+
+        <!-- Card A — SalesForLife.ai -->
+        <div class="eco-card eco-card--primary">
+          <div class="eco-card-tag">AI SALES PLATFORM</div>
+          <div class="eco-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="eco-title">SalesForLife.ai</h3>
+          <p class="eco-desc">
+            Your competitors are still doing this manually. SalesForLife.ai deploys
+            AI-powered outreach, follow-up, and pipeline automation — live in 30 days,
+            running 24/7. Stop leaving deals on the table.
+          </p>
+          <ul class="eco-bullets">
+            <li>Automated prospecting &amp; outreach</li>
+            <li>AI follow-up that never misses a lead</li>
+            <li>Pipeline dashboards built for founders</li>
+          </ul>
+          <a href="https://salesforlife.ai" class="btn btn-primary eco-btn" target="_blank" rel="noopener">
+            Launch Your AI Sales Team →
+          </a>
+        </div>
+
+        <!-- Card B — Netlify site (update description when ready) -->
+        <div class="eco-card eco-card--secondary">
+          <div class="eco-card-tag">STORYSELLING FRAMEWORK</div>
+          <div class="eco-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <h3 class="eco-title">Storyselling in<br />the Age of AI</h3>
+          <p class="eco-desc">
+            The Narrative Intelligence framework that's been battle-tested with
+            30,000+ people is now a living program. Learn to sell with story,
+            powered by AI — and close deals your competitors can't touch.
+          </p>
+          <ul class="eco-bullets">
+            <li>Harvard-developed Narrative Intelligence</li>
+            <li>Frameworks for high-stakes conversations</li>
+            <li>AI tools that amplify your voice</li>
+          </ul>
+          <a href="https://soft-marzipan-9cf81c.netlify.app/" class="btn btn-ghost eco-btn" target="_blank" rel="noopener">
+            Explore the Framework →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: FOOTER CTA
+  ============================================================ -->
+  <section class="footer-cta" id="cta">
+    <div class="container footer-cta-inner">
+      <h2 class="footer-cta-headline">
+        Ready to Build a Sales Machine<br />That Runs on AI?
+      </h2>
+      <p class="footer-cta-sub">One conversation. Real strategy. No pitch.</p>
+      <a href="mailto:scott@salesforlife.ai" class="btn btn-white">
+        Book Your Free Strategy Call →
+      </a>
+      <p class="footer-cta-note">
+        Limited spots available. Scott reviews every application personally.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER BAR -->
+  <footer class="footer-bar">
+    <div class="container footer-bar-inner">
+      <span>© 2026 Scott Magnacca · SalesForLife.ai</span>
+      <div class="footer-links">
+        <a href="https://salesforlife.ai" target="_blank" rel="noopener">SalesForLife.ai</a>
+        <a href="https://soft-marzipan-9cf81c.netlify.app/" target="_blank" rel="noopener">Storyselling</a>
+        <a href="https://linkedin.com/in/scottmagnacca" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" class="footer-link-muted">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
