@@ -211,11 +211,27 @@ a  { text-decoration: none; }
 }
 
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  max-width: 520px;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub--body {
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 40px;
-  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+.hero-sub--body:last-of-type { margin-bottom: 36px; }
+
+.hero-strong {
+  color: var(--text-white);
+  font-weight: 700;
 }
 
 .hero-actions {
@@ -973,4 +989,234 @@ a  { text-decoration: none; }
   .hero-headline { font-size: 2.2rem; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   LIFE SKILLS SECTION
+============================================================ */
+.life-skills-section {
+  margin-top: 60px;
+  padding: 56px 48px;
+  background: var(--bg-dark);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+}
+
+.ls-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ls-headline {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.ls-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 48px;
+  line-height: 1.65;
+}
+
+.life-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Individual card */
+.ls-card {
+  background: var(--bg-dark2);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+}
+
+.ls-card:nth-child(1) { transition-delay: 0s; }
+.ls-card:nth-child(2) { transition-delay: 0.15s; }
+.ls-card:nth-child(3) { transition-delay: 0.30s; }
+
+.ls-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ls-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+}
+
+/* Card color themes */
+.ls-card--blue  { border-color: rgba(37,99,235,0.25);  }
+.ls-card--green { border-color: rgba(16,185,129,0.25); }
+.ls-card--gold  { border-color: rgba(245,158,11,0.25); }
+
+.ls-card--blue:hover  { box-shadow: 0 20px 48px rgba(37,99,235,0.15);  }
+.ls-card--green:hover { box-shadow: 0 20px 48px rgba(16,185,129,0.15); }
+.ls-card--gold:hover  { box-shadow: 0 20px 48px rgba(245,158,11,0.15); }
+
+/* Icon area */
+.ls-icon-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.ls-orb-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ls-orb-ring--blue  { background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0.04) 70%); }
+.ls-orb-ring--green { background: radial-gradient(circle, rgba(16,185,129,0.16) 0%, rgba(16,185,129,0.03) 70%); }
+.ls-orb-ring--gold  { background: radial-gradient(circle, rgba(245,158,11,0.16) 0%, rgba(245,158,11,0.03) 70%); }
+
+.ls-svg {
+  width: 80px;
+  height: 80px;
+}
+
+/* Card body */
+.ls-card-body { display: flex; flex-direction: column; gap: 10px; }
+
+.ls-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.ls-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.ls-desc em { color: rgba(255,255,255,0.65); font-style: normal; }
+
+/* Progress bar */
+.ls-progress {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.ls-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+.ls-card--visible .ls-progress-fill { width: 92%; }
+.ls-card--visible .ls-progress-fill--green { width: 88%; }
+.ls-card--visible .ls-progress-fill--gold  { width: 95%; }
+
+.ls-progress-fill--blue  { background: linear-gradient(90deg, #2563EB, #60A5FA); }
+.ls-progress-fill--green { background: linear-gradient(90deg, #10B981, #34D399); }
+.ls-progress-fill--gold  { background: linear-gradient(90deg, #D97706, #F59E0B); }
+
+.ls-stat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+}
+
+/* ── SVG Animations ── */
+@keyframes ls-orbit {
+  from { transform-origin: 40px 40px; transform: rotate(0deg); }
+  to   { transform-origin: 40px 40px; transform: rotate(360deg); }
+}
+
+@keyframes ls-pulse-scale {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%       { transform: scale(1.06); opacity: 0.85; }
+}
+
+@keyframes ls-rotate-continuous {
+  from { transform-origin: 40px 40px; transform: rotate(0deg); }
+  to   { transform-origin: 40px 40px; transform: rotate(360deg); }
+}
+
+@keyframes ls-star-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.3); }
+}
+
+@keyframes ls-center-pulse {
+  0%, 100% { r: 5; opacity: 1; }
+  50%       { r: 7; opacity: 0.7; }
+}
+
+.ls-orbit-dot {
+  animation: ls-orbit 4s linear infinite;
+  transform-origin: 40px 40px;
+}
+
+.ls-pulse-text {
+  animation: ls-pulse-scale 2.5s ease-in-out infinite;
+  transform-origin: 40px 40px;
+  display: inline-block;
+}
+
+.ls-svg--spin {
+  animation: ls-rotate-continuous 5s linear infinite;
+}
+
+.ls-star-1 { animation: ls-star-twinkle 2s ease-in-out infinite 0s; }
+.ls-star-2 { animation: ls-star-twinkle 2s ease-in-out infinite 0.7s; }
+.ls-star-3 { animation: ls-star-twinkle 2s ease-in-out infinite 1.4s; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .life-skills-grid { grid-template-columns: 1fr; }
+  .life-skills-section { padding: 40px 24px; }
+}
+
+/* ============================================================
+   BOOK COVER FALLBACK
+============================================================ */
+.book-cover-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #1a2a4a 0%, #0d1b35 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
