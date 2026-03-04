@@ -1206,22 +1206,22 @@ a  { text-decoration: none; }
    QUIZ: AI DISRUPTION RISK ASSESSMENT
 ============================================================ */
 .quiz-section {
-  background: linear-gradient(180deg, #060C14 0%, #0A0F1E 50%, #060C14 100%);
+  background: linear-gradient(180deg, #0B1120 0%, #0F172A 40%, #0B1120 100%);
   padding: 100px 0 80px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(37,99,235,0.15);
-  border-bottom: 1px solid rgba(37,99,235,0.1);
+  border-top: 3px solid rgba(37,99,235,0.5);
+  border-bottom: 1px solid rgba(37,99,235,0.15);
 }
 .quiz-section::before {
   content: '';
   position: absolute;
-  top: -60px;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 300px;
-  background: radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 65%);
   pointer-events: none;
 }
 
