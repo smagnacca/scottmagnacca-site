@@ -33,12 +33,12 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="hero-eyebrow">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp; Babson College. Trained in the Real World of High Stakes Sales.</p>
+        <p class="hero-eyebrow" id="hero-eyebrow-text">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp; Babson College. Trained in the Real World of High Stakes Sales.</p>
         <h1 class="hero-headline">
           I Help Salespeople Rapidly<br />
           Boost Income &amp; Effectiveness<br />
-          Up to 56% — In Days,<br />
-          Not Weeks
+          Up to 56% — <span class="days-highlight">In Days,</span><br />
+          <span class="not-weeks">Not Weeks</span>
         </h1>
         <p class="hero-sub">
           Without Adding Headcount.
@@ -784,6 +784,20 @@
   </footer>
 
   <script>
+    // ── Hero eyebrow wave animation ────────────────────────────────
+    (function() {
+      const eyebrow = document.getElementById('hero-eyebrow-text');
+      if (!eyebrow) return;
+      const chars = eyebrow.textContent.split('');
+      const totalDuration = 3000; // 3 seconds for full wave
+      const charDelay = totalDuration / chars.length;
+      eyebrow.innerHTML = chars.map(function(char, i) {
+        const delay = Math.round(i * charDelay);
+        const safe = char === ' ' ? '&nbsp;' : char.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        return '<span class="eyebrow-char" style="animation-delay:' + delay + 'ms">' + safe + '</span>';
+      }).join('');
+    })();
+
     // ── Count-up animation for stats ──────────────────────────────
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
