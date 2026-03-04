@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>I Help Salespeople Rapidly Boost Income &amp; Effectiveness Up to 56% — In Days, Not Decades</title>
+<title>I Help Salespeople Rapidly Boost Income &amp; Effectiveness — Scott Magnacca</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -14,290 +14,325 @@
     --accent: #3b6ef6;
     --accent2: #60a5fa;
     --text: #e8e8f0;
-    --muted: #8888a8;
+    --muted: #9999b8;
     --gold: #f5c842;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 18px; line-height: 1.75; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem; height: 64px;
-    background: rgba(10,10,15,0.92); backdrop-filter: blur(12px);
+    padding: 0 2.5rem; height: 70px;
+    background: rgba(10,10,15,0.95); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; text-decoration: none; }
-  .nav-links { display: flex; gap: 1.8rem; align-items: center; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: #fff; }
-  .nav-cta { background: var(--accent); color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 600 !important; }
-  .nav-cta:hover { background: #2d5ce0 !important; color: #fff !important; }
+  .nav-cta { background: var(--accent); color: #fff !important; padding: 0.55rem 1.4rem; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #2d5ce0 !important; }
 
   /* HERO */
+  .hero-wrap { max-width: 1200px; margin: 0 auto; }
   .hero {
     min-height: 100vh; display: flex; align-items: center;
-    padding: 6rem 2rem 4rem;
-    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,110,246,0.12) 0%, transparent 70%);
-    max-width: 1200px; margin: 0 auto; gap: 4rem;
+    padding: 7rem 2.5rem 5rem;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,110,246,0.14) 0%, transparent 70%);
+    gap: 4rem; position: relative; z-index: 1;
   }
   .hero-text { flex: 1; }
-  .hero-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
-  .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 0.5rem; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 0.3rem; }
+  .hero-eyebrow { font-size: 0.92rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.2rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.08; color: #fff; margin-bottom: 0.4rem; }
   .hero h1 span { color: var(--accent2); }
-  .hero-sub2 { font-size: 1.3rem; color: var(--muted); margin-bottom: 1.5rem; }
-  .hero-body { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 540px; }
+  .hero-sub2 { font-size: 1.5rem; color: var(--muted); margin-bottom: 1.8rem; }
+  .hero-body { color: var(--muted); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 560px; line-height: 1.85; }
   .hero-body strong { color: var(--text); }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #fff; padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
-  .btn-primary:hover { background: #2d5ce0; }
-  .btn-secondary { background: transparent; color: var(--text); padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid var(--border); transition: border-color 0.2s; }
+  .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 1rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.1rem; transition: background 0.2s, transform 0.15s; display: inline-block; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; }
+  .btn-primary:hover { background: #2d5ce0; transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: var(--text); padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1.1rem; border: 1px solid var(--border); transition: border-color 0.2s; display: inline-block; }
   .btn-secondary:hover { border-color: var(--accent2); }
   .hero-img { flex: 0 0 380px; }
   .hero-img img { width: 100%; border-radius: 16px; }
 
   /* SECTIONS */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
-  .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 3rem; }
+  section { padding: 6rem 2.5rem; position: relative; overflow: hidden; }
+  .logos-section { position: relative; overflow: hidden; }
+  .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+  .section-label { font-size: 0.84rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 700; color: #fff; margin-bottom: 1.2rem; line-height: 1.15; }
+  .section-sub { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin-bottom: 3.5rem; line-height: 1.8; }
 
-  /* QUIZ */
+  /* =========================================================
+     BACKGROUND VISUAL EFFECTS
+     ========================================================= */
+
+  /* 1. HERO — floating star canvas (fixed, behind everything) */
+  #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.6; }
+
+  /* 2. QUIZ — expanding radar rings */
   .quiz-section { background: var(--surface); }
-  .quiz-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+  .bg-fx { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 0; overflow: hidden; }
+  .radar-ring { position: absolute; border-radius: 50%; border: 1.5px solid rgba(59,110,246,0.22); animation: radarExpand 4s ease-out infinite; }
+  .radar-ring:nth-child(1) { width: 280px; height: 280px; animation-delay: 0s; }
+  .radar-ring:nth-child(2) { width: 480px; height: 480px; animation-delay: 1s; }
+  .radar-ring:nth-child(3) { width: 680px; height: 680px; animation-delay: 2s; }
+  .radar-ring:nth-child(4) { width: 880px; height: 880px; animation-delay: 3s; }
+  @keyframes radarExpand { 0% { transform: scale(0.3); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 0; } }
+
+  /* 3. LOGOS — shimmer sweep */
+  .logos-section { padding: 3rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .logos-shimmer { position: absolute; top: 0; left: -60%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.1) 50%, transparent 100%); animation: shimmerSweep 3s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes shimmerSweep { 0% { left: -60%; } 100% { left: 160%; } }
+  .logos-label { position: relative; z-index: 2; }
+  .logos-row { position: relative; z-index: 2; }
+
+  /* 4. QUOTE — floating SVG waves */
+  .quote-section { background: var(--surface); }
+  .quote-wave-top { position: absolute; top: -2px; left: 0; right: 0; height: 120px; pointer-events: none; z-index: 0; animation: waveFloat 8s ease-in-out infinite alternate-reverse; }
+  .quote-wave-bottom { position: absolute; bottom: -2px; left: 0; right: 0; height: 140px; pointer-events: none; z-index: 0; animation: waveFloat 6s ease-in-out infinite alternate; }
+  @keyframes waveFloat { 0% { transform: translateX(-15px) scaleY(1); } 100% { transform: translateX(15px) scaleY(1.2); } }
+
+  /* 5. PILLARS — scrolling dot grid */
+  .pillars-grid-bg { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(59,110,246,0.2) 1px, transparent 1px); background-size: 44px 44px; animation: gridDrift 18s linear infinite; opacity: 0.35; pointer-events: none; z-index: 0; }
+  @keyframes gridDrift { 0% { background-position: 0 0; } 100% { background-position: 44px 44px; } }
+
+  /* 6. STATS — aurora glow blobs */
+  .stats-section { background: var(--surface); }
+  .aurora-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(59,110,246,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 80% 50%, rgba(96,165,250,0.08) 0%, transparent 60%); animation: auroraShift 9s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes auroraShift { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(5deg) scale(1.14); } }
+
+  /* 7. STORY — diagonal light beam */
+  .beam-bg { position: absolute; top: -100%; left: -40%; width: 45%; height: 300%; background: linear-gradient(108deg, transparent 30%, rgba(96,165,250,0.05) 50%, transparent 70%); animation: beamSweep 14s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes beamSweep { 0% { left: -45%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 135%; opacity: 0; } }
+
+  /* 8. PHOTOS — vignette pulse */
+  .photos-section { background: var(--surface); }
+  .vignette-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 75% at center, transparent 40%, rgba(10,10,15,0.75) 100%); animation: vignettePulse 5s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes vignettePulse { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+
+  /* 9. OFFERS — mesh gradient morph */
+  .mesh-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 8% 18%, rgba(59,110,246,0.1) 0%, transparent 60%), radial-gradient(ellipse 55% 65% at 92% 82%, rgba(96,165,250,0.08) 0%, transparent 60%), radial-gradient(ellipse 45% 45% at 50% 50%, rgba(59,110,246,0.05) 0%, transparent 60%); animation: meshMorph 12s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes meshMorph { 0% { transform: scale(1); } 100% { transform: scale(1.07); } }
+
+  /* 10. BOOKS — spotlight sweep */
+  .books-section { background: var(--surface); }
+  .spotlight-bg { position: absolute; top: 0; bottom: 0; left: -340px; width: 340px; background: linear-gradient(90deg, transparent, rgba(96,165,250,0.07), transparent); animation: spotlightSweep 9s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  @keyframes spotlightSweep { 0% { left: -340px; } 100% { left: calc(100% + 340px); } }
+
+  /* 11. PLATFORMS — data rain lines */
+  .platforms-section { background: var(--bg); }
+  .datarain-bg { position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 20px, rgba(59,110,246,0.05) 20px, rgba(59,110,246,0.05) 21px); animation: dataRain 2.5s linear infinite; pointer-events: none; z-index: 0; }
+  @keyframes dataRain { 0% { background-position: 0 0; } 100% { background-position: 0 42px; } }
+
+  /* 12. CTA — gold shimmer + blue glow */
+  .cta-section { background: var(--surface); text-align: center; }
+  .gold-shimmer { position: absolute; top: 0; left: -80%; width: 80%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(245,200,66,0.06) 40%, rgba(245,200,66,0.1) 50%, rgba(245,200,66,0.06) 60%, transparent 100%); animation: goldShimmer 5.5s ease-in-out infinite; pointer-events: none; z-index: 0; }
+  .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 110%, rgba(59,110,246,0.12) 0%, transparent 65%); animation: ctaGlow 7s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
+  @keyframes goldShimmer { 0% { left: -80%; } 100% { left: 180%; } }
+  @keyframes ctaGlow { 0% { opacity: 0.4; } 100% { opacity: 1; } }
+
+  /* =========================================================
+     QUIZ
+     ========================================================= */
+  .quiz-wrap { max-width: 720px; margin: 0 auto; text-align: center; }
   .quiz-step { display: none; }
   .quiz-step.active { display: block; }
-  .quiz-counter { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
-  .quiz-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-  .quiz-q { font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
-  .quiz-hint { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; font-style: italic; }
-  .quiz-options { display: grid; gap: 0.75rem; }
-  .quiz-option { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s; text-align: left; }
+  .quiz-counter { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
+  .quiz-category { font-size: 0.84rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .quiz-q { font-size: 1.55rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; line-height: 1.35; }
+  .quiz-hint { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; font-style: italic; }
+  .quiz-options { display: grid; gap: 0.9rem; }
+  .quiz-option { display: flex; align-items: center; gap: 1.1rem; padding: 1.1rem 1.6rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s; text-align: left; font-size: 1.05rem; }
   .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.selected { border-color: var(--accent); background: rgba(59,110,246,0.12); }
-  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1.2rem; }
-  .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; }
+  .quiz-option.selected { border-color: var(--accent); background: rgba(59,110,246,0.13); }
+  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1.3rem; font-size: 1.1rem; }
+  .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; font-size: 1.2rem; }
   .quiz-option.selected .opt-check { display: block; }
-  .quiz-progress { display: flex; gap: 0.4rem; justify-content: center; margin-bottom: 2.5rem; }
-  .quiz-dot { width: 32px; height: 4px; border-radius: 2px; background: var(--border); }
+  .quiz-progress { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 3rem; }
+  .quiz-dot { width: 40px; height: 5px; border-radius: 3px; background: var(--border); }
   .quiz-dot.done { background: var(--accent); }
   .quiz-dot.active { background: var(--accent2); }
-  .quiz-error { color: #f87171; font-size: 0.9rem; margin-top: 1rem; display: none; }
+  .quiz-error { color: #f87171; font-size: 1rem; margin-top: 1rem; display: none; }
   .quiz-email-wrap { display: none; }
   .quiz-result-wrap { display: none; }
-  .quiz-input { width: 100%; padding: 0.85rem 1.2rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; margin-bottom: 1rem; font-family: 'DM Sans', sans-serif; }
+  .quiz-input { width: 100%; padding: 1rem 1.3rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1.1rem; margin-bottom: 1.1rem; font-family: 'DM Sans', sans-serif; }
   .quiz-input:focus { outline: none; border-color: var(--accent); }
-  .score-circle { width: 160px; height: 160px; border-radius: 50%; border: 6px solid var(--accent); margin: 0 auto 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .score-num { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; }
-  .score-pct { font-size: 1rem; color: var(--muted); }
-  .score-label { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .score-desc { color: var(--muted); margin-bottom: 2rem; }
-  .score-legend { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; flex-wrap: wrap; }
-  .score-legend span { display: flex; align-items: center; gap: 0.4rem; }
-  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .score-circle { width: 180px; height: 180px; border-radius: 50%; border: 7px solid var(--accent); margin: 0 auto 1.8rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1; }
+  .score-pct { font-size: 1.1rem; color: var(--muted); }
+  .score-label { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .score-desc { color: var(--muted); margin-bottom: 2.2rem; font-size: 1.05rem; }
+  .score-legend { display: flex; gap: 1.8rem; justify-content: center; font-size: 0.95rem; color: var(--muted); margin-bottom: 2.2rem; flex-wrap: wrap; }
+  .score-legend span { display: flex; align-items: center; gap: 0.5rem; }
+  .legend-dot { width: 11px; height: 11px; border-radius: 50%; }
   .legend-high { background: #f87171; }
   .legend-mod { background: var(--gold); }
   .legend-low { background: #34d399; }
-  .privacy-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.75rem; }
+  .privacy-note { font-size: 0.92rem; color: var(--muted); margin-top: 0.9rem; }
 
   /* LOGOS */
-  .logos-section { padding: 2.5rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .logos-label { text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
-  .logos-row { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-  .logos-row img { height: 36px; filter: grayscale(1) brightness(0.7); transition: filter 0.2s; }
+  .logos-label { text-align: center; font-size: 0.84rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.8rem; }
+  .logos-row { display: flex; align-items: center; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }
+  .logos-row img { height: 40px; filter: grayscale(1) brightness(0.65); transition: filter 0.2s; }
   .logos-row img:hover { filter: grayscale(0) brightness(1); }
-  .logo-text { font-size: 1.1rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; transition: color 0.2s; }
+  .logo-text { font-size: 1.28rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; transition: color 0.2s; }
   .logo-text:hover { color: var(--text); }
-  .logo-text span { font-size: 0.7rem; display: block; font-weight: 400; letter-spacing: 0.05em; }
+  .logo-text span { font-size: 0.8rem; display: block; font-weight: 400; letter-spacing: 0.05em; }
 
   /* QUOTE */
-  .quote-section { background: var(--surface); text-align: center; }
-  .quote-section blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; font-style: italic; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-  .quote-body { color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+  .quote-section blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.2vw, 2.8rem); color: #fff; font-style: italic; margin-bottom: 1.8rem; max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.35; }
+  .quote-body { color: var(--muted); max-width: 660px; margin: 0 auto; font-size: 1.15rem; line-height: 1.85; }
   .quote-body strong { color: var(--text); }
   .quote-body em { color: var(--accent2); font-style: normal; }
 
-  /* PILLARS */
-  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .pillar-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
-  .pillar-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .pillar-title { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-  .pillar-body { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
-  .pillar-stat { font-size: 0.82rem; font-weight: 600; color: var(--accent2); }
+  /* =========================================================
+     PILLARS — animated glowing icon cards
+     ========================================================= */
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; margin-top: 3rem; }
+  .pillar-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 22px; padding: 2.8rem 2.2rem; transition: border-color 0.3s, transform 0.3s; text-align: center; }
+  .pillar-card:hover { transform: translateY(-5px); }
+  .pillar-card:nth-child(1):hover { border-color: #14b8a6; }
+  .pillar-card:nth-child(2):hover { border-color: #818cf8; }
+  .pillar-card:nth-child(3):hover { border-color: #fb923c; }
+
+  .pillar-icon-wrap {
+    width: 96px; height: 96px; border-radius: 50%;
+    margin: 0 auto 1.8rem;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .pillar-card:nth-child(1) .pillar-icon-wrap {
+    background: radial-gradient(circle, rgba(20,184,166,0.22) 0%, rgba(20,184,166,0.06) 70%);
+    box-shadow: 0 0 0 1.5px rgba(20,184,166,0.3), 0 0 40px rgba(20,184,166,0.18);
+    animation: iconGlow1 3s ease-in-out infinite;
+  }
+  @keyframes iconGlow1 { 0%,100%{box-shadow:0 0 0 1.5px rgba(20,184,166,0.3),0 0 25px rgba(20,184,166,0.15);} 50%{box-shadow:0 0 0 2px rgba(20,184,166,0.5),0 0 50px rgba(20,184,166,0.3);} }
+  .pillar-card:nth-child(2) .pillar-icon-wrap {
+    background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0.06) 70%);
+    box-shadow: 0 0 0 1.5px rgba(99,102,241,0.35), 0 0 40px rgba(99,102,241,0.2);
+    animation: iconGlow2 3s ease-in-out infinite 1s;
+  }
+  @keyframes iconGlow2 { 0%,100%{box-shadow:0 0 0 1.5px rgba(99,102,241,0.35),0 0 25px rgba(99,102,241,0.18);} 50%{box-shadow:0 0 0 2px rgba(99,102,241,0.55),0 0 55px rgba(99,102,241,0.32);} }
+  .pillar-card:nth-child(3) .pillar-icon-wrap {
+    background: radial-gradient(circle, rgba(251,146,60,0.25) 0%, rgba(251,146,60,0.06) 70%);
+    box-shadow: 0 0 0 1.5px rgba(251,146,60,0.35), 0 0 40px rgba(251,146,60,0.2);
+    animation: iconGlow3 3s ease-in-out infinite 2s;
+  }
+  @keyframes iconGlow3 { 0%,100%{box-shadow:0 0 0 1.5px rgba(251,146,60,0.35),0 0 25px rgba(251,146,60,0.18);} 50%{box-shadow:0 0 0 2px rgba(251,146,60,0.55),0 0 55px rgba(251,146,60,0.32);} }
+
+  .pillar-title { font-size: 1.45rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+  .pillar-body { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.2rem; line-height: 1.78; }
+  .pillar-stat { font-size: 0.92rem; font-weight: 600; color: var(--accent2); font-style: italic; }
 
   /* STATS */
-  .stats-section { background: var(--surface); }
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; }
   .stat-item { text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--accent2); line-height: 1; }
-  .stat-label { color: var(--muted); font-size: 0.95rem; margin-top: 0.4rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 900; color: var(--accent2); line-height: 1; }
+  .stat-label { color: var(--muted); font-size: 1.08rem; margin-top: 0.5rem; }
 
   /* STORY */
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .story-img img { width: 100%; border-radius: 16px; }
-  .story-body { color: var(--muted); font-size: 1.05rem; }
-  .story-body p { margin-bottom: 1.2rem; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
+  .story-img img { width: 100%; border-radius: 20px; }
+  .story-body { color: var(--muted); font-size: 1.1rem; line-height: 1.85; }
+  .story-body p { margin-bottom: 1.3rem; }
   .story-body strong { color: var(--text); }
 
   /* PHOTOS */
-  .photos-section { background: var(--surface); }
-  .photos-label { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+  .photos-label { text-align: center; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; }
   .photos-row { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
-  .photo-frame {
-    width: 180px; height: 180px; overflow: hidden; border-radius: 12px;
-    border: 1px solid var(--border); display: flex; align-items: center;
-    justify-content: center; background: var(--surface2); flex-shrink: 0;
-  }
-  .photo-frame img { width: 240px; height: 240px; object-fit: cover; transform: rotate(-90deg); flex-shrink: 0; }
+  .photo-frame { width: 190px; height: 190px; overflow: hidden; border-radius: 14px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--surface2); flex-shrink: 0; }
+  .photo-frame img { width: 260px; height: 260px; object-fit: cover; transform: rotate(-90deg); flex-shrink: 0; }
 
   /* OFFERS */
-  .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-  .offer-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; display: flex; flex-direction: column; }
+  .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; }
+  .offer-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 18px; padding: 2.2rem; position: relative; display: flex; flex-direction: column; }
   .offer-card.featured { border-color: var(--accent); }
-  .offer-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.8rem; border-radius: 20px; white-space: nowrap; }
-  .offer-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-  .offer-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
-  .offer-body { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; flex: 1; }
-  .offer-link { color: var(--accent2); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .offer-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.9rem; border-radius: 20px; white-space: nowrap; }
+  .offer-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
+  .offer-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem; line-height: 1.35; }
+  .offer-body { color: var(--muted); font-size: 1rem; margin-bottom: 1.8rem; flex: 1; line-height: 1.75; }
+  .offer-link { color: var(--accent2); font-weight: 700; text-decoration: none; font-size: 1.05rem; }
   .offer-link:hover { text-decoration: underline; }
 
   /* BOOKS */
-  .books-section { background: var(--surface); }
-  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
-  .book-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 2.2rem; }
+  .book-card { background: var(--bg); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s; }
+  .book-card:hover { border-color: var(--accent); transform: translateY(-5px); }
   .book-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--surface2); }
   .book-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .book-cover-fallback {
-    width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; background: linear-gradient(160deg, #1a1a3a 0%, #0d0d1f 100%);
-    padding: 1.5rem; text-align: center; border-top: 8px solid #c0392b;
-  }
-  .book-cover-fallback .bnum { font-size: 5rem; font-weight: 900; color: #c0392b; line-height: 1; font-family: 'Playfair Display', serif; }
-  .book-cover-fallback .btitle { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 0.5rem; }
-  .book-cover-fallback .bsub { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
-  .book-cover-fallback .bauthor { font-size: 0.82rem; color: #aaa; margin-top: 1rem; font-weight: 600; }
-  .book-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; }
-  .book-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .book-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-  .book-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; line-height: 1.3; }
-  .book-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.6; flex: 1; margin-bottom: 1.2rem; }
-  .book-link { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.88rem; text-align: center; }
+  .book-cover-fallback { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, #1a1a3a 0%, #0d0d1f 100%); padding: 1.8rem; text-align: center; border-top: 9px solid #c0392b; }
+  .book-cover-fallback .bnum { font-size: 5.5rem; font-weight: 900; color: #c0392b; line-height: 1; font-family: 'Playfair Display', serif; }
+  .book-cover-fallback .btitle { font-size: 1.05rem; font-weight: 700; color: #fff; line-height: 1.35; margin-top: 0.6rem; }
+  .book-cover-fallback .bsub { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+  .book-cover-fallback .bauthor { font-size: 0.88rem; color: #aaa; margin-top: 1.1rem; font-weight: 600; }
+  .book-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 4px; }
+  .book-content { padding: 1.8rem; flex: 1; display: flex; flex-direction: column; }
+  .book-num { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .book-title { font-size: 1.12rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem; line-height: 1.35; }
+  .book-desc { color: var(--muted); font-size: 0.97rem; line-height: 1.72; flex: 1; margin-bottom: 1.4rem; }
+  .book-link { display: inline-block; background: var(--accent); color: #fff; padding: 0.72rem 1.4rem; border-radius: 7px; font-weight: 700; text-decoration: none; font-size: 0.97rem; text-align: center; }
   .book-link:hover { background: #2d5ce0; }
 
   /* PLATFORMS */
-  .platforms-section { background: var(--bg); }
-  .platforms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .platform-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+  .platforms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2rem; }
+  .platform-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 22px; padding: 3rem; }
   .platform-card.featured-plat { border-color: var(--accent); }
-  .platform-label { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
-  .platform-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
-  .platform-title { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 1.2rem; line-height: 1.1; }
-  .platform-body { color: var(--muted); font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.6; }
-  .platform-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
-  .platform-features li { color: var(--muted); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; }
+  .platform-label { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.1rem; }
+  .platform-icon { font-size: 2.8rem; margin-bottom: 1.3rem; }
+  .platform-title { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 1.3rem; line-height: 1.1; }
+  .platform-body { color: var(--muted); font-size: 1.2rem; margin-bottom: 1.8rem; line-height: 1.75; }
+  .platform-features { list-style: none; margin-bottom: 2.2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .platform-features li { color: var(--muted); font-size: 1.1rem; display: flex; align-items: center; gap: 0.6rem; line-height: 1.6; }
   .platform-features li::before { content: "→"; color: var(--accent2); font-weight: 700; }
-  .platform-link { display: inline-block; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.15rem; transition: all 0.2s; }
+  .platform-link { display: inline-block; padding: 0.95rem 2.2rem; border-radius: 9px; font-weight: 700; text-decoration: none; font-size: 1.1rem; transition: all 0.2s; }
   .platform-link.primary { background: var(--accent); color: #fff; }
   .platform-link.primary:hover { background: #2d5ce0; }
   .platform-link.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .platform-link.secondary:hover { border-color: var(--accent2); }
 
   /* CTA */
-  .cta-section { background: var(--surface); text-align: center; }
-  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
-  .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
-  .cta-note { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.1rem, 4vw, 3.4rem); font-weight: 900; color: #fff; margin-bottom: 1.2rem; line-height: 1.2; }
+  .cta-section p { color: var(--muted); font-size: 1.22rem; margin-bottom: 2.2rem; }
+  .cta-note { font-size: 0.97rem; color: var(--muted); margin-top: 1.2rem; }
 
   /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.82); z-index: 200; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
-  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; max-width: 480px; width: 90%; position: relative; }
-  .modal-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; }
-  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
-  .modal p { color: var(--muted); margin-bottom: 1.5rem; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 2.8rem; max-width: 500px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 1.1rem; right: 1.4rem; background: none; border: none; color: var(--muted); font-size: 1.7rem; cursor: pointer; }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
+  .modal p { color: var(--muted); margin-bottom: 1.6rem; font-size: 1.05rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { margin-bottom: 1rem; }
-  .form-group input { width: 100%; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group input { width: 100%; padding: 0.88rem 1.1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; }
   .form-group input:focus { outline: none; border-color: var(--accent); }
   .honeypot { display: none !important; }
-  .form-error { color: #f87171; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
-  .form-success { display: none; text-align: center; padding: 2rem; }
-  .form-success .check { font-size: 2.5rem; margin-bottom: 1rem; }
-  .form-success h3 { font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; }
-  .form-success p { color: var(--muted); }
+  .form-error { color: #f87171; font-size: 0.95rem; margin-top: 0.5rem; display: none; }
+  .form-success { display: none; text-align: center; padding: 2.2rem; }
+  .form-success .check { font-size: 2.8rem; margin-bottom: 1.1rem; }
+  .form-success h3 { font-size: 1.6rem; color: #fff; margin-bottom: 0.6rem; }
+  .form-success p { color: var(--muted); font-size: 1.05rem; }
 
   /* FOOTER */
-  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2.5rem; text-align: center; color: var(--muted); font-size: 1rem; }
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover { color: var(--text); }
-  .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 2.5rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap; }
 
   @media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; }
+    body { font-size: 16px; }
+    .hero { flex-direction: column; text-align: center; padding: 6rem 1.5rem 4rem; }
     .hero-img { display: none; }
     .story-grid, .platforms-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .form-row { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
   }
-
-  /* BACKGROUND VISUAL EFFECTS */
-  section, .logos-section { position: relative; overflow: hidden; }
-
-  #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.5; }
-  .hero, .hero-text, .hero-img { position: relative; z-index: 1; }
-
-  .quiz-section::before { content: ''; position: absolute; top: 50%; left: 50%; width: 900px; height: 900px; margin: -450px 0 0 -450px; border-radius: 50%; background: radial-gradient(circle, rgba(59,110,246,0.06) 0%, transparent 70%); animation: radarPulse 4s ease-in-out infinite; pointer-events: none; z-index: 0; }
-  .quiz-section::after { content: ''; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; margin: -300px 0 0 -300px; border-radius: 50%; border: 1px solid rgba(59,110,246,0.08); animation: radarRing 4s ease-out infinite 1s; pointer-events: none; z-index: 0; }
-  @keyframes radarPulse { 0%, 100% { transform: scale(0.85); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 1; } }
-  @keyframes radarRing { 0% { transform: scale(0.5); opacity: 0.5; } 100% { transform: scale(1.8); opacity: 0; } }
-  .quiz-section .container { position: relative; z-index: 1; }
-
-  .logos-section::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.06) 50%, transparent 100%); animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none; z-index: 0; }
-  @keyframes shimmerSweep { 0% { left: -60%; } 100% { left: 160%; } }
-  .logos-label, .logos-row { position: relative; z-index: 1; }
-
-  .quote-section::before { content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 120px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(59,110,246,0.04)' d='M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E") no-repeat bottom center / cover; animation: waveFloat 6s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
-  .quote-section::after { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 100px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='rgba(96,165,250,0.03)' d='M0,50 C480,0 960,100 1440,50 L1440,0 L0,0 Z'/%3E%3C/svg%3E") no-repeat top center / cover; animation: waveFloat 8s ease-in-out infinite alternate-reverse; pointer-events: none; z-index: 0; }
-  @keyframes waveFloat { 0% { transform: translateX(-20px) scaleY(1); } 100% { transform: translateX(20px) scaleY(1.15); } }
-  .quote-section .container { position: relative; z-index: 1; }
-
-  #pillars-section-fx { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-  #pillars-section-fx::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(59,110,246,0.15) 1px, transparent 1px); background-size: 40px 40px; animation: gridDrift 20s linear infinite; opacity: 0.4; }
-  @keyframes gridDrift { 0% { transform: translate(0,0); } 100% { transform: translate(40px, 40px); } }
-
-  .stats-section::before { content: ''; position: absolute; top: 50%; left: 50%; width: 120%; height: 300%; transform: translate(-50%,-50%); background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(59,110,246,0.07) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 70% 50%, rgba(96,165,250,0.05) 0%, transparent 60%); animation: auroraShift 8s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
-  @keyframes auroraShift { 0% { transform: translate(-50%,-50%) rotate(0deg) scale(1); } 100% { transform: translate(-50%,-50%) rotate(4deg) scale(1.1); } }
-  .stats-section .container { position: relative; z-index: 1; }
-
-  #story::before { content: ''; position: absolute; top: -100%; left: -30%; width: 40%; height: 300%; background: linear-gradient(105deg, transparent 30%, rgba(96,165,250,0.03) 50%, transparent 70%); animation: beamSweep 12s ease-in-out infinite; pointer-events: none; z-index: 0; }
-  @keyframes beamSweep { 0% { left: -40%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { left: 130%; opacity: 0; } }
-  #story .container { position: relative; z-index: 1; }
-
-  .photos-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at center, transparent 50%, rgba(10,10,15,0.6) 100%); animation: vignettePulse 5s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
-  @keyframes vignettePulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
-  .photos-section .container { position: relative; z-index: 1; }
-
-  #offers::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 10% 20%, rgba(59,110,246,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 90% 80%, rgba(96,165,250,0.05) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 50% 50%, rgba(59,110,246,0.03) 0%, transparent 60%); animation: meshMorph 10s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
-  @keyframes meshMorph { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
-  #offers .container { position: relative; z-index: 1; }
-
-  #books::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 300px; background: linear-gradient(90deg, transparent, rgba(96,165,250,0.04), transparent); animation: spotlightSweep 8s ease-in-out infinite; pointer-events: none; z-index: 0; }
-  @keyframes spotlightSweep { 0% { left: -300px; } 100% { left: calc(100% + 300px); } }
-  #books .container { position: relative; z-index: 1; }
-
-  .platforms-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 18px, rgba(59,110,246,0.03) 18px, rgba(59,110,246,0.03) 19px); animation: dataRain 3s linear infinite; pointer-events: none; z-index: 0; }
-  @keyframes dataRain { 0% { background-position: 0 0; } 100% { background-position: 0 38px; } }
-  .platforms-section .container { position: relative; z-index: 1; }
-
-  .cta-section::before { content: ''; position: absolute; top: 0; left: -100%; width: 80%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(245,200,66,0.04) 40%, rgba(245,200,66,0.07) 50%, rgba(245,200,66,0.04) 60%, transparent 100%); animation: goldShimmer 5s ease-in-out infinite; pointer-events: none; z-index: 0; }
-  .cta-section::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 100%, rgba(59,110,246,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; animation: ctaGlow 6s ease-in-out infinite alternate; }
-  @keyframes goldShimmer { 0% { left: -80%; } 100% { left: 180%; } }
-  @keyframes ctaGlow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
-  .cta-section .container { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -316,15 +351,14 @@
   </div>
 </nav>
 
-<div style="max-width:1200px;margin:0 auto;">
+<div class="hero-wrap">
   <section class="hero" id="top">
     <div class="hero-text">
-      <div class="hero-eyebrow">Your AI Sales Coach &amp; Consultant. Educated at Harvard &amp; Babson College. Trained in the Real World of High-Stakes Sales.</div>
+      <div class="hero-eyebrow">Your AI Sales Coach &amp; Consultant · Harvard &amp; Babson Educated · Real-World Proven</div>
       <h1>I Help Salespeople Rapidly <span>Boost Income &amp; Effectiveness</span></h1>
       <p class="hero-sub2">Without Adding Headcount.</p>
       <p class="hero-body">
-        Knowledge without a proven framework doesn't move the needle. I've spent years at Fidelity Investments, TIAA &amp; Edelman Financial Engines
-        building teams, programs, and people dedicated to one thing — deepening client relationships and sales effectiveness.<br><br>
+        Knowledge without a proven framework doesn't move the needle. I've spent years at Fidelity Investments, TIAA &amp; Edelman Financial Engines building teams, programs, and people dedicated to one thing — deepening client relationships and sales effectiveness.<br><br>
         The results: I've helped generate over <strong>$1 Billion+</strong> in client value. <strong>Let me help you do the same.</strong>
       </p>
       <div class="hero-btns">
@@ -339,11 +373,17 @@
 </div>
 
 <section class="quiz-section" id="why">
+  <div class="bg-fx">
+    <div class="radar-ring"></div>
+    <div class="radar-ring"></div>
+    <div class="radar-ring"></div>
+    <div class="radar-ring"></div>
+  </div>
   <div class="container">
     <div class="quiz-wrap">
       <div class="section-label">FREE · 60-SECOND ASSESSMENT</div>
       <h2 class="section-title">12-Month AI Disruption Risk Assessment: Will Your Job Be Next?</h2>
-      <p class="section-sub" style="margin:0 auto 2rem;">Answer 3 research-backed questions. Get your personalized AI vulnerability score instantly.</p>
+      <p class="section-sub" style="margin:0 auto 2.5rem;">Answer 3 research-backed questions. Get your personalized AI vulnerability score instantly.</p>
       <div class="quiz-progress" id="quizProgress">
         <div class="quiz-dot active" id="dot0"></div>
         <div class="quiz-dot" id="dot1"></div>
@@ -360,13 +400,13 @@
           <div class="quiz-option" onclick="selectOption(0,2,2)"><span class="opt-letter">C</span> Varies / Moderate <span class="opt-check">✓</span></div>
           <div class="quiz-option" onclick="selectOption(0,3,1)"><span class="opt-letter">D</span> Minimal Routine / Solely Unique <span class="opt-check">✓</span></div>
         </div>
-        <p class="quiz-error" id="err0">⚠ Please answer all 3 questions before continuing.</p>
-        <button class="btn-primary" style="margin-top:1.5rem;" onclick="nextStep(0)">Next →</button>
+        <p class="quiz-error" id="err0">⚠ Please select an option before continuing.</p>
+        <button class="btn-primary" style="margin-top:1.8rem;" onclick="nextStep(0)">Next →</button>
       </div>
       <div class="quiz-step" id="step1">
         <div class="quiz-counter">02 / 03</div>
         <div class="quiz-category">Industry Adoption Rate</div>
-        <h3 class="quiz-q">To what extent are competitors in your industry already deploying AI tools for efficiency or cost-cutting?</h3>
+        <h3 class="quiz-q">To what extent are competitors already deploying AI for efficiency or cost-cutting?</h3>
         <div class="quiz-options">
           <div class="quiz-option" onclick="selectOption(1,0,4)"><span class="opt-letter">A</span> Widespread &amp; Disruptive <span class="opt-check">✓</span></div>
           <div class="quiz-option" onclick="selectOption(1,1,3)"><span class="opt-letter">B</span> Significant Implementation <span class="opt-check">✓</span></div>
@@ -374,12 +414,12 @@
           <div class="quiz-option" onclick="selectOption(1,3,1)"><span class="opt-letter">D</span> No Adoption or Planning <span class="opt-check">✓</span></div>
         </div>
         <p class="quiz-error" id="err1">⚠ Please select an option.</p>
-        <button class="btn-primary" style="margin-top:1.5rem;" onclick="nextStep(1)">Next →</button>
+        <button class="btn-primary" style="margin-top:1.8rem;" onclick="nextStep(1)">Next →</button>
       </div>
       <div class="quiz-step" id="step2">
         <div class="quiz-counter">03 / 03</div>
         <div class="quiz-category">Human Skill Resiliency</div>
-        <h3 class="quiz-q">How critical are empathy, complex social navigation, or high-level strategic reasoning to your core duties?</h3>
+        <h3 class="quiz-q">How critical are empathy, complex social navigation, or strategic reasoning to your core duties?</h3>
         <p class="quiz-hint">Higher human need = lower risk</p>
         <div class="quiz-options">
           <div class="quiz-option" onclick="selectOption(2,0,1)"><span class="opt-letter">A</span> Highly Empathetic / Creative <span class="opt-check">✓</span></div>
@@ -388,15 +428,15 @@
           <div class="quiz-option" onclick="selectOption(2,3,4)"><span class="opt-letter">D</span> Never Required <span class="opt-check">✓</span></div>
         </div>
         <p class="quiz-error" id="err2">⚠ Please select an option.</p>
-        <button class="btn-primary" style="margin-top:1.5rem;" onclick="submitQuiz()">Calculate My Risk Score</button>
+        <button class="btn-primary" style="margin-top:1.8rem;" onclick="submitQuiz()">Calculate My Risk Score</button>
         <p class="privacy-note">🔒 Private &amp; confidential — no spam, ever.</p>
       </div>
       <div class="quiz-email-wrap" id="quizEmail">
-        <h3 class="section-title" style="font-size:1.6rem;">Your Assessment is Ready!</h3>
-        <p style="color:var(--muted);margin-bottom:1.5rem;">Enter your email address to unlock your personalized score (0–100%)</p>
+        <h3 class="section-title" style="font-size:1.9rem;">Your Assessment is Ready!</h3>
+        <p style="color:var(--muted);margin-bottom:1.8rem;font-size:1.1rem;">Enter your email to unlock your personalized score (0–100%)</p>
         <input type="email" class="quiz-input" id="emailInput" placeholder="your@email.com"/>
         <p class="quiz-error" id="emailErr">⚠ Please enter a valid email address.</p>
-        <button class="btn-primary" style="width:100%;" onclick="unlockScore()">🔓 Unlock My Score</button>
+        <button class="btn-primary" style="width:100%;font-size:1.1rem;" onclick="unlockScore()">🔓 Unlock My Score</button>
         <p class="privacy-note">No spam. Unsubscribe anytime.</p>
       </div>
       <div class="quiz-result-wrap" id="quizResult">
@@ -405,7 +445,7 @@
           <div class="score-num" id="scoreNum">0</div>
           <div class="score-pct">%</div>
         </div>
-        <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem;" id="scoreAnalyzing">Analyzing...</p>
+        <p style="color:var(--muted);font-size:1rem;margin-bottom:0.6rem;" id="scoreAnalyzing">Analyzing...</p>
         <div class="score-label" id="scoreLabel"></div>
         <p class="score-desc" id="scoreDesc"></p>
         <div class="score-legend">
@@ -423,6 +463,7 @@
 </section>
 
 <section class="logos-section">
+  <div class="logos-shimmer"></div>
   <div class="logos-label">EDUCATED AT · CLIENT EXPERIENCE WITH</div>
   <div class="logos-row">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/320px-Harvard_University_logo.svg.png" alt="Harvard University"/>
@@ -434,45 +475,81 @@
 </section>
 
 <section class="quote-section">
+  <svg class="quote-wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(96,165,250,0.05)" d="M0,50 C480,0 960,100 1440,50 L1440,0 L0,0 Z"/></svg>
   <div class="container" style="text-align:center;">
     <blockquote>"Most sales teams are running<br/>a 2015 playbook in a 2026 world."</blockquote>
     <p class="quote-body">
       AI hasn't made selling easier. It's made the gap between elite sales teams and average ones <strong>wider than ever.</strong><br><br>
-      My Narrative Intelligence framework was built at Harvard during my master's capstone project. It has been battle-tested in the field with over 30,000 people, and now it's been encoded into my book <em>Storyselling in The Age of AI</em>, and deployed in AI systems that work 24/7. This is the edge your competitors don't have yet.
+      My Narrative Intelligence framework was built at Harvard during my master's capstone project. Battle-tested with over 30,000 people, now encoded into my book <em>Storyselling in The Age of AI</em> and deployed in AI systems that work 24/7. This is the edge your competitors don't have yet.
     </p>
   </div>
+  <svg class="quote-wave-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(59,110,246,0.06)" d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"/></svg>
 </section>
 
 <section>
+  <div class="pillars-grid-bg"></div>
   <div class="container">
     <div class="section-label">THE THREE PILLARS OF SALES MASTERY</div>
     <h2 class="section-title">The Life Skills That Separate Good From Great</h2>
     <p class="section-sub">This training is built on three foundational skills that compound over time — the difference between a salesperson who plateaus and one who continually rises.</p>
-    <div id="pillars-section-fx"></div>
     <div class="pillars-grid">
+
       <div class="pillar-card">
-        <div class="pillar-icon">🔍</div>
+        <div class="pillar-icon-wrap">
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="23" cy="19" r="11" stroke="#14b8a6" stroke-width="2.4" fill="none"/>
+            <circle cx="23" cy="19" r="3.5" fill="#14b8a6" opacity="0.75"/>
+            <line x1="23" y1="30" x2="23" y2="39" stroke="#14b8a6" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="17" y1="39" x2="29" y2="39" stroke="#14b8a6" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="23" cy="19" r="7" stroke="#14b8a6" stroke-width="1.2" opacity="0.35" stroke-dasharray="3.5 3.5">
+              <animateTransform attributeName="transform" type="rotate" from="0 23 19" to="360 23 19" dur="9s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
         <div class="pillar-title">Curiosity</div>
         <p class="pillar-body">The questions you ask reveal opportunities others miss. Elite salespeople never stop asking <em>why</em> — they discover what clients truly need before competitors even know to ask.</p>
         <div class="pillar-stat">92% of top performers cite curiosity as their #1 trait</div>
       </div>
+
       <div class="pillar-card">
-        <div class="pillar-icon">📚</div>
+        <div class="pillar-icon-wrap">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 9 L42 18 L24 27 L6 18 Z" stroke="#818cf8" stroke-width="2.4" fill="rgba(99,102,241,0.1)" stroke-linejoin="round"/>
+            <path d="M6 18 L6 30 C6 30 15 36 24 36 C33 36 42 30 42 30 L42 18" stroke="#818cf8" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <line x1="42" y1="18" x2="42" y2="38" stroke="#818cf8" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="42" cy="41" r="2.5" fill="#818cf8">
+              <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
         <div class="pillar-title">Lifelong Learning</div>
         <p class="pillar-body">The market rewards those who never stop growing. What you master today becomes tomorrow's competitive advantage. Compound your knowledge like compound interest.</p>
         <div class="pillar-stat">Skills learned in days compound into decades of results</div>
       </div>
+
       <div class="pillar-card">
-        <div class="pillar-icon">⚡</div>
+        <div class="pillar-icon-wrap">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="14" stroke="#fb923c" stroke-width="2.4" fill="none"/>
+            <path d="M24 10 C24 10 33 15 33 24 C33 33 24 38 24 38" stroke="#fb923c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M24 10 C24 10 15 15 15 24 C15 33 24 38 24 38" stroke="#fb923c" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.45"/>
+            <g>
+              <path d="M30 16 L33 10 L37 14" stroke="#fb923c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="7s" repeatCount="indefinite"/>
+            </g>
+          </svg>
+        </div>
         <div class="pillar-title">Adapting to Change</div>
         <p class="pillar-body">Personal and professional change is constant. Those who adapt fastest don't just survive — they pull ahead permanently while others are still figuring out what happened.</p>
         <div class="pillar-stat">Adaptability = the ultimate long-term sales advantage</div>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="stats-section">
+  <div class="aurora-bg"></div>
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item">
@@ -492,6 +569,7 @@
 </section>
 
 <section id="story">
+  <div class="beam-bg"></div>
   <div class="container">
     <div class="story-grid">
       <div class="story-img">
@@ -507,7 +585,7 @@
           <p>SalesForLife.ai is that unfair advantage — it helps you become a <strong>"Hybrid Advisor"</strong> combining the power of AI with your soft sales skills of relationship building, connection, and storyselling.</p>
           <p>I've shared these principles with executives, companies, and individual salespeople to boost productivity, drive profitability, and create lifetime client value. I can do the same for you.</p>
           <p><strong>Now I can help you learn in days what took me decades to master. Discover the shortcut I never had.</strong></p>
-          <a href="#" class="btn-primary" style="margin-top:1rem;display:inline-block;" onclick="openModal(event)">Work With Scott →</a>
+          <a href="#" class="btn-primary" style="margin-top:1.2rem;" onclick="openModal(event)">Work With Scott →</a>
         </div>
       </div>
     </div>
@@ -515,20 +593,18 @@
 </section>
 
 <section class="photos-section">
+  <div class="vignette-bg"></div>
   <div class="container">
     <p class="photos-label">Pittsburgh AI Summit · Capital Grille</p>
     <div class="photos-row">
-      <div class="photo-frame">
-        <img src="/Capitalgrill1.png" alt="Pittsburgh AI Summit"/>
-      </div>
-      <div class="photo-frame">
-        <img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation"/>
-      </div>
+      <div class="photo-frame"><img src="/Capitalgrill1.png" alt="Pittsburgh AI Summit"/></div>
+      <div class="photo-frame"><img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation"/></div>
     </div>
   </div>
 </section>
 
 <section id="offers">
+  <div class="mesh-bg"></div>
   <div class="container">
     <div class="section-label">CHOOSE YOUR PATH</div>
     <h2 class="section-title">Build Your AI-Powered Sales Empire</h2>
@@ -565,25 +641,30 @@
 </section>
 
 <section id="books" class="books-section">
+  <div class="spotlight-bg"></div>
   <div class="container">
     <div class="section-label">BESTSELLING AUTHOR</div>
     <h2 class="section-title">The Playbooks That Built the System</h2>
     <p class="section-sub">Four books. Decades of research. One mission: give you the unfair advantage.</p>
     <div class="books-grid">
+
       <div class="book-card">
         <div class="book-img">
-          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w" alt="Why Professional Help Matters by Scott Magnacca"/>
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/f625290c-aa82-4991-bead-a4f3eb7cf592/Screenshot+2026-02-07+at+11.10.59%E2%80%AFAM.png?format=500w" alt="Why Professional Help Matters"/>
         </div>
         <div class="book-content">
           <div class="book-num">BOOK 1</div>
           <div class="book-title">Why Professional Help Matters: The Human Premium in the Age of AI</div>
-          <p class="book-desc">The most successful people in history have never worked alone—and now, for the first time, a 24/7 panel of world-class experts is available to anyone willing to learn how to use it. This book hands you the exact framework top performers are quietly using to compress decades of expertise into weeks. Most people will keep struggling alone while this window of advantage is still open. The few who read this won't just keep up—they'll pull ahead permanently.</p>
+          <p class="book-desc">The most successful people in history have never worked alone—and now a 24/7 panel of world-class experts is available to anyone willing to use it. This book hands you the exact framework top performers use to compress decades of expertise into weeks. The few who read this won't just keep up—they'll pull ahead permanently.</p>
           <a href="https://a.co/d/iUi7Y0A" class="book-link" target="_blank">Buy on Amazon →</a>
         </div>
       </div>
+
       <div class="book-card">
         <div class="book-img">
-          <div class="book-cover-fallback">
+          <img src="/__7-Strategies.jpeg" alt="The 7 Strategies for a Successful Retirement" style="display:block;"
+            onerror="this.style.display='none'; this.parentElement.querySelector('.book-cover-fallback').style.display='flex';"/>
+          <div class="book-cover-fallback" style="display:none;">
             <div class="bnum">7</div>
             <div class="btitle">STRATEGIES FOR A SUCCESSFUL RETIREMENT</div>
             <div class="bsub">The New Rules of Building Wealth in the AI Age</div>
@@ -593,38 +674,42 @@
         <div class="book-content">
           <div class="book-num">BOOK 2</div>
           <div class="book-title">The 7 Strategies for a Successful Retirement</div>
-          <p class="book-desc">Every self-made millionaire agrees: the rules of building wealth have fundamentally changed—and most people haven't gotten the memo. This book gives you what a brilliant, tireless financial co-pilot would tell their own family: how to spot opportunities faster, eliminate costly complexity, and make your money work as relentlessly as you do. The old rules kept you dependent. These seven strategies set you free.</p>
+          <p class="book-desc">Every self-made millionaire agrees: the rules of building wealth have fundamentally changed. This book gives you what a brilliant financial co-pilot would tell their own family — how to spot opportunities faster and make your money work as relentlessly as you do. The old rules kept you dependent. These seven strategies set you free.</p>
           <a href="https://a.co/d/gVCC3yS" class="book-link" target="_blank">Buy on Amazon →</a>
         </div>
       </div>
+
       <div class="book-card">
         <div class="book-img">
-          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w" alt="TOP GUN: The Secrets of Relationship Based Selling by Scott Magnacca"/>
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/3d51e69b-d147-414b-b500-994604c7bb0c/Screenshot+2025-04-03+074312.png?format=500w" alt="TOP GUN: Relationship Based Selling"/>
         </div>
         <div class="book-content">
           <div class="book-num">BOOK 3</div>
           <div class="book-title">Top Gun: The Secrets of Relationship-Based Selling — Financial Services Edition</div>
-          <p class="book-desc">While 82% of employers desperately seek people who can communicate and persuade, only 4% of college graduates have ever taken a sales course. That gap is your unfair advantage—if you claim it. This book is the elite training program you never had: a proven system to sharpen your influence, master high-stakes conversations, and walk into every client meeting with the quiet confidence of a Top Gun pilot who has already run the mission a hundred times. People who master this skill don't just get the deal—they become irreplaceable.</p>
+          <p class="book-desc">While 82% of employers seek people who can communicate and persuade, only 4% of graduates have taken a sales course. That gap is your unfair advantage. This book is the elite training program you never had — master high-stakes conversations and walk into every client meeting with the confidence of a Top Gun pilot.</p>
           <a href="https://a.co/d/6ZCSyTm" class="book-link" target="_blank">Buy on Amazon →</a>
         </div>
       </div>
+
       <div class="book-card">
         <div class="book-img">
           <div class="book-badge">NEWEST RELEASE</div>
-          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w" alt="Storyselling in The Age of AI by Scott Magnacca"/>
+          <img src="https://images.squarespace-cdn.com/content/v1/67f94d633efa1f02237d9229/751f7068-f7f3-416a-87a6-42c258c9d59f/Storyselling+cover+12.21.25.jpg?format=500w" alt="Storyselling in The Age of AI"/>
         </div>
         <div class="book-content">
           <div class="book-num">BOOK 4 · NEWEST RELEASE</div>
           <div class="book-title">Storyselling in the Age of AI</div>
-          <p class="book-desc">AI can out-calculate any human expert—which means data alone no longer wins. What it cannot replicate is the invisible bridge between a cold spreadsheet and a client's heart. This book reveals the one skill separating advisors who are merely tolerated from those who are trusted: Storyselling. You'll learn to guide clients from the anxiety of financial winter to the confidence of lasting spring—not through better facts, but through the human empathy algorithms will never touch. In a world racing toward automation, the most powerful thing you can offer is still the most ancient: a story that makes someone feel seen.</p>
+          <p class="book-desc">AI can out-calculate any human expert—which means data alone no longer wins. This book reveals the one skill separating advisors who are merely tolerated from those who are trusted: Storyselling. In a world racing toward automation, the most powerful thing you can offer is still the most ancient — a story that makes someone feel seen.</p>
           <a href="https://a.co/d/50enZFL" class="book-link" target="_blank">Buy on Amazon →</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="platforms-section">
+  <div class="datarain-bg"></div>
   <div class="container">
     <div class="section-label">EXPLORE THE ECOSYSTEM</div>
     <h2 class="section-title">Two Platforms. One Mission. Close More Deals.</h2>
@@ -633,7 +718,7 @@
         <div class="platform-label">AI SALES PLATFORM</div>
         <div class="platform-icon">🗂️</div>
         <div class="platform-title">SalesForLife.ai</div>
-        <p class="platform-body">Your competitors are still doing this manually. SalesForLife.ai deploys AI-powered outreach, follow-up, and pipeline automation — live in 30 days, running 24/7. Stop leaving deals on the table.</p>
+        <p class="platform-body">Your competitors are still doing this manually. SalesForLife.ai deploys AI-powered outreach, follow-up, and pipeline automation — live in 30 days, running 24/7.</p>
         <ul class="platform-features">
           <li>Automated prospecting &amp; outreach</li>
           <li>AI follow-up that never misses a lead</li>
@@ -645,7 +730,7 @@
         <div class="platform-label">STORYSELLING FRAMEWORK</div>
         <div class="platform-icon">✏️</div>
         <div class="platform-title">Storyselling in the Age of AI</div>
-        <p class="platform-body">The Narrative Intelligence framework that's been battle-tested with 30,000+ people is now a living program. Learn to sell with story, powered by AI — and close deals your competitors can't touch.</p>
+        <p class="platform-body">The Narrative Intelligence framework battle-tested with 30,000+ people is now a living program. Learn to sell with story, powered by AI — and close deals your competitors can't touch.</p>
         <ul class="platform-features">
           <li>Harvard-developed Narrative Intelligence</li>
           <li>Frameworks for high-stakes conversations</li>
@@ -658,10 +743,12 @@
 </section>
 
 <section class="cta-section" id="cta">
+  <div class="gold-shimmer"></div>
+  <div class="cta-glow"></div>
   <div class="container">
     <h2>Ready to Build a Sales Machine That Runs on AI &amp; Is Fueled By Human Connection &amp; Deep Relationships?</h2>
     <p>One conversation. Real strategy. No pitch.</p>
-    <a href="#" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.2rem;" onclick="openModal(event)">Book Your Free Strategy Call →</a>
+    <a href="#" class="btn-primary" style="font-size:1.2rem;padding:1.1rem 2.5rem;" onclick="openModal(event)">Book Your Free Strategy Call →</a>
     <p class="cta-note">Limited spots available. Scott reviews every application personally.</p>
   </div>
 </section>
@@ -671,7 +758,7 @@
     <button class="modal-close" onclick="closeModal()">×</button>
     <div id="formContent">
       <h2>Free Strategy Call</h2>
-      <h3 style="font-size:1.4rem;color:#fff;margin-bottom:0.25rem;">Let's Talk About Your Sales Growth</h3>
+      <h3 style="font-size:1.5rem;color:#fff;margin-bottom:0.35rem;">Let's Talk About Your Sales Growth</h3>
       <p>Scott reviews every request personally. No pitch — just strategy.</p>
       <div class="form-row">
         <div class="form-group"><input type="text" id="firstName" placeholder="First Name"/></div>
@@ -682,12 +769,12 @@
       <div class="form-group"><input type="text" id="formCompany" placeholder="Company"/></div>
       <div class="form-group honeypot"><input type="text" id="honeypotField" placeholder="Don't fill this out"/></div>
       <p class="form-error" id="formError">Please fill in your name and a valid email.</p>
-      <button class="btn-primary" style="width:100%;margin-top:0.5rem;" onclick="submitForm()">Request My Free Strategy Call →</button>
+      <button class="btn-primary" style="width:100%;margin-top:0.6rem;" onclick="submitForm()">Request My Free Strategy Call →</button>
     </div>
     <div class="form-success" id="formSuccess">
       <div class="check">✓</div>
       <h3>You're In!</h3>
-      <p>Scott will reach out within 1 business day to confirm your call. Check your inbox — and spam just in case.</p>
+      <p>Scott will reach out within 1 business day. Check your inbox — and spam just in case.</p>
     </div>
   </div>
 </div>
@@ -703,111 +790,94 @@
 </footer>
 
 <script>
-  const answers = [null, null, null];
-  const scores = [null, null, null];
-
-  function selectOption(step, idx, score) {
-    const opts = document.querySelectorAll(`#step${step} .quiz-option`);
-    opts.forEach((o,i) => o.classList.toggle('selected', i === idx));
-    answers[step] = idx;
-    scores[step] = score;
+  const answers=[null,null,null], scores=[null,null,null];
+  function selectOption(step,idx,score){
+    document.querySelectorAll(`#step${step} .quiz-option`).forEach((o,i)=>o.classList.toggle('selected',i===idx));
+    answers[step]=idx; scores[step]=score;
   }
-
-  function nextStep(current) {
-    if (answers[current] === null) { document.getElementById(`err${current}`).style.display = 'block'; return; }
-    document.getElementById(`err${current}`).style.display = 'none';
+  function nextStep(current){
+    if(answers[current]===null){document.getElementById(`err${current}`).style.display='block';return;}
+    document.getElementById(`err${current}`).style.display='none';
     document.getElementById(`step${current}`).classList.remove('active');
     document.getElementById(`step${current+1}`).classList.add('active');
-    document.getElementById(`dot${current}`).classList.remove('active');
-    document.getElementById(`dot${current}`).classList.add('done');
+    const d=document.getElementById(`dot${current}`);
+    d.classList.remove('active'); d.classList.add('done');
     document.getElementById(`dot${current+1}`).classList.add('active');
   }
-
-  function submitQuiz() {
-    if (answers[2] === null) { document.getElementById('err2').style.display = 'block'; return; }
-    document.getElementById('err2').style.display = 'none';
+  function submitQuiz(){
+    if(answers[2]===null){document.getElementById('err2').style.display='block';return;}
+    document.getElementById('err2').style.display='none';
     document.getElementById('step2').classList.remove('active');
-    document.getElementById('dot2').classList.remove('active');
-    document.getElementById('dot2').classList.add('done');
-    document.getElementById('quizEmail').style.display = 'block';
+    const d=document.getElementById('dot2'); d.classList.remove('active'); d.classList.add('done');
+    document.getElementById('quizEmail').style.display='block';
   }
-
-  function unlockScore() {
-    const email = document.getElementById('emailInput').value;
-    if (!email || !email.includes('@')) { document.getElementById('emailErr').style.display = 'block'; return; }
-    document.getElementById('emailErr').style.display = 'none';
-    document.getElementById('quizEmail').style.display = 'none';
+  function unlockScore(){
+    const email=document.getElementById('emailInput').value;
+    if(!email||!email.includes('@')){document.getElementById('emailErr').style.display='block';return;}
+    document.getElementById('emailErr').style.display='none';
+    document.getElementById('quizEmail').style.display='none';
     showResult();
   }
-
-  function showResult() {
-    const total = scores.reduce((a,b) => a + (b||0), 0);
-    const pct = Math.round((total / 12) * 100);
-    document.getElementById('quizResult').style.display = 'block';
-    document.getElementById('scoreAnalyzing').style.display = 'none';
-    let num = 0;
-    const el = document.getElementById('scoreNum');
-    const timer = setInterval(() => { num = Math.min(num + 2, pct); el.textContent = num; if (num >= pct) clearInterval(timer); }, 30);
-    const circle = document.getElementById('scoreCircle');
-    const label = document.getElementById('scoreLabel');
-    const desc = document.getElementById('scoreDesc');
-    if (pct >= 71) { circle.style.borderColor = '#f87171'; label.textContent = 'High Risk'; label.style.color = '#f87171'; desc.textContent = 'Your role has significant exposure to AI disruption in the next 12 months. Now is the time to build your human edge.'; }
-    else if (pct >= 36) { circle.style.borderColor = '#f5c842'; label.textContent = 'Moderate Risk'; label.style.color = '#f5c842'; desc.textContent = 'You have some insulation, but AI is closing the gap. Upgrading your relational skills now keeps you ahead.'; }
-    else { circle.style.borderColor = '#34d399'; label.textContent = 'Minimal Risk'; label.style.color = '#34d399'; desc.textContent = 'Your work is highly resilient to AI disruption. Lean into your human skills to extend this advantage permanently.'; }
+  function showResult(){
+    const total=scores.reduce((a,b)=>a+(b||0),0);
+    const pct=Math.round((total/12)*100);
+    document.getElementById('quizResult').style.display='block';
+    document.getElementById('scoreAnalyzing').style.display='none';
+    let num=0; const el=document.getElementById('scoreNum');
+    const t=setInterval(()=>{num=Math.min(num+2,pct);el.textContent=num;if(num>=pct)clearInterval(t);},30);
+    const circle=document.getElementById('scoreCircle'),label=document.getElementById('scoreLabel'),desc=document.getElementById('scoreDesc');
+    if(pct>=71){circle.style.borderColor='#f87171';label.textContent='High Risk';label.style.color='#f87171';desc.textContent='Your role has significant exposure to AI disruption in the next 12 months. Now is the time to build your human edge.';}
+    else if(pct>=36){circle.style.borderColor='#f5c842';label.textContent='Moderate Risk';label.style.color='#f5c842';desc.textContent='You have some insulation, but AI is closing the gap. Upgrading your relational skills now keeps you ahead.';}
+    else{circle.style.borderColor='#34d399';label.textContent='Minimal Risk';label.style.color='#34d399';desc.textContent='Your work is highly resilient to AI disruption. Lean into your human skills to extend this advantage permanently.';}
   }
-
-  function openModal(e) { e.preventDefault(); document.getElementById('modalOverlay').classList.add('open'); }
-  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
-  document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-
-  function submitForm() {
-    const fn = document.getElementById('firstName').value.trim();
-    const email = document.getElementById('formEmail').value.trim();
-    const honeypot = document.getElementById('honeypotField').value;
-    if (honeypot || !fn || !email || !email.includes('@')) { document.getElementById('formError').style.display = 'block'; return; }
-    document.getElementById('formError').style.display = 'none';
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+  function openModal(e){e.preventDefault();document.getElementById('modalOverlay').classList.add('open');}
+  function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+  document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+  function submitForm(){
+    const fn=document.getElementById('firstName').value.trim();
+    const email=document.getElementById('formEmail').value.trim();
+    const hp=document.getElementById('honeypotField').value;
+    if(hp||!fn||!email||!email.includes('@')){document.getElementById('formError').style.display='block';return;}
+    document.getElementById('formError').style.display='none';
+    document.getElementById('formContent').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
   }
-
-  (function() {
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
-    let W, H, stars = [];
-    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-    resize();
-    window.addEventListener('resize', resize);
-    for (let i = 0; i < 120; i++) {
-      stars.push({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, r: Math.random() * 1.2 + 0.2, dx: (Math.random() - 0.5) * 0.18, dy: (Math.random() - 0.5) * 0.12, o: Math.random() * 0.5 + 0.1 });
-    }
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(96,165,250,${s.o})`; ctx.fill(); s.x += s.dx; s.y += s.dy; if (s.x < 0) s.x = W; if (s.x > W) s.x = 0; if (s.y < 0) s.y = H; if (s.y > H) s.y = 0; });
+  (function(){
+    const canvas=document.getElementById('hero-canvas');
+    const ctx=canvas.getContext('2d');
+    let W,H,stars=[];
+    function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+    resize(); window.addEventListener('resize',resize);
+    for(let i=0;i<150;i++) stars.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.5+0.2,dx:(Math.random()-0.5)*0.22,dy:(Math.random()-0.5)*0.15,o:Math.random()*0.55+0.12});
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      stars.forEach(s=>{
+        ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(96,165,250,${s.o})`;ctx.fill();
+        s.x+=s.dx;s.y+=s.dy;
+        if(s.x<0)s.x=W;if(s.x>W)s.x=0;if(s.y<0)s.y=H;if(s.y>H)s.y=0;
+      });
       requestAnimationFrame(draw);
     }
     draw();
   })();
-
-  const counters = document.querySelectorAll('.stat-num[data-target]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        let current = 0;
-        const step = Math.ceil(target / 60);
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          if (target >= 1000) { el.textContent = (current >= 1000 ? (current/1000).toFixed(0)+'K' : current) + suffix; }
-          else { el.textContent = (el.parentElement.querySelector('.stat-label').textContent.includes('Pipeline') ? '$' : '') + current + (suffix || (el.parentElement.querySelector('.stat-label').textContent.includes('Pipeline') ? 'M+' : '')); }
-          if (current >= target) clearInterval(timer);
-        }, 25);
-        observer.unobserve(el);
-      }
+  const counters=document.querySelectorAll('.stat-num[data-target]');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const el=entry.target,target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';
+      const isPipeline=el.parentElement.querySelector('.stat-label').textContent.includes('Pipeline');
+      let current=0;const step=Math.ceil(target/60);
+      const t=setInterval(()=>{
+        current=Math.min(current+step,target);
+        if(target>=1000){el.textContent=(current>=1000?(current/1000).toFixed(0)+'K':current)+suffix;}
+        else{el.textContent=(isPipeline?'$':'')+current+(suffix||(isPipeline?'M+':''));}
+        if(current>=target)clearInterval(t);
+      },25);
+      obs.unobserve(el);
     });
-  }, { threshold: 0.5 });
-  counters.forEach(c => observer.observe(c));
+  },{threshold:0.5});
+  counters.forEach(c=>obs.observe(c));
 </script>
 </body>
 </html>
