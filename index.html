@@ -210,7 +210,7 @@
   @keyframes pillarPulse3 { 0%,100% { color: #fff; text-shadow: none; } 50% { color: #fb923c; text-shadow: 0 0 20px rgba(251,146,60,0.5); } }
   @keyframes iconSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   @keyframes orbitDot { from { transform: rotate(0deg) translateX(52px); } to { transform: rotate(360deg) translateX(52px); } }
-  .pillar-icon-wrap svg { animation: iconSpin 14s linear infinite; transform-origin: center; display: block; }
+  .pillar-icon-wrap svg { transform-origin: center; display: block; }
   .pillar-icon-wrap::before { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; top: 50%; left: 50%; margin: -4.5px 0 0 -4.5px; }
   .pillar-card:nth-child(1) .pillar-icon-wrap::before { background: #14b8a6; box-shadow: 0 0 10px #14b8a6, 0 0 20px rgba(20,184,166,0.5); animation: orbitDot 3s linear infinite; }
   .pillar-card:nth-child(2) .pillar-icon-wrap::before { background: #818cf8; box-shadow: 0 0 10px #818cf8, 0 0 20px rgba(129,140,248,0.5); animation: orbitDot 4s linear infinite; }
@@ -858,7 +858,58 @@
       
       <div class="platform-card featured-plat">
         <span class="platform-label">AI SALES PLATFORM</span>
-        <span class="platform-icon" aria-hidden="true">🗂️</span>
+        <span class="platform-icon" aria-hidden="true" style="font-size:0;">
+          <svg viewBox="0 0 184 115" width="184" height="115" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:0.5rem;border-radius:6px;overflow:hidden;">
+            <!-- Page background: dark green -->
+            <rect width="184" height="115" fill="#195c3a" rx="6"/>
+            <!-- Nav bar -->
+            <rect width="184" height="18" fill="#134d30" rx="0"/>
+            <!-- Globe icon in nav -->
+            <circle cx="12" cy="9" r="5" stroke="#ffffff" stroke-width="0.9" fill="none"/>
+            <line x1="12" y1="4" x2="12" y2="14" stroke="#ffffff" stroke-width="0.7" opacity="0.7"/>
+            <line x1="7" y1="9" x2="17" y2="9" stroke="#ffffff" stroke-width="0.7" opacity="0.7"/>
+            <ellipse cx="12" cy="9" rx="2.5" ry="5" stroke="#ffffff" stroke-width="0.7" fill="none" opacity="0.7"/>
+            <!-- Nav brand text -->
+            <text x="20" y="12" fill="#ffffff" font-size="5.5" font-family="Arial,sans-serif" font-weight="bold" letter-spacing="0.2">SalesForLife.ai</text>
+            <!-- Nav links (simplified lines) -->
+            <rect x="55" y="7" width="20" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="79" y="7" width="16" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="99" y="7" width="26" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <rect x="129" y="7" width="18" height="1.5" fill="#ffffff" opacity="0.35" rx="0.8"/>
+            <!-- Main headline "Stop Talking" -->
+            <text x="9" y="36" fill="#ffffff" font-size="13" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-0.3">Stop Talking</text>
+            <!-- "Start " + "Persuading" in yellow -->
+            <text x="9" y="51" fill="#ffffff" font-size="12" font-family="Arial,sans-serif" font-weight="900">Start </text>
+            <text x="38" y="51" fill="#f5c518" font-size="12" font-family="Arial,sans-serif" font-weight="900">Persuading</text>
+            <!-- "Information Tells & Stories Sell" -->
+            <text x="9" y="63" fill="#a8d8b0" font-size="5.8" font-family="Arial,sans-serif" font-weight="600">Information Tells &amp; Stories Sell</text>
+            <!-- Bullet rows -->
+            <circle cx="12" cy="72" r="1.2" fill="#f5c518"/>
+            <text x="16" y="75" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Clarify Your Message</text>
+            <circle cx="12" cy="80" r="1.2" fill="#f5c518"/>
+            <text x="16" y="83" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Persuade Your Audience</text>
+            <circle cx="12" cy="88" r="1.2" fill="#f5c518"/>
+            <text x="16" y="91" fill="#e0f0e8" font-size="5" font-family="Arial,sans-serif">Grow Your Business</text>
+            <!-- Right side portrait box -->
+            <rect x="118" y="20" width="60" height="90" fill="#1f6e44" rx="4"/>
+            <!-- Portrait: head/face simplified sketch -->
+            <ellipse cx="148" cy="60" rx="22" ry="27" fill="none" stroke="#c8b89a" stroke-width="0.8" opacity="0.7"/>
+            <ellipse cx="148" cy="50" rx="16" ry="18" fill="#d4c4a0" opacity="0.55"/>
+            <!-- Hair lines (white/grey sketch style) -->
+            <ellipse cx="148" cy="36" rx="15" ry="8" fill="#e8dcc0" opacity="0.5"/>
+            <!-- Face features: eyes -->
+            <ellipse cx="143" cy="50" rx="2" ry="1.5" fill="#5a4030" opacity="0.6"/>
+            <ellipse cx="153" cy="50" rx="2" ry="1.5" fill="#5a4030" opacity="0.6"/>
+            <!-- Glasses -->
+            <rect x="139" y="47.5" width="7" height="5" rx="2.5" stroke="#444" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <rect x="149" y="47.5" width="7" height="5" rx="2.5" stroke="#444" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <line x1="146" y1="50" x2="149" y2="50" stroke="#444" stroke-width="0.8" opacity="0.7"/>
+            <!-- Smile line -->
+            <path d="M143 58 Q148 62 153 58" stroke="#5a4030" stroke-width="0.9" fill="none" opacity="0.5"/>
+            <!-- Suit collar hint -->
+            <path d="M130 90 L140 70 L148 78 L156 70 L166 90" fill="#2a3a50" opacity="0.6"/>
+          </svg>
+        </span>
         <h3 class="platform-title">SalesForLife.ai</h3>
         <p class="platform-body">AI-powered tools built for sales professionals who want to close more deals, build deeper relationships, and grow their business faster.</p>
         <ul class="platform-features" aria-label="SalesForLife Features">
