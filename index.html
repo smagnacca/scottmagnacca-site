@@ -876,3 +876,207 @@
   </div>
   <p>© 2026 Scott Magnacca · SalesForLife.ai. All rights reserved.</p>
 </footer>
+
+<script>
+// ── Hero canvas particle animation ────────────────────────────────
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function() {
+    this.x = Math.random() * W; this.y = Math.random() * H;
+    this.r = Math.random() * 1.5 + 0.5;
+    this.vx = (Math.random() - 0.5) * 0.3; this.vy = (Math.random() - 0.5) * 0.3;
+    this.alpha = Math.random() * 0.5 + 0.1;
+  };
+  resize();
+  for (var i = 0; i < 80; i++) particles.push(new Particle());
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(96,165,250,' + p.alpha + ')'; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  draw();
+})();
+
+// ── Quiz ──────────────────────────────────────────────────────────
+var quizScores = [null, null, null];
+
+function updatePie(pct) {
+  var pie = document.getElementById('pieChart');
+  var txt = document.getElementById('pieChartText');
+  if (pie) pie.style.setProperty('--progress', pct + '%');
+  if (txt) txt.textContent = pct + '%';
+  var sidebar = document.getElementById('sidebarText');
+  if (sidebar) {
+    if (pct === 0) sidebar.textContent = 'Complete the 3 questions to unlock your AI survival strategy.';
+    else if (pct < 67) sidebar.textContent = 'Great start! Keep going...';
+    else if (pct < 100) sidebar.textContent = 'Almost there — one more question!';
+    else sidebar.textContent = 'All done! Enter your email to unlock your score.';
+  }
+}
+
+function selectOption(step, optIdx, score) {
+  var stepEl = document.getElementById('step' + step);
+  if (!stepEl) return;
+  stepEl.querySelectorAll('.quiz-option').forEach(function(btn, i) {
+    btn.classList.toggle('selected', i === optIdx);
+    btn.setAttribute('aria-checked', i === optIdx ? 'true' : 'false');
+  });
+  quizScores[step] = score;
+  var err = document.getElementById('err' + step);
+  if (err) err.style.display = 'none';
+}
+
+function nextStep(step) {
+  if (quizScores[step] === null) {
+    var err = document.getElementById('err' + step);
+    if (err) { err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    return;
+  }
+  document.getElementById('step' + step).classList.remove('active');
+  var dot = document.getElementById('dot' + step);
+  if (dot) { dot.classList.remove('active'); dot.classList.add('done'); }
+  var next = document.getElementById('step' + (step + 1));
+  if (next) next.classList.add('active');
+  var nextDot = document.getElementById('dot' + (step + 1));
+  if (nextDot) nextDot.classList.add('active');
+  updatePie(Math.round(((step + 1) / 3) * 100));
+}
+
+function submitQuiz() {
+  if (quizScores[2] === null) {
+    var err = document.getElementById('err2');
+    if (err) { err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    return;
+  }
+  document.getElementById('step2').classList.remove('active');
+  var dot2 = document.getElementById('dot2');
+  if (dot2) { dot2.classList.remove('active'); dot2.classList.add('done'); }
+  updatePie(100);
+  var congrats = document.getElementById('congratsMsg');
+  if (congrats) congrats.style.display = 'block';
+  var emailWrap = document.getElementById('quizEmail');
+  if (emailWrap) {
+    emailWrap.style.display = 'block';
+    emailWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function() { var i = document.getElementById('emailInput'); if (i) i.focus(); }, 400);
+  }
+}
+
+function unlockScore() {
+  var emailEl = document.getElementById('emailInput');
+  var emailErr = document.getElementById('emailErr');
+  var val = emailEl ? emailEl.value.trim() : '';
+  if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    if (emailErr) emailErr.style.display = 'block';
+    return;
+  }
+  if (emailErr) emailErr.style.display = 'none';
+  var total = (quizScores[0] || 0) + (quizScores[1] || 0) + (quizScores[2] || 0);
+  var pct = Math.round((total / 12) * 100);
+  var emailWrap = document.getElementById('quizEmail');
+  if (emailWrap) emailWrap.style.display = 'none';
+  var resultWrap = document.getElementById('quizResult');
+  if (resultWrap) { resultWrap.style.display = 'block'; resultWrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  // Animated count-up
+  var scoreNum = document.getElementById('scoreNum');
+  var analyzing = document.getElementById('scoreAnalyzing');
+  var scoreLabel = document.getElementById('scoreLabel');
+  var scoreDesc = document.getElementById('scoreDesc');
+  var scoreCircle = document.getElementById('scoreCircle');
+  var duration = 2000, start = null;
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function tick(ts) {
+    if (!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    if (scoreNum) scoreNum.textContent = Math.round(easeOut(progress) * pct);
+    if (progress < 1) { requestAnimationFrame(tick); return; }
+    var color = pct >= 71 ? '#EF4444' : pct >= 36 ? '#F59E0B' : '#10B981';
+    var label = pct >= 71 ? '⚠ High Risk' : pct >= 36 ? 'Moderate Risk' : 'Minimal Risk';
+    var desc = pct >= 71
+      ? 'Your role shows high vulnerability to AI disruption. Act now — the skills that future-proof your career are learnable, and the window to get ahead is still open.'
+      : pct >= 36
+      ? 'You have some protection, but AI is closing the gap fast. Building your Hybrid Advisor skills now puts you permanently ahead of the curve.'
+      : "Your role relies heavily on uniquely human skills. Keep compounding these — they're your most durable competitive advantage in the AI era.";
+    if (scoreCircle) scoreCircle.style.borderColor = color;
+    if (scoreNum) scoreNum.style.color = color;
+    if (analyzing) analyzing.style.display = 'none';
+    if (scoreLabel) { scoreLabel.textContent = label; scoreLabel.style.color = color; }
+    if (scoreDesc) scoreDesc.textContent = desc;
+  }
+  requestAnimationFrame(tick);
+}
+
+// ── Modal ─────────────────────────────────────────────────────────
+function openModal(e) {
+  if (e) e.preventDefault();
+  var overlay = document.getElementById('modalOverlay');
+  if (!overlay) return;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { var f = overlay.querySelector('input'); if (f) f.focus(); }, 100);
+}
+function closeModal() {
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+});
+
+function submitForm() {
+  if (document.getElementById('honeypotField').value) return;
+  var first = document.getElementById('firstName').value.trim();
+  var last = document.getElementById('lastName').value.trim();
+  var email = document.getElementById('formEmail').value.trim();
+  var company = document.getElementById('formCompany').value.trim();
+  var err = document.getElementById('formError');
+  if (!first || !last || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (err) err.style.display = 'block'; return;
+  }
+  if (err) err.style.display = 'none';
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// ── Stats count-up on scroll ──────────────────────────────────────
+(function() {
+  var els = document.querySelectorAll('.stat-num[data-target]');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateStat(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || '';
+    var prefix = /^\$/.test(el.textContent) ? '$' : '';
+    var duration = 2400, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      el.textContent = prefix + Math.round(easeOut(p) * target).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { animateStat(entry.target); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.4 });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
