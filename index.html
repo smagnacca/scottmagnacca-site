@@ -199,7 +199,20 @@
   .pillar-card:nth-child(3) .pillar-icon-wrap { background: radial-gradient(circle, rgba(251,146,60,0.2) 0%, rgba(251,146,60,0.05) 70%); box-shadow: 0 0 0 2px rgba(251,146,60,0.3), 0 0 40px rgba(251,146,60,0.15); animation: iconGlow3 4s ease-in-out infinite 2s; }
   @keyframes iconGlow3 { 0%,100%{box-shadow:0 0 0 2px rgba(251,146,60,0.3),0 0 25px rgba(251,146,60,0.15);} 50%{box-shadow:0 0 0 2px rgba(251,146,60,0.5),0 0 50px rgba(251,146,60,0.3);} }
 
-  .pillar-title { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+  .pillar-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+  .pillar-card:nth-child(1) .pillar-title { animation: pillarPulse1 3s ease-in-out infinite; }
+  .pillar-card:nth-child(2) .pillar-title { animation: pillarPulse2 3s ease-in-out infinite 1s; }
+  .pillar-card:nth-child(3) .pillar-title { animation: pillarPulse3 3s ease-in-out infinite 2s; }
+  @keyframes pillarPulse1 { 0%,100% { color: #fff; text-shadow: none; } 50% { color: #14b8a6; text-shadow: 0 0 20px rgba(20,184,166,0.5); } }
+  @keyframes pillarPulse2 { 0%,100% { color: #fff; text-shadow: none; } 50% { color: #818cf8; text-shadow: 0 0 20px rgba(129,140,248,0.5); } }
+  @keyframes pillarPulse3 { 0%,100% { color: #fff; text-shadow: none; } 50% { color: #fb923c; text-shadow: 0 0 20px rgba(251,146,60,0.5); } }
+  @keyframes iconSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes orbitDot { from { transform: rotate(0deg) translateX(52px); } to { transform: rotate(360deg) translateX(52px); } }
+  .pillar-icon-wrap svg { animation: iconSpin 14s linear infinite; transform-origin: center; display: block; }
+  .pillar-icon-wrap::before { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; top: 50%; left: 50%; margin: -4.5px 0 0 -4.5px; }
+  .pillar-card:nth-child(1) .pillar-icon-wrap::before { background: #14b8a6; box-shadow: 0 0 10px #14b8a6, 0 0 20px rgba(20,184,166,0.5); animation: orbitDot 3s linear infinite; }
+  .pillar-card:nth-child(2) .pillar-icon-wrap::before { background: #818cf8; box-shadow: 0 0 10px #818cf8, 0 0 20px rgba(129,140,248,0.5); animation: orbitDot 4s linear infinite; }
+  .pillar-card:nth-child(3) .pillar-icon-wrap::before { background: #fb923c; box-shadow: 0 0 10px #fb923c, 0 0 20px rgba(251,146,60,0.5); animation: orbitDot 3.5s linear infinite; }
   .pillar-body { color: var(--muted); font-size: 1.15rem; margin-bottom: 1.5rem; line-height: 1.7; }
   .pillar-stat { font-size: 1rem; font-weight: 600; color: var(--accent2); font-style: italic; background: rgba(96,165,250,0.1); padding: 0.8rem; border-radius: 8px; }
 
@@ -580,15 +593,15 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num" data-target="100">$0</div>
+        <div class="stat-num" data-target="103" data-suffix="M">$0</div>
         <div class="stat-label">Pipeline Generated</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num" data-target="30000" data-suffix="+">0</div>
+        <div class="stat-num" data-target="836">0</div>
         <div class="stat-label">Professionals Coached</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num" data-target="25" data-suffix="+">0</div>
+        <div class="stat-num" data-target="26" data-suffix="+">0</div>
         <div class="stat-label">Years Field Experience</div>
       </div>
     </div>
@@ -1061,7 +1074,7 @@ function submitForm() {
     var target = parseInt(el.dataset.target, 10);
     var suffix = el.dataset.suffix || '';
     var prefix = /^\$/.test(el.textContent) ? '$' : '';
-    var duration = 2400, startTime = null;
+    var duration = 5500, startTime = null;
     function step(ts) {
       if (!startTime) startTime = ts;
       var p = Math.min((ts - startTime) / duration, 1);
