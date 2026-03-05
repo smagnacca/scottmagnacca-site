@@ -805,8 +805,48 @@
       
       <div class="platform-card">
         <span class="platform-label">STORYSELLING FRAMEWORK</span>
-        <span class="platform-icon" aria-hidden="true">✏️</span>
-        <h3 class="platform-title">Storyselling AI</h3>
+        <span class="platform-icon" aria-hidden="true" style="font-size:0;">
+          <svg viewBox="0 0 180 110" width="180" height="110" xmlns="http://www.w3.org/2000/svg" style="display:block; margin-bottom:0.5rem;">
+            <defs>
+              <radialGradient id="ssVgL" cx="40%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#3b6ef6" stop-opacity="0.04"/>
+              </radialGradient>
+              <radialGradient id="ssVgR" cx="60%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0.04"/>
+              </radialGradient>
+              <radialGradient id="ssVgC" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- Left circle: AI -->
+            <circle cx="70" cy="55" r="44" fill="url(#ssVgL)">
+              <animate attributeName="opacity" values="0.75;1;0.75" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="70" cy="55" r="44" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.65"/>
+            <!-- Right circle: Human -->
+            <circle cx="110" cy="55" r="44" fill="url(#ssVgR)">
+              <animate attributeName="opacity" values="1;0.75;1" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="110" cy="55" r="44" fill="none" stroke="#fb923c" stroke-width="1.5" opacity="0.65"/>
+            <!-- Intersection glow -->
+            <ellipse cx="90" cy="55" rx="21" ry="42" fill="url(#ssVgC)">
+              <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+            </ellipse>
+            <!-- Left label -->
+            <text x="34" y="51" font-size="8.5" font-weight="700" fill="#60a5fa" text-anchor="middle" font-family="DM Sans,sans-serif">AI</text>
+            <text x="34" y="62" font-size="6" fill="#60a5fa" text-anchor="middle" font-family="DM Sans,sans-serif" opacity="0.8">POWER</text>
+            <!-- Right label -->
+            <text x="146" y="51" font-size="8.5" font-weight="700" fill="#fb923c" text-anchor="middle" font-family="DM Sans,sans-serif">HUMAN</text>
+            <text x="146" y="62" font-size="6" fill="#fb923c" text-anchor="middle" font-family="DM Sans,sans-serif" opacity="0.8">HEART</text>
+            <!-- Center: Story -->
+            <text x="90" y="51" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Playfair Display,serif">STORY</text>
+            <text x="90" y="62" font-size="6" fill="rgba(255,255,255,0.75)" text-anchor="middle" font-family="Playfair Display,serif">SELLING</text>
+          </svg>
+        </span>
+        <h3 class="platform-title">Storyselling In The Age of AI</h3>
         <p class="platform-body">The Narrative Intelligence framework—battle-tested by 30,000+ professionals—is now a living program. Sell with story, amplified by AI.</p>
         <ul class="platform-features" aria-label="Storyselling Features">
           <li>Harvard-developed Narrative Intelligence</li>
@@ -883,7 +923,7 @@
 <footer aria-label="Site Footer">
   <div class="footer-links">
     <a href="https://salesforlife.ai" target="_blank" rel="noopener noreferrer">SalesForLife.ai</a>
-    <a href="https://soft-marzipan-9cf81c.netlify.app/" target="_blank" rel="noopener noreferrer">Storyselling AI</a>
+    <a href="https://soft-marzipan-9cf81c.netlify.app/" target="_blank" rel="noopener noreferrer">Storyselling In The Age of AI</a>
     <a href="https://linkedin.com/in/scottmagnacca" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
     <a href="#">Privacy Policy</a>
   </div>
