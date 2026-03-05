@@ -1383,6 +1383,95 @@ function submitForm() {
     })();
   }
 
+
+  // ── Ring Sparkle (quiz/assessment section) ───────────────────────
+  function ringSparkle(section) {
+    var c = mkCanvas(section), ctx = c.getContext('2d'), W, H;
+    function rs() { W = c.width = section.offsetWidth; H = c.height = section.offsetHeight; }
+    rs(); window.addEventListener('resize', rs);
+
+    var COLS = [
+      [59,110,246], [96,165,250], [20,184,166], [129,140,248],
+      [245,158,11], [167,139,250], [251,146,60], [52,211,153],
+      [96,165,250], [20,184,166]
+    ];
+    var EXPAND = 90, SPARK = 22, TOTAL = EXPAND + SPARK;
+
+    function mkRing(scatter) {
+      var rMin = Math.random() * 7 + 4;
+      return { x: Math.random()*W, y: Math.random()*H,
+               rMin: rMin, rMax: rMin*3,
+               col: COLS[Math.floor(Math.random()*COLS.length)],
+               t: scatter ? Math.random()*TOTAL : 0,
+               spd: Math.random()*0.4+0.65,
+               lw: Math.random()*1.3+0.7,
+               a: Math.random()*0.38+0.22 };
+    }
+    function reset(ring) {
+      var rMin = Math.random()*7+4;
+      ring.x=Math.random()*W; ring.y=Math.random()*H;
+      ring.rMin=rMin; ring.rMax=rMin*3;
+      ring.col=COLS[Math.floor(Math.random()*COLS.length)];
+      ring.t=0; ring.spd=Math.random()*0.4+0.65;
+      ring.lw=Math.random()*1.3+0.7;
+      ring.a=Math.random()*0.38+0.22;
+    }
+
+    var rings=[];
+    for(var i=0;i<100;i++) rings.push(mkRing(true));
+
+    (function draw() {
+      ctx.clearRect(0,0,W,H);
+      rings.forEach(function(ring) {
+        ring.t += ring.spd;
+        if (ring.t >= TOTAL) { reset(ring); return; }
+        var r=ring.col[0], g=ring.col[1], b=ring.col[2];
+
+        if (ring.t < EXPAND) {
+          // Expand phase: ease-in growth, fade in first quarter
+          var p = ring.t / EXPAND;
+          var ep = p*p; // ease-in
+          var radius = ring.rMin + (ring.rMax - ring.rMin) * ep;
+          var alpha = ring.a * Math.min(1, p*5);
+          ctx.beginPath(); ctx.arc(ring.x, ring.y, radius, 0, 6.283);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+alpha+')';
+          ctx.lineWidth=ring.lw; ctx.stroke();
+        } else {
+          // Sparkle phase
+          var sp = (ring.t - EXPAND) / SPARK; // 0→1
+          var sa = ring.a * (1 - sp);
+
+          // Ring fades out
+          ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.rMax, 0, 6.283);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+(sa*0.45)+')';
+          ctx.lineWidth=ring.lw; ctx.stroke();
+
+          // 6 radiating spark lines
+          var inner = ring.rMax, outer = ring.rMax*(1+sp*0.9);
+          ctx.save(); ctx.translate(ring.x, ring.y);
+          ctx.strokeStyle='rgba('+r+','+g+','+b+','+sa+')';
+          ctx.lineWidth=1.1;
+          for(var j=0;j<6;j++){
+            var ang=(j/6)*6.283 + 0.26;
+            ctx.beginPath();
+            ctx.moveTo(Math.cos(ang)*inner, Math.sin(ang)*inner);
+            ctx.lineTo(Math.cos(ang)*outer, Math.sin(ang)*outer);
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // Center flash dot
+          var dotR = ring.rMax*0.18*(1-sp);
+          if(dotR>0.5){
+            ctx.beginPath(); ctx.arc(ring.x,ring.y,dotR,0,6.283);
+            ctx.fillStyle='rgba('+r+','+g+','+b+','+(sa*0.9)+')'; ctx.fill();
+          }
+        }
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+
   // ── Wire-up sections on load ──────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function() {
 
@@ -1429,6 +1518,10 @@ function submitForm() {
     // Platforms: matrix rain
     var platforms = document.querySelector('.platforms-section');
     if (platforms) matrixRain(platforms, 59, 110, 246);
+
+    // Quiz / Assessment: ring sparkle
+    var quizSection = document.querySelector('.quiz-section');
+    if (quizSection) ringSparkle(quizSection);
 
     // CTA: gold rays
     var cta = document.querySelector('.cta-section');
