@@ -65,7 +65,11 @@
     gap: 5rem; position: relative; z-index: 1;
   }
   .hero-text { flex: 1; }
-  .hero-eyebrow { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.4rem; }
+  @keyframes eyebrowPulse {
+    0%, 100% { color: var(--accent2); text-shadow: 0 0 8px rgba(96,165,250,0.3), 0 0 20px rgba(96,165,250,0.15); }
+    50% { color: #93c5fd; text-shadow: 0 0 14px rgba(96,165,250,0.7), 0 0 35px rgba(96,165,250,0.4), 0 0 60px rgba(59,110,246,0.2); }
+  }
+  .hero-eyebrow { font-size: 1.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.4rem; animation: eyebrowPulse 4s ease-in-out infinite; }
   .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 0.8rem; letter-spacing: -0.01em; }
   .hero h1 span { color: var(--accent2); }
   .hero-sub2 { font-size: 1.6rem; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
@@ -453,7 +457,7 @@
   }
   .apop-close:hover { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); }
   .apop-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
-  .apop-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.45rem; }
+  .apop-title { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.45rem; }
   .apop-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: #3b6ef6; margin-bottom: 1.4rem; text-transform: uppercase; }
   .apop-box {
     background: rgba(59,110,246,0.07);
@@ -461,8 +465,8 @@
     border-radius: 12px; padding: 1.1rem 1.3rem;
     margin-bottom: 1.4rem; text-align: left;
   }
-  .apop-box strong { color: #f0f0f5; font-size: 1rem; display: block; margin-bottom: 0.4rem; }
-  .apop-box p { color: #aeb0c4; font-size: 0.92rem; line-height: 1.55; margin: 0; }
+  .apop-box strong { color: #f0f0f5; font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+  .apop-box p { color: #aeb0c4; font-size: 1.38rem; line-height: 1.6; margin: 0; }
   .apop input[type="email"] {
     width: 100%; box-sizing: border-box;
     background: #1a1a28; border: 1.5px solid #323246;
@@ -484,7 +488,7 @@
     box-shadow: 0 4px 20px rgba(59,110,246,0.35);
   }
   .apop-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 25px rgba(59,110,246,0.5); }
-  .apop-note { font-size: 0.82rem; color: #5a5c72; margin-top: 0.75rem; }
+  .apop-note { font-size: 1rem; color: #5a5c72; margin-top: 0.75rem; }
   .apop-success { display: none; padding: 1rem 0 0.5rem; }
   .apop-success .apop-check { font-size: 2.8rem; color: #14b8a6; margin-bottom: 0.5rem; }
   .apop-success h3 { color: #fff; font-size: 1.3rem; margin-bottom: 0.4rem; }
@@ -1700,29 +1704,50 @@ function submitForm() {
 </div>
 
 <script>
-// ── Timed auto-popups ────────────────────────────────────────────────
+// ── Timed auto-popups ─────────────────────────────────────────────────────
+// Psychology-based timing:
+//   Popup 1 (video prompt): 60s — user has read the hero + value prop,
+//     interest is peak but commitment hasn't formed yet.
+//   Popup 2 (Sales Sprint): fires 2.5 min AFTER popup 1 is dismissed.
+//     User who stays past popup 1 is highly engaged; a second offer
+//     after a respectful gap converts without feeling aggressive.
+//   Rule: popup 2 is NEVER shown while popup 1 is visible.
+// ─────────────────────────────────────────────────────────────────────────
 (function() {
+  var apop2Timer = null;
+
   function openApop(id) {
-    // Don't show if already dismissed this session
     if (sessionStorage.getItem('apop-dismissed-' + id)) return;
-    // Don't show if the main strategy-call modal is open
     var main = document.getElementById('modalOverlay');
     if (main && main.classList.contains('open')) return;
-    var el = document.getElementById(id);
-    if (el) {
-      el.classList.add('open');
-      el.addEventListener('click', function(e) { if (e.target === el) closeApop(id); }, { once: true });
-      setTimeout(function() {
-        var inp = el.querySelector('input[type="email"]');
-        if (inp) inp.focus();
-      }, 200);
+    // Never open apop2 while apop1 is visible
+    if (id === 'apop2') {
+      var p1 = document.getElementById('apop1');
+      if (p1 && p1.classList.contains('open')) return;
     }
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('open');
+    el.addEventListener('click', function(e) { if (e.target === el) closeApop(id); }, { once: true });
+    setTimeout(function() {
+      var inp = el.querySelector('input[type="email"]');
+      if (inp) inp.focus();
+    }, 200);
+  }
+
+  function scheduleApop2() {
+    if (sessionStorage.getItem('apop-dismissed-apop2')) return;
+    if (apop2Timer) return; // already scheduled
+    // 2.5 minutes after popup 1 is dismissed
+    apop2Timer = setTimeout(function() { openApop('apop2'); }, 150 * 1000);
   }
 
   window.closeApop = function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.remove('open');
     sessionStorage.setItem('apop-dismissed-' + id, '1');
+    // When popup 1 is closed, start the popup 2 countdown
+    if (id === 'apop1') scheduleApop2();
   };
 
   window.submitApop = function(id) {
@@ -1731,29 +1756,33 @@ function submitForm() {
       if (inp) { inp.style.borderColor = '#ef4444'; inp.focus(); }
       return;
     }
-    // Hide form, show success
     var form = document.getElementById(id + '-form');
     var success = document.getElementById(id + '-success');
     if (form) form.style.display = 'none';
     if (success) success.style.display = 'block';
     sessionStorage.setItem('apop-dismissed-' + id, '1');
-    setTimeout(function() { closeApop(id); }, 3500);
+    setTimeout(function() {
+      closeApop(id);
+    }, 3500);
   };
 
-  // Allow enter key in email fields
-  ['apop1-email','apop2-email'].forEach(function(eid) {
-    document.addEventListener('DOMContentLoaded', function() {
-      var el = document.getElementById(eid);
-      if (el) el.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') submitApop(eid.replace('-email',''));
-      });
+  // Enter key support
+  ['apop1-email', 'apop2-email'].forEach(function(eid) {
+    var el = document.getElementById(eid);
+    if (el) el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submitApop(eid.replace('-email', ''));
     });
   });
 
-  // Show popup 1 after 2 minutes
-  setTimeout(function() { openApop('apop1'); }, 2 * 60 * 1000);
-  // Show popup 2 after 3 minutes
-  setTimeout(function() { openApop('apop2'); }, 3 * 60 * 1000);
+  // Popup 1: 60 seconds (peak engagement window after reading hero)
+  setTimeout(function() { openApop('apop1'); }, 60 * 1000);
+
+  // Popup 2 fallback: if popup 1 was already dismissed in a prior visit
+  // and the user returns, show popup 2 at 90s
+  if (sessionStorage.getItem('apop-dismissed-apop1') &&
+      !sessionStorage.getItem('apop-dismissed-apop2')) {
+    setTimeout(function() { openApop('apop2'); }, 90 * 1000);
+  }
 })();
 </script>
 
