@@ -420,6 +420,76 @@
     section { padding: 5rem 2rem; }
     .modal { padding: 2.5rem 1.5rem; }
   }
+
+  /* ── Timed auto-popups ─────────────────────────────────────────── */
+  .apop-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.82); z-index: 300;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+  }
+  .apop-overlay.open { display: flex; animation: fadeIn 0.3s ease-out; }
+  .apop {
+    background: #0e0e1c;
+    border: 1.5px solid rgba(59,110,246,0.45);
+    border-radius: 22px;
+    padding: 2.8rem 2.6rem 2.2rem;
+    max-width: 480px; width: 100%;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(59,110,246,0.12),
+                0 30px 70px rgba(0,0,0,0.7),
+                0 0 60px rgba(59,110,246,0.08);
+    text-align: center;
+  }
+  .apop-close {
+    position: absolute; top: 1.1rem; right: 1.2rem;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50%; width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    color: #aeb0c4; font-size: 1.6rem; cursor: pointer;
+    transition: all 0.2s; line-height: 1; padding-bottom: 2px;
+    font-family: sans-serif;
+  }
+  .apop-close:hover { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); }
+  .apop-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
+  .apop-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.45rem; }
+  .apop-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: #3b6ef6; margin-bottom: 1.4rem; text-transform: uppercase; }
+  .apop-box {
+    background: rgba(59,110,246,0.07);
+    border: 1px solid rgba(59,110,246,0.22);
+    border-radius: 12px; padding: 1.1rem 1.3rem;
+    margin-bottom: 1.4rem; text-align: left;
+  }
+  .apop-box strong { color: #f0f0f5; font-size: 1rem; display: block; margin-bottom: 0.4rem; }
+  .apop-box p { color: #aeb0c4; font-size: 0.92rem; line-height: 1.55; margin: 0; }
+  .apop input[type="email"] {
+    width: 100%; box-sizing: border-box;
+    background: #1a1a28; border: 1.5px solid #323246;
+    border-radius: 10px; color: #f0f0f5;
+    font-size: 1rem; padding: 0.85rem 1.1rem;
+    margin-bottom: 0.9rem; outline: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+  }
+  .apop input[type="email"]:focus { border-color: #3b6ef6; }
+  .apop input[type="email"]::placeholder { color: #5a5c72; }
+  .apop-btn {
+    width: 100%; background: linear-gradient(135deg, #3b6ef6, #60a5fa);
+    color: #fff; border: none; border-radius: 10px;
+    font-size: 1rem; font-weight: 700; letter-spacing: 0.04em;
+    padding: 0.95rem 1rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s; text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(59,110,246,0.35);
+  }
+  .apop-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 25px rgba(59,110,246,0.5); }
+  .apop-note { font-size: 0.82rem; color: #5a5c72; margin-top: 0.75rem; }
+  .apop-success { display: none; padding: 1rem 0 0.5rem; }
+  .apop-success .apop-check { font-size: 2.8rem; color: #14b8a6; margin-bottom: 0.5rem; }
+  .apop-success h3 { color: #fff; font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .apop-success p { color: #aeb0c4; font-size: 0.95rem; }
+  @media (max-width: 520px) { .apop { padding: 2.2rem 1.4rem 1.8rem; } .apop-title { font-size: 1.55rem; } }
 </style>
 </head>
 <body>
@@ -1580,5 +1650,112 @@ function submitForm() {
   });
 })();
 </script>
+
+<!-- ── Auto-popup 1: 2-min · AI Prompt Video ──────────────────────── -->
+<div class="apop-overlay" id="apop1" role="dialog" aria-modal="true" aria-labelledby="apop1-title">
+  <div class="apop">
+    <button class="apop-close" onclick="closeApop('apop1')" aria-label="Close">×</button>
+    <span class="apop-icon" aria-hidden="true">🎬</span>
+    <h2 class="apop-title" id="apop1-title">Watch Our New 2-Minute Video</h2>
+    <p class="apop-sub">The Exact AI Prompt That Changes Everything</p>
+    <div class="apop-box">
+      <strong>The LinkedIn Prospect Prompt</strong>
+      <p>Enter your email and I'll send you the exact 120-second video showing the prompt I use with ChatGPT &amp; Gemini to understand, connect, and engage any prospect on LinkedIn — a priceless addition to your sales toolbox.</p>
+    </div>
+    <div id="apop1-form">
+      <input type="email" id="apop1-email" placeholder="Your best email address" aria-label="Email address"/>
+      <button class="apop-btn" onclick="submitApop('apop1')">Send Me the Prompt Video &rarr;</button>
+      <p class="apop-note">No spam. Unsubscribe any time.</p>
+    </div>
+    <div class="apop-success" id="apop1-success">
+      <div class="apop-check">✓</div>
+      <h3>You're In!</h3>
+      <p>Check your inbox — the 2-minute video is on its way.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Auto-popup 2: 3-min · Free 15-Min Sales Sprint ─────────────── -->
+<div class="apop-overlay" id="apop2" role="dialog" aria-modal="true" aria-labelledby="apop2-title">
+  <div class="apop">
+    <button class="apop-close" onclick="closeApop('apop2')" aria-label="Close">×</button>
+    <span class="apop-icon" aria-hidden="true">⚡</span>
+    <h2 class="apop-title" id="apop2-title">Free 15-Minute Sales Sprint on Zoom</h2>
+    <p class="apop-sub">Limited Spots — Sign Up Now</p>
+    <div class="apop-box">
+      <strong>3 Prompts. 15 Minutes. Real Results.</strong>
+      <p>In this fast-paced session I'll share the top 3 AI prompts I use every day to engage clients, build interest, and drive sales. Enter your email below and I'll send you a sneak peek of the content right now.</p>
+    </div>
+    <div id="apop2-form">
+      <input type="email" id="apop2-email" placeholder="Your best email address" aria-label="Email address"/>
+      <button class="apop-btn" onclick="submitApop('apop2')" style="background:linear-gradient(135deg,#0d9488,#14b8a6);">Get My Sneak Peek &rarr;</button>
+      <p class="apop-note">No spam. Unsubscribe any time.</p>
+    </div>
+    <div class="apop-success" id="apop2-success">
+      <div class="apop-check">✓</div>
+      <h3>Spot Reserved!</h3>
+      <p>Your sneak peek is on its way. See you on Zoom!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Timed auto-popups ────────────────────────────────────────────────
+(function() {
+  function openApop(id) {
+    // Don't show if already dismissed this session
+    if (sessionStorage.getItem('apop-dismissed-' + id)) return;
+    // Don't show if the main strategy-call modal is open
+    var main = document.getElementById('modalOverlay');
+    if (main && main.classList.contains('open')) return;
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.add('open');
+      el.addEventListener('click', function(e) { if (e.target === el) closeApop(id); }, { once: true });
+      setTimeout(function() {
+        var inp = el.querySelector('input[type="email"]');
+        if (inp) inp.focus();
+      }, 200);
+    }
+  }
+
+  window.closeApop = function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('open');
+    sessionStorage.setItem('apop-dismissed-' + id, '1');
+  };
+
+  window.submitApop = function(id) {
+    var inp = document.getElementById(id + '-email');
+    if (!inp || !inp.value || !inp.value.includes('@')) {
+      if (inp) { inp.style.borderColor = '#ef4444'; inp.focus(); }
+      return;
+    }
+    // Hide form, show success
+    var form = document.getElementById(id + '-form');
+    var success = document.getElementById(id + '-success');
+    if (form) form.style.display = 'none';
+    if (success) success.style.display = 'block';
+    sessionStorage.setItem('apop-dismissed-' + id, '1');
+    setTimeout(function() { closeApop(id); }, 3500);
+  };
+
+  // Allow enter key in email fields
+  ['apop1-email','apop2-email'].forEach(function(eid) {
+    document.addEventListener('DOMContentLoaded', function() {
+      var el = document.getElementById(eid);
+      if (el) el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') submitApop(eid.replace('-email',''));
+      });
+    });
+  });
+
+  // Show popup 1 after 2 minutes
+  setTimeout(function() { openApop('apop1'); }, 2 * 60 * 1000);
+  // Show popup 2 after 3 minutes
+  setTimeout(function() { openApop('apop2'); }, 3 * 60 * 1000);
+})();
+</script>
+
 </body>
 </html>
