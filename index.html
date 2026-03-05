@@ -277,7 +277,38 @@
   .photos-section { background: #0f0f1a; }
   .vignette-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at center, transparent 35%, rgba(5,5,15,0.9) 100%); pointer-events: none; z-index: 0; animation: vignettePulse 8s ease-in-out infinite alternate; }
   @keyframes vignettePulse { 0% { opacity: 0.6; transform: scale(1.04); } 100% { opacity: 1; transform: scale(0.97); } }
-  .photos-label { text-align: center; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 3rem; position: relative; z-index: 2;}
+  .photos-label { text-align: center; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0; position: relative; z-index: 2;}
+  .summit-banner-wrap {
+    position: relative; overflow: hidden;
+    margin: 0 -3rem 3rem;
+    padding: 1.4rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.025);
+    z-index: 2;
+  }
+  .summit-banner-wrap::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: -70%; width: 65%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(245,180,40,0.28) 18%,
+      rgba(230,245,255,0.65) 40%,
+      rgba(96,165,250,0.55) 58%,
+      rgba(129,140,248,0.3) 78%,
+      transparent 100%
+    );
+    animation: summitWave 60s linear infinite;
+    pointer-events: none; z-index: 1;
+  }
+  @keyframes summitWave {
+    0%     { left: -70%; opacity: 1; }
+    10%    { left: 100%; opacity: 1; }
+    10.01% { left: -70%; opacity: 0; }
+    99.99% { left: -70%; opacity: 0; }
+    100%   { left: -70%; opacity: 1; }
+  }
   .photos-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; position: relative; z-index: 2;}
   .photo-frame { flex: 0 0 420px; height: 300px; overflow: hidden; border-radius: 20px; border: 1px solid var(--border); background: var(--surface2); box-shadow: 0 15px 45px rgba(0,0,0,0.6); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s; }
   .photo-frame:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 25px 60px rgba(59,110,246,0.25); }
@@ -709,7 +740,9 @@
 <section class="photos-section" aria-label="Speaking Events">
   <div class="vignette-bg" aria-hidden="true"></div>
   <div class="container">
-    <p class="photos-label">Pittsburgh AI Summit · Capital Grille</p>
+    <div class="summit-banner-wrap">
+      <p class="photos-label">Pittsburgh AI Summit &middot; Capital Grille</p>
+    </div>
     <div class="photos-row">
       <div class="photo-frame"><img src="/Capitalgrill1.png" alt="Speaking at Pittsburgh AI Summit" loading="lazy"/></div>
       <div class="photo-frame"><img src="/Capitalgrill2.png" alt="Pittsburgh AI Summit Presentation View" loading="lazy"/></div>
