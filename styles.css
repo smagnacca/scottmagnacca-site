@@ -2000,6 +2000,29 @@ a  { text-decoration: none; }
   .qs-burst-arena { width: 240px; height: 240px; }
 }
 
+/* ── Risk Assessment: red wave animation ── */
+.risk-wave {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 35%,
+    #ff2222 50%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: riskRedWave 7s linear infinite;
+}
+
+@keyframes riskRedWave {
+  0%     { background-position: 100% 0%; }  /* white — wave not yet entered */
+  85.71% { background-position: 0% 0%; }    /* white — wave has exited right (at 6 s) */
+  100%   { background-position: 0% 0%; }    /* hold white for 1 s before repeat */
+}
+
 /* ============================================================
    BOOK COVER FALLBACK
 ============================================================ */
