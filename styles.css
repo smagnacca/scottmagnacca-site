@@ -965,10 +965,10 @@ a  { text-decoration: none; }
 .modal-box {
   background: #0f1623;
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  padding: 1.875rem 1.5rem;
   width: 100%;
-  max-width: 520px;
+  max-width: 390px;
   position: relative;
   box-shadow: 0 32px 80px rgba(0,0,0,0.6);
   animation: modal-slide-up 0.3s ease;
@@ -1724,8 +1724,8 @@ a  { text-decoration: none; }
 }
 .qs-gate-card {
   text-align: center;
-  padding: 48px 40px;
-  max-width: 400px;
+  padding: 36px 30px;
+  max-width: 300px;
   width: 100%;
 }
 .qs-closed-lock-wrap {
@@ -2001,26 +2001,34 @@ a  { text-decoration: none; }
 }
 
 /* ── Risk Assessment: red wave animation ── */
+/* Cycle: 6s sweep → 2s solid-red flash → 1s white pause = 9s total */
 .risk-wave {
   background: linear-gradient(
     to right,
-    #ffffff 0%,
-    #ffffff 35%,
-    #ff2222 50%,
-    #ffffff 65%,
+    #ffffff  0%,
+    #ffffff 25%,
+    #ff2222 35%,
+    #ff2222 65%,
+    #ffffff 75%,
     #ffffff 100%
   );
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: riskRedWave 7s linear infinite;
+  animation: riskRedWave 9s linear infinite;
 }
 
 @keyframes riskRedWave {
-  0%     { background-position: 100% 0%; }  /* white — wave not yet entered */
-  85.71% { background-position: 0% 0%; }    /* white — wave has exited right (at 6 s) */
-  100%   { background-position: 0% 0%; }    /* hold white for 1 s before repeat */
+  /* Phase 1 – wave sweeps left → right (0 – 6 s) */
+  0%      { background-position: 100% 0%; }
+  66.66%  { background-position:   0% 0%; }
+  /* Phase 2 – snap to solid red (6 – 8 s) */
+  66.67%  { background-position:  50% 0%; }
+  88.88%  { background-position:  50% 0%; }
+  /* Phase 3 – snap back to white, hold (8 – 9 s) */
+  88.89%  { background-position: 100% 0%; }
+  100%    { background-position: 100% 0%; }
 }
 
 /* ============================================================
