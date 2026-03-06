@@ -106,7 +106,7 @@
   /* QUIZ GRID LAYOUT */
   .quiz-layout { display: grid; grid-template-columns: 1fr 320px; gap: 3rem; max-width: 1100px; margin: 0 auto; align-items: start; }
   @media (max-width: 900px) { .quiz-layout { grid-template-columns: 1fr; } }
-  .quiz-wrap { max-width: 100%; margin: 0; background: rgba(18,18,26,0.6); padding: 3rem; border-radius: 24px; border: 1px solid var(--border); backdrop-filter: blur(10px); text-align: center; }
+  .quiz-wrap { max-width: 100%; margin: 0; background: rgba(18,18,26,0.6); padding: 3rem; border-radius: 24px; border: 3px solid #ffffff; backdrop-filter: blur(10px); text-align: center; }
   
   /* PULSING LABEL & WAVE TEXT */
   .pulse-label { font-size: 1.8rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; animation: pulseGlow 3s infinite alternate ease-in-out; }
@@ -116,27 +116,29 @@
   }
   .wave-text { background: linear-gradient(90deg, #3b6ef6 0%, #60a5fa 25%, #93c5fd 50%, #60a5fa 75%, #3b6ef6 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: waveWash 4s linear infinite; display: inline-block; padding-bottom: 0.2rem; }
   @keyframes waveWash { to { background-position: 200% center; } }
+  .risk-wave { background: linear-gradient(90deg, #fff 0%, #fff 44%, #ff2020 50%, #fff 56%, #fff 100%); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: riskRedWave 30s linear infinite; display: inline-block; }
+  @keyframes riskRedWave { 0% { background-position: 100% center; } 10% { background-position: 0% center; } 100% { background-position: 0% center; } }
 
   /* DYNAMIC PIE CHART SIDEBAR */
-  .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; }
+  .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 2.5rem; border-radius: 24px; border: 3px solid #ffffff; backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; }
   .pie-chart-container { width: 180px; height: 180px; margin: 0 auto 1.5rem; border-radius: 50%; background: conic-gradient(var(--accent) var(--progress, 0%), var(--surface2) 0deg); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 30px rgba(59,110,246,0.15); transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
   .pie-chart-inner { width: 140px; height: 140px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 900; color: #fff; font-family: 'Playfair Display', serif; }
-  .sidebar-text { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+  .sidebar-text { color: var(--muted); font-size: 1.375rem; line-height: 1.6; }
   .congrats-msg { color: var(--success); font-weight: 800; font-size: 1.35rem; display: none; animation: fadeIn 0.5s ease-in; line-height: 1.4; }
 
   /* QUIZ FUNCTIONALITY */
   .quiz-step { display: none; }
   .quiz-step.active { display: block; animation: fadeIn 0.4s ease-in; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  .quiz-counter { font-size: 1rem; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.8rem; }
-  .quiz-category { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
-  .quiz-q { font-size: 1.7rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; }
-  .quiz-hint { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; font-style: italic; }
+  .quiz-counter { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.8rem; }
+  .quiz-category { font-size: 1.125rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .quiz-q { font-size: 2.125rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; }
+  .quiz-hint { font-size: 1.375rem; color: var(--muted); margin-bottom: 2.5rem; font-style: italic; }
   .quiz-options { display: grid; gap: 1rem; }
-  .quiz-option { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.8rem; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; text-align: left; font-size: 1.15rem; font-weight: 500; color: var(--text); }
+  .quiz-option { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.8rem; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; text-align: left; font-size: 1.4375rem; font-weight: 500; color: var(--text); }
   .quiz-option:hover, .quiz-option:focus { border-color: var(--accent2); background: rgba(96,165,250,0.05); outline: none; }
   .quiz-option.selected { border-color: var(--accent); background: rgba(59,110,246,0.15); box-shadow: 0 4px 15px rgba(59,110,246,0.1); }
-  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1.5rem; font-size: 1.2rem; }
+  .quiz-option .opt-letter { font-weight: 700; color: var(--accent2); min-width: 1.5rem; font-size: 1.5rem; }
   .quiz-option .opt-check { margin-left: auto; color: var(--accent); display: none; font-size: 1.4rem; }
   .quiz-option.selected .opt-check { display: block; }
   .quiz-progress { display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 3.5rem; }
@@ -546,8 +548,8 @@
     <div class="quiz-layout">
       <div class="quiz-wrap">
         <div class="pulse-label">FREE · 60-SECOND ASSESSMENT</div>
-        <h2 id="quiz-heading" class="section-title">12-Month AI Disruption Risk Assessment: <br><span class="wave-text">Will Your Job Be Next?</span></h2>
-        <p class="section-sub" style="margin:0 auto 2.5rem;">Answer 3 research-backed questions to instantly generate your personalized AI vulnerability score.</p>
+        <h2 id="quiz-heading" class="section-title">12-Month AI Disruption <span class="risk-wave">Risk Assessment:</span> <br><span class="wave-text">Will Your Job Be Next?</span></h2>
+        <p class="section-sub" style="margin:0 auto 2.5rem; font-size:1.5625rem;">Answer 3 research-backed questions to instantly generate your personalized AI vulnerability score.</p>
         
         <div class="quiz-progress" id="quizProgress" aria-hidden="true">
           <div class="quiz-dot active" id="dot0"></div>
