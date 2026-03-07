@@ -70,7 +70,7 @@
     50% { color: #93c5fd; text-shadow: 0 0 14px rgba(96,165,250,0.7), 0 0 35px rgba(96,165,250,0.4), 0 0 60px rgba(59,110,246,0.2); }
   }
   .hero-eyebrow { font-size: 1.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.4rem; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.8rem; letter-spacing: -0.01em; background: linear-gradient(90deg, #fff 0%, #fff 38%, #60a5fa 50%, #fff 62%, #fff 100%); background-size: 300% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: heroH1Wave 6s linear infinite; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.8rem; letter-spacing: -0.01em; background: linear-gradient(90deg, #fff 0%, #fff 38%, #60a5fa 50%, #fff 62%, #fff 100%); background-size: 300% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: heroH1Wave 5s linear infinite; }
   .hero h1 span { color: inherit; }
   .hero-sub2 { font-size: 1.6rem; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
   .hero-body { color: var(--muted); font-size: 1.2rem; margin-bottom: 2.8rem; max-width: 600px; line-height: 1.8; }
@@ -116,8 +116,8 @@
   }
   .wave-text { background: linear-gradient(90deg, #3b6ef6 0%, #60a5fa 25%, #93c5fd 50%, #60a5fa 75%, #3b6ef6 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: waveWash 4s linear infinite; display: inline-block; padding-bottom: 0.2rem; }
   @keyframes waveWash { to { background-position: 200% center; } }
-  .risk-wave { display: inline-block; color: #fff; animation: riskRandomFlash 10s ease-in-out infinite; }
-  @keyframes riskRandomFlash { 0%, 82%, 84%, 86%, 100% { color: #fff; text-shadow: none; } 83%, 85% { color: #ff0000; text-shadow: 0 0 15px #ff0000, 0 0 35px rgba(255,0,0,0.7); } }
+  .risk-wave { display: inline-block; color: #fff; animation: riskRandomFlash 5s ease-in-out infinite; }
+  @keyframes riskRandomFlash { 0%, 20%, 100% { color: #fff; text-shadow: none; } 60% { color: #ff0000; text-shadow: 0 0 15px #ff0000, 0 0 35px rgba(255,0,0,0.7); } 80% { color: #fff; text-shadow: none; } }
 
   /* DYNAMIC PIE CHART SIDEBAR */
   .quiz-sidebar { background: rgba(18,18,26,0.6); padding: 1.25rem; border-radius: 14px; border: 2px solid #ffffff; backdrop-filter: blur(10px); text-align: center; position: sticky; top: 100px; }
@@ -379,7 +379,7 @@
   .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 75% at 50% 115%, rgba(59,110,246,0.3) 0%, transparent 60%); animation: ctaGlow 6s ease-in-out infinite alternate; pointer-events: none; z-index: 0; }
   @keyframes goldShimmer { 0% { left: -80%; } 100% { left: 180%; } }
   @keyframes ctaGlow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
-  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 900; color: #fff; margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; position: relative; z-index: 2; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 900; color: #fff; margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; position: relative; z-index: 2; max-width: 900px; margin-left: auto; margin-right: auto; animation: ctaHeadingPulse 5s ease-in-out infinite; }
   .cta-section p { color: var(--muted); font-size: 1.35rem; margin-bottom: 2.5rem; position: relative; z-index: 2; }
   .cta-note { font-size: 1.05rem; color: var(--muted); margin-top: 1.5rem; position: relative; z-index: 2; font-style: italic; }
 
@@ -512,12 +512,12 @@
     100% { background-position: 200% center; }
   }
 
-  /* Harvard crimson flash every 5s */
+  /* Harvard red glow pulse every 5s */
   @keyframes harvardCrimsonFlash {
-    0%, 78%, 100% { filter: grayscale(1) opacity(0.7); }
-    80%, 94% { filter: sepia(1) saturate(8) hue-rotate(310deg) brightness(0.7) opacity(1); }
+    0%, 78%, 100% { color: #ff000d; text-shadow: none; }
+    80%, 94% { color: #ff000d; text-shadow: 0 0 12px rgba(255,0,13,0.9), 0 0 30px rgba(255,0,13,0.5); }
   }
-  .harvard-logo { animation: harvardCrimsonFlash 5s ease-in-out infinite; }
+  .harvard-logo { animation: harvardCrimsonFlash 5s ease-in-out infinite; color: #ff000d !important; font-weight: 900 !important; }
 
   /* Babson green flash every 5s */
   @keyframes babsonGreenFlash {
@@ -539,6 +539,15 @@
     color: transparent;
     animation: trustedBlueWave 10s linear infinite;
     display: inline-block;
+  }
+
+  /* CTA heading: white → blue → white flash, 5s */
+  @keyframes ctaHeadingPulse {
+    0%   { color: #fff; text-shadow: none; }
+    50%  { color: #60a5fa; text-shadow: 0 0 25px rgba(96,165,250,0.6); }
+    80%  { color: #3b6ef6; text-shadow: 0 0 10px rgba(59,110,246,0.4); }
+    88%  { color: #fff; text-shadow: 0 0 50px rgba(255,255,255,1), 0 0 80px rgba(96,165,250,0.8); }
+    100% { color: #fff; text-shadow: none; }
   }
 </style>
 </head>
@@ -693,7 +702,7 @@
   <div class="logos-shimmer" aria-hidden="true"></div>
   <div class="logos-label">Educated At · Client Experience With</div>
   <div class="logos-row">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/320px-Harvard_University_logo.svg.png" alt="Harvard University" loading="lazy" class="harvard-logo"/>
+    <span class="logo-text harvard-logo">HARVARD<span style="color:#ff000d; font-weight:900;">UNIVERSITY</span></span>
     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Babson_College_seal.svg/200px-Babson_College_seal.svg.png" alt="Babson College" loading="lazy" class="babson-logo"/>
     <span class="logo-text">FIDELITY</span>
     <span class="logo-text">TIAA</span>
@@ -794,7 +803,7 @@
     <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
   </div>
   <div class="container">
-    <div class="section-label">WHAT PEOPLE ARE SAYING</div>
+    <div class="section-label" style="font-size:1.35rem;">WHAT PEOPLE ARE SAYING</div>
     <h2 id="testimonials-heading" class="section-title"><span class="trusted-wave">Trusted by Leaders. Proven in the Field.</span></h2>
     <div class="testimonials-grid">
 
